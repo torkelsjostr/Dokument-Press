@@ -1,0 +1,157 @@
+<odoo>
+    <record model="ir.ui.view" id="product_template_form_modifications">
+        <field name="name">product.template.product.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page string="Document Press Internal Information" name="document_press_internal_information">
+                    <group>
+                        <group>
+                            <field name="number_of_illustrations"/>
+                            <field name="number_of_pages"/>
+                            <field name="quantity"/>
+                            <field name="bonus"/>
+                            <field name="colour"/>
+                            <field name="language_1"/>
+                            <field name="language_2"/>
+                            <field name="size"/>
+                            <field name="distribution"/>
+                            <field name="not_included_in_web_store"/>
+                            <field name="marked_as_product_sold_on_commission"/>
+                            <field name="date_of_arrival"/>
+                            <field name="year_of_production"/>
+                        </group>
+                        <group>
+                            <field name="average_cost"/>
+                            <field name="delivery_cost"/>
+                            <field name="total_cost_in_sek"/>
+                            <field name="total_cost_in_currency"/>
+                            <field name="author_by"/>
+                            <field name="country_id"/>
+                            <field name="currency_id"/>
+                            <field name="manufacturer"/>
+                            <field name="supplier_code"/>
+                            <field name="binding_swe"/>
+                            <field name="binding_eng"/>
+                            <field name="accounting_code"/>
+                            <field name="object"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="//page[@name='document_press_internal_information']" position="after">
+                <page string="Article Details" name="article_details">
+                    <group>
+                        <group>
+                            <field name="article_code"/>
+                            <field name="article_category_code"/>
+                            <field name="article_group_code"/>
+                            <field name="article_supplier"/>
+                            <field name="article_manufacturer"/>
+                        </group>
+                        <group>
+                            <field name="article_accounting_code_eu"/>
+                            <field name="article_accounting_code_exp"/>
+                            <field name="article_accounting_code_vat"/>
+                            <field name="article_accounting_code_se"/>
+                            <field name="article_vat_percentage"/>
+                            <field name="suppliers_article_code"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="product_group"/>
+            </xpath>
+
+            <xpath expr="//div[@name='volume']" position="after">
+                <field name="height"/>
+                <field name="width"/>
+                <field name="length"/>
+                <field name="length_in_minutes"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_form_modifications">
+        <field name="name">product.product.product.form</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page string="Document Press Internal Information" name="document_press_internal_information">
+                    <group>
+                        <group>
+                            <field name="number_of_illustrations"/>
+                            <field name="number_of_pages"/>
+                            <field name="quantity"/>
+                            <field name="bonus"/>
+                            <field name="colour"/>
+                            <field name="language_1"/>
+                            <field name="language_2"/>
+                            <field name="size"/>
+                            <field name="distribution"/>
+                            <field name="not_included_in_web_store"/>
+                            <field name="marked_as_product_sold_on_commission"/>
+                            <field name="date_of_arrival"/>
+                            <field name="year_of_production"/>
+                        </group>
+                        <group>
+                            <field name="average_cost"/>
+                            <field name="delivery_cost"/>
+                            <field name="total_cost_in_sek"/>
+                            <field name="total_cost_in_currency"/>
+                            <field name="author_by"/>
+                            <field name="country_id"/>
+                            <field name="currency_id"/>
+                            <field name="manufacturer"/>
+                            <field name="supplier_code"/>
+                            <field name="binding_swe"/>
+                            <field name="binding_eng"/>
+                            <field name="accounting_code"/>
+                            <field name="object"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="//page[@name='document_press_internal_information']" position="after">
+                <page string="Article Details" name="article_details">
+                    <group>
+                        <group>
+                            <field name="article_code"/>
+                            <field name="article_category_code"/>
+                            <field name="article_group_code"/>
+                            <field name="article_supplier"/>
+                            <field name="article_manufacturer"/>
+                        </group>
+                        <group>
+                            <field name="article_accounting_code_eu"/>
+                            <field name="article_accounting_code_exp"/>
+                            <field name="article_accounting_code_vat"/>
+                            <field name="article_accounting_code_se"/>
+                            <field name="article_vat_percentage"/>
+                            <field name="suppliers_article_code"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="product_group"/>
+            </xpath>
+
+            <xpath expr="//div[@name='volume']" position="after">
+                <field name="height"/>
+                <field name="width"/>
+                <field name="length"/>
+                <field name="length_in_minutes"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

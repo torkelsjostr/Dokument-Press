@@ -1,0 +1,306 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* product_modifications
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e-20190207\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-09 03:40+0000\n"
+"PO-Revision-Date: 2019-08-09 03:40+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__accounting_code
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__accounting_code
+msgid "Accounting Code"
+msgstr "Konteringskod"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__article_accounting_code_eu
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__article_accounting_code_eu
+msgid "Article Accounting Code EU"
+msgstr "Artiklar_Konteringskoder::Konto_EU"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__article_accounting_code_exp
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__article_accounting_code_exp
+msgid "Article Accounting Code EXP"
+msgstr "Artiklar_Konteringskoder::Konto_EXP"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__article_accounting_code_se
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__article_accounting_code_se
+msgid "Article Accounting Code SE"
+msgstr "Artiklar_Konteringskoder::Konto_SE"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__article_accounting_code_vat
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__article_accounting_code_vat
+msgid "Article Accounting Code VAT"
+msgstr "Artiklar_Konteringskoder::Konto_Moms"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__article_category_code
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__article_category_code
+msgid "Article Category Code"
+msgstr "Artikelkategori_Kod"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__article_code
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__article_code
+msgid "Article Code"
+msgstr "Artikelkod"
+
+#. module: product_modifications
+#: model_terms:ir.ui.view,arch_db:product_modifications.product_form_modifications
+#: model_terms:ir.ui.view,arch_db:product_modifications.product_template_form_modifications
+msgid "Article Details"
+msgstr ""
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__article_group_code
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__article_group_code
+msgid "Article Group Code"
+msgstr "Artikelgrupp_Kod"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__article_manufacturer
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__article_manufacturer
+msgid "Article Manufacturer"
+msgstr "Artiklar_Kunder.tillverkare::Fakt_Foretag"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__article_supplier
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__article_supplier
+msgid "Article Supplier"
+msgstr "Artiklar_Kunder.Levkod::Fakt_Foretag"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__article_vat_percentage
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__article_vat_percentage
+msgid "Article VAT Percentage"
+msgstr "Artiklar_Konteringskoder::Momssats"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__author_by
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__author_by
+msgid "Author/By"
+msgstr "upphovsman"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__average_cost
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__average_cost
+msgid "Average Cost"
+msgstr "GAV.SEK.ber"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__binding_eng
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__binding_eng
+msgid "Binding (ENG)"
+msgstr "Utforande.eng"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__binding_swe
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__binding_swe
+msgid "Binding (SWE)"
+msgstr "Utforande"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__bonus
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__bonus
+msgid "Bonus"
+msgstr "Bonus"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__colour
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__colour
+msgid "Colour"
+msgstr "Farg"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__country_id
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__country_id
+msgid "Country"
+msgstr "Land"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__currency_id
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__currency_id
+msgid "Currency"
+msgstr "Valuta"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__date_of_arrival
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__date_of_arrival
+msgid "Date of Arrival"
+msgstr "inkommen"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__delivery_cost
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__delivery_cost
+msgid "Delivery Cost"
+msgstr "Hemtagningskostnad"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__distribution
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__distribution
+msgid "Distribution"
+msgstr "Distribution"
+
+#. module: product_modifications
+#: model_terms:ir.ui.view,arch_db:product_modifications.product_form_modifications
+#: model_terms:ir.ui.view,arch_db:product_modifications.product_template_form_modifications
+msgid "Document Press Internal Information"
+msgstr ""
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__height
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__height
+msgid "Height (Vertical)"
+msgstr "Tjocklek"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__language_1
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__language_1
+msgid "Language 1"
+msgstr "Sprak1"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__language_2
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__language_2
+msgid "Language 2"
+msgstr "Sprak2"
+
+#. module: product_modifications
+#: selection:product.template,size:0
+msgid "Large"
+msgstr ""
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__length
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__length
+msgid "Length (Horizontal)"
+msgstr "Hojd"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__length_in_minutes
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__length_in_minutes
+msgid "Length in Minutes"
+msgstr "Langd Minuter"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__manufacturer
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__manufacturer
+msgid "Manufacturer"
+msgstr "Tillverkare"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__marked_as_product_sold_on_commission
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__marked_as_product_sold_on_commission
+msgid "Marked as \"Product Sold on Commission\""
+msgstr "flagga_kommisionsartikel"
+
+#. module: product_modifications
+#: selection:product.template,size:0
+msgid "Medium"
+msgstr ""
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__not_included_in_web_store
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__not_included_in_web_store
+msgid "Not Included in Web Store"
+msgstr "Ej webshop"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__number_of_illustrations
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__number_of_illustrations
+msgid "Number of Illustrations"
+msgstr "Antal illustrationer"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__number_of_pages
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__number_of_pages
+msgid "Number of Pages"
+msgstr "Sidantal"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__object
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__object
+msgid "Object"
+msgstr "Objekt"
+
+#. module: product_modifications
+#: model:ir.model,name:product_modifications.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__product_group
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__product_group
+msgid "Product Group"
+msgstr "Artiklar_Artikelgrupper::Benamning.sv"
+
+#. module: product_modifications
+#: model:ir.model,name:product_modifications.model_product_template
+msgid "Product Template"
+msgstr "Produktmall"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__quantity
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__quantity
+msgid "Quantity"
+msgstr "Antal"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__size
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__size
+msgid "Size"
+msgstr "Storlek"
+
+#. module: product_modifications
+#: selection:product.template,size:0
+msgid "Small"
+msgstr ""
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__supplier_code
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__supplier_code
+msgid "Supplier Code"
+msgstr "Lev_Kod"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__suppliers_article_code
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__suppliers_article_code
+msgid "Suppliers' Article Code"
+msgstr "Lev_Artikelkod"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__total_cost_in_currency
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__total_cost_in_currency
+msgid "Total Cost in \"Currency\""
+msgstr "Inkopspris_Valuta"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__total_cost_in_sek
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__total_cost_in_sek
+msgid "Total Cost in SEK"
+msgstr "Inkopspris_Totalt.SEK"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__width
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__width
+msgid "Width (Horizontal)"
+msgstr "Bredd"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__year_of_production
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__year_of_production
+msgid "Year of Production"
+msgstr "Produktionsar"
+
