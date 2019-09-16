@@ -50,7 +50,7 @@ class ProductTemplateModifications(models.Model):
     comment_on_purchase = fields.Text(string='Comment On Purchase', translate=True)
     general_comment = fields.Text(string='General Comment', translate=True)
     keywords_related_to_search = fields.Char(string='Keywords Related to Search', translate=True)
-    storeable = fields.Boolean(string='Stock-able', translate=True)
+    stockable = fields.Boolean(string='Stock-able', translate=True)
     amount_in_stock = fields.Integer(string='Amount in stock', translate=True)
     size = fields.Selection(selection=[
         ('xs', 'XS'),
