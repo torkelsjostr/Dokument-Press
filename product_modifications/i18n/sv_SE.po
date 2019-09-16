@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0+e-20190207\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-09 03:40+0000\n"
-"PO-Revision-Date: 2019-08-09 03:40+0000\n"
+"POT-Creation-Date: 2019-08-29 08:47+0000\n"
+"PO-Revision-Date: 2019-08-29 08:47+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:product_modifications.field_product_template__accounting_code
 msgid "Accounting Code"
 msgstr "Konteringskod"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__amount_in_stock
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__amount_in_stock
+msgid "Amount in stock"
+msgstr "Lager_Lagersaldo.totalt"
 
 #. module: product_modifications
 #: model:ir.model.fields,field_description:product_modifications.field_product_product__article_accounting_code_eu
@@ -115,13 +121,19 @@ msgstr "Utforande"
 #: model:ir.model.fields,field_description:product_modifications.field_product_product__bonus
 #: model:ir.model.fields,field_description:product_modifications.field_product_template__bonus
 msgid "Bonus"
-msgstr "Bonus"
+msgstr ""
 
 #. module: product_modifications
 #: model:ir.model.fields,field_description:product_modifications.field_product_product__colour
 #: model:ir.model.fields,field_description:product_modifications.field_product_template__colour
 msgid "Colour"
 msgstr "Farg"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__comment_on_purchase
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__comment_on_purchase
+msgid "Comment On Purchase"
+msgstr "Kommentar_Inkop"
 
 #. module: product_modifications
 #: model:ir.model.fields,field_description:product_modifications.field_product_product__country_id
@@ -148,10 +160,22 @@ msgid "Delivery Cost"
 msgstr "Hemtagningskostnad"
 
 #. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__description_eng
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__description_eng
+msgid "Description (English)"
+msgstr "Beskrivning.english"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__description_swd
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__description_swd
+msgid "Description (Swedish)"
+msgstr "Beskrivning.swedish"
+
+#. module: product_modifications
 #: model:ir.model.fields,field_description:product_modifications.field_product_product__distribution
 #: model:ir.model.fields,field_description:product_modifications.field_product_template__distribution
 msgid "Distribution"
-msgstr "Distribution"
+msgstr ""
 
 #. module: product_modifications
 #: model_terms:ir.ui.view,arch_db:product_modifications.product_form_modifications
@@ -160,10 +184,22 @@ msgid "Document Press Internal Information"
 msgstr ""
 
 #. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__general_comment
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__general_comment
+msgid "General Comment"
+msgstr "Kommentar_Ovrigt"
+
+#. module: product_modifications
 #: model:ir.model.fields,field_description:product_modifications.field_product_product__height
 #: model:ir.model.fields,field_description:product_modifications.field_product_template__height
 msgid "Height (Vertical)"
 msgstr "Tjocklek"
+
+#. module: product_modifications
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__keywords_related_to_search
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__keywords_related_to_search
+msgid "Keywords Related to Search"
+msgstr "Sokord"
 
 #. module: product_modifications
 #: model:ir.model.fields,field_description:product_modifications.field_product_product__language_1
@@ -176,11 +212,6 @@ msgstr "Sprak1"
 #: model:ir.model.fields,field_description:product_modifications.field_product_template__language_2
 msgid "Language 2"
 msgstr "Sprak2"
-
-#. module: product_modifications
-#: selection:product.template,size:0
-msgid "Large"
-msgstr ""
 
 #. module: product_modifications
 #: model:ir.model.fields,field_description:product_modifications.field_product_product__length
@@ -207,11 +238,6 @@ msgid "Marked as \"Product Sold on Commission\""
 msgstr "flagga_kommisionsartikel"
 
 #. module: product_modifications
-#: selection:product.template,size:0
-msgid "Medium"
-msgstr ""
-
-#. module: product_modifications
 #: model:ir.model.fields,field_description:product_modifications.field_product_product__not_included_in_web_store
 #: model:ir.model.fields,field_description:product_modifications.field_product_template__not_included_in_web_store
 msgid "Not Included in Web Store"
@@ -234,11 +260,6 @@ msgstr "Sidantal"
 #: model:ir.model.fields,field_description:product_modifications.field_product_template__object
 msgid "Object"
 msgstr "Objekt"
-
-#. module: product_modifications
-#: model:ir.model,name:product_modifications.model_product_product
-msgid "Product"
-msgstr "Produkt"
 
 #. module: product_modifications
 #: model:ir.model.fields,field_description:product_modifications.field_product_product__product_group
@@ -264,9 +285,10 @@ msgid "Size"
 msgstr "Storlek"
 
 #. module: product_modifications
-#: selection:product.template,size:0
-msgid "Small"
-msgstr ""
+#: model:ir.model.fields,field_description:product_modifications.field_product_product__stockable
+#: model:ir.model.fields,field_description:product_modifications.field_product_template__stockable
+msgid "Stock-able"
+msgstr "Ett Lagerfor.text"
 
 #. module: product_modifications
 #: model:ir.model.fields,field_description:product_modifications.field_product_product__supplier_code
@@ -297,6 +319,21 @@ msgstr "Inkopspris_Totalt.SEK"
 #: model:ir.model.fields,field_description:product_modifications.field_product_template__width
 msgid "Width (Horizontal)"
 msgstr "Bredd"
+
+#. module: product_modifications
+#: selection:product.template,size:0
+msgid "XL"
+msgstr ""
+
+#. module: product_modifications
+#: selection:product.template,size:0
+msgid "XS"
+msgstr ""
+
+#. module: product_modifications
+#: selection:product.template,size:0
+msgid "XXL"
+msgstr ""
 
 #. module: product_modifications
 #: model:ir.model.fields,field_description:product_modifications.field_product_product__year_of_production

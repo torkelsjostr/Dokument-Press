@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record model="ir.ui.view" id="product_template_form_modifications">
         <field name="name">product.template.product.form</field>
@@ -16,6 +17,7 @@
                             <field name="language_1"/>
                             <field name="language_2"/>
                             <field name="size"/>
+                            <field name="stockable"/>
                             <field name="distribution"/>
                             <field name="not_included_in_web_store"/>
                             <field name="marked_as_product_sold_on_commission"/>
@@ -65,6 +67,18 @@
 
             <xpath expr="//field[@name='categ_id']" position="after">
                 <field name="product_group"/>
+            </xpath>
+
+            <xpath expr="//field[@name='barcode']" position="after">
+                <field name="amount_in_stock"/>
+                <field name="keywords_related_to_search"/>
+                <field name="general_comment"/>
+                <field name="description_eng"/>
+                <field name="description_swd"/>
+            </xpath>
+
+            <xpath expr="//field[@name='supplier_taxes_id']" position="after">
+                <field name="comment_on_purchase"/>
             </xpath>
 
             <xpath expr="//div[@name='volume']" position="after">
@@ -93,6 +107,7 @@
                             <field name="language_1"/>
                             <field name="language_2"/>
                             <field name="size"/>
+                            <field name="stockable"/>
                             <field name="distribution"/>
                             <field name="not_included_in_web_store"/>
                             <field name="marked_as_product_sold_on_commission"/>
@@ -144,6 +159,18 @@
                 <field name="product_group"/>
             </xpath>
 
+            <xpath expr="//field[@name='barcode']" position="after">
+                <field name="amount_in_stock"/>
+                <field name="keywords_related_to_search"/>
+                <field name="general_comment"/>
+                <field name="description_eng"/>
+                <field name="description_swd"/>
+            </xpath>
+
+            <xpath expr="//field[@name='supplier_taxes_id']" position="after">
+                <field name="comment_on_purchase"/>
+            </xpath>
+
             <xpath expr="//div[@name='volume']" position="after">
                 <field name="height"/>
                 <field name="width"/>
@@ -152,6 +179,4 @@
             </xpath>
         </field>
     </record>
-
-
 </odoo>
