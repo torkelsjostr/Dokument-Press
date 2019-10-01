@@ -11,11 +11,10 @@
                 'sale_management'],
     'data': [
         'security/ir.model.access.csv',
+        'views/customer_groups_view.xml',
         'views/customer_vat_type_view.xml',
         'views/res_partners_modifications_view.xml',
-        'views/customer_groups_view.xml',
-
-    ],
+     ],
     'installable': True,
     'application': True,
     'auto_install': False,
