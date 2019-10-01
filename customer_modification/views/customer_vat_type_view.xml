@@ -29,7 +29,7 @@
     </record>
 
     <record id="customer_vat_type_action" model="ir.actions.act_window">
-        <field name="name">customer.vat.type.action</field>
+        <field name="name">Customer VAT Type</field>
         <field name="res_model">customer.vat.type</field>
         <field name="view_type">form</field>
         <field name="view_model">tree,form</field>

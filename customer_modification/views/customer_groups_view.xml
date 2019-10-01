@@ -29,7 +29,7 @@
     </record>
 
     <record id="customer_group_action" model="ir.actions.act_window">
-        <field name="name">customer.group.action</field>
+        <field name="name">Customer Group</field>
         <field name="res_model">customer.group</field>
         <field name="view_type">form</field>
         <field name="view_model">tree,form</field>
