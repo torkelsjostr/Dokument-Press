@@ -2,4 +2,3 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 res_cus_modification,res.partner.modification,model_res_partner_modification,base.group_user,1,1,1,1
 access_customer_group,customer.group,model_customer_group,base.group_user,1,1,1,1
 access_customer_vat_type,customer.vat.type,model_customer_vat_type,base.group_user,1,1,1,1
-access_status_as_supplier,status.as.supplier,model_status_as_supplier,base.group_user,1,1,1,1
