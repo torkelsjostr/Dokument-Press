@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="res_partners_form_modifications">
+        <field name="name">res.partners.form.modifications</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="customer_group"/>
+                <field name="customer_vat_type"/>
+                <field name="vat_of_the_client"/>
+                <field name="currency"/>
+            </xpath>
+            <xpath expr="//field[@name='website']" position="after">
+                <field name="email_2" widget="email"/>
+                <field name="primary_phone"/>
+                <field name="customer_code"/>
+            </xpath>
+            <xpath expr="//page[@name='internal_notes']" position="replace">
+                <page name="internal_notes" string="General Notes">
+                    <field name="comment" placeholder="General notes..."/>
+                </page>
+            </xpath>
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page name="important_notes" string="Important Notes">
+                    <field name="important_notes" placeholder="Important notes..."/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

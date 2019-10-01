@@ -1,0 +1,226 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* customer_modification
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e-20190207\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-25 03:07+0000\n"
+"PO-Revision-Date: 2019-09-25 03:07+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_res_partner__type
+#: model:ir.model.fields,field_description:customer_modification.field_res_users__type
+msgid "Address Type"
+msgstr "Adresstyp"
+
+#. module: customer_modification
+#: selection:res.partner,type:0
+msgid "Billing address"
+msgstr "Fakt_Adress"
+
+#. module: customer_modification
+#: model:ir.model,name:customer_modification.model_res_partner
+#: selection:res.partner,type:0
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_customer_group__create_uid
+#: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__create_uid
+#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__create_uid
+msgid "Created by"
+msgstr "Skapad av"
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_customer_group__create_date
+#: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__create_date
+#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__create_date
+msgid "Created on"
+msgstr "Skapad den"
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_res_partner__currency
+#: model:ir.model.fields,field_description:customer_modification.field_res_users__currency
+msgid "Currency"
+msgstr "Valuta"
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_res_partner__customer_code
+#: model:ir.model.fields,field_description:customer_modification.field_res_users__customer_code
+msgid "Customer Code"
+msgstr "Kundkod"
+
+#. module: customer_modification
+#: model:ir.actions.act_window,name:customer_modification.customer_group_action
+#: model:ir.model.fields,field_description:customer_modification.field_res_partner__customer_group
+#: model:ir.model.fields,field_description:customer_modification.field_res_users__customer_group
+msgid "Customer Group"
+msgstr "Kundgrupp_Benamning"
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_customer_group__name
+msgid "Customer Group Name"
+msgstr "Kundgrupp_Benamning"
+
+#. module: customer_modification
+#: model:ir.ui.menu,name:customer_modification.menu_customer_group
+msgid "Customer Groups"
+msgstr "Kundgrupp_Benamning"
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__name
+#: model:ir.model.fields,field_description:customer_modification.field_res_partner__customer_vat_type
+#: model:ir.model.fields,field_description:customer_modification.field_res_users__customer_vat_type
+msgid "Customer VAT Type"
+msgstr "Kundtyp"
+
+#. module: customer_modification
+#: model:ir.actions.act_window,name:customer_modification.customer_vat_type_action
+#: model:ir.ui.menu,name:customer_modification.menu_customer_vat_type
+msgid "Customer VAT Types"
+msgstr "Kundtyp"
+
+#. module: customer_modification
+#: selection:res.partner,type:0
+msgid "Delivery address"
+msgstr "Lev_Adress"
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_customer_group__display_name
+#: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__display_name
+#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__display_name
+msgid "Display Name"
+msgstr "Visningsnamn"
+
+#. module: customer_modification
+#: model_terms:ir.ui.view,arch_db:customer_modification.res_partners_form_modifications
+msgid "General Notes"
+msgstr "Noteringar"
+
+#. module: customer_modification
+#: model_terms:ir.ui.view,arch_db:customer_modification.res_partners_form_modifications
+msgid "General notes..."
+msgstr "Noteringar..."
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_customer_group__customer_group_id
+#: model:ir.model.fields,field_description:customer_modification.field_customer_group__id
+#: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__customer_vat_id
+#: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__id
+#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__id
+#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__supplier_id
+msgid "ID"
+msgstr ""
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_res_partner__important_notes
+#: model:ir.model.fields,field_description:customer_modification.field_res_users__important_notes
+#: model_terms:ir.ui.view,arch_db:customer_modification.res_partners_form_modifications
+msgid "Important Notes"
+msgstr "Viktigt"
+
+#. module: customer_modification
+#: model_terms:ir.ui.view,arch_db:customer_modification.res_partners_form_modifications
+msgid "Important notes..."
+msgstr "Viktigt..."
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_customer_group____last_update
+#: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type____last_update
+#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier____last_update
+msgid "Last Modified on"
+msgstr "Senast redigerad"
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_customer_group__write_uid
+#: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__write_uid
+#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__write_uid
+msgid "Last Updated by"
+msgstr "Senast uppdaterad av"
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_customer_group__write_date
+#: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__write_date
+#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__write_date
+msgid "Last Updated on"
+msgstr "Senast uppdaterad"
+
+#. module: customer_modification
+#: selection:res.partner,type:0
+msgid "Other address"
+msgstr ""
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_res_partner__email_2
+#: model:ir.model.fields,field_description:customer_modification.field_res_users__email_2
+msgid "Primary contact: Email"
+msgstr "Kunder_Personer::Epost"
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_res_partner__primary_phone
+#: model:ir.model.fields,field_description:customer_modification.field_res_users__primary_phone
+msgid "Primary contact: Phone number"
+msgstr "Kunder_Personer::Telefon"
+
+#. module: customer_modification
+#: selection:res.partner,type:0
+msgid "Private Address"
+msgstr ""
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_res_partner__status_as_supplier
+#: model:ir.model.fields,field_description:customer_modification.field_res_users__status_as_supplier
+msgid "Status As Supplier"
+msgstr "Sprak"
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__name
+msgid "Status as Supplier"
+msgstr "Sprak"
+
+#. module: customer_modification
+#: model:ir.actions.act_window,name:customer_modification.status_as_supplier_action
+#: model:ir.ui.menu,name:customer_modification.menu_status_as_supplier
+msgid "Supplier Status"
+msgstr "Sprak"
+
+#. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_res_partner__vat_of_the_client
+#: model:ir.model.fields,field_description:customer_modification.field_res_users__vat_of_the_client
+msgid "The VAT of The Client"
+msgstr "VATnr"
+
+#. module: customer_modification
+#: model:ir.model.fields,help:customer_modification.field_res_partner__type
+#: model:ir.model.fields,help:customer_modification.field_res_users__type
+msgid "Used by Sales and Purchase Apps to select the relevant address depending on the context."
+msgstr ""
+
+#. module: customer_modification
+#: model:ir.model,name:customer_modification.model_customer_group
+msgid "customer.group"
+msgstr ""
+
+#. module: customer_modification
+#: model:ir.model,name:customer_modification.model_customer_vat_type
+msgid "customer.vat.type"
+msgstr ""
+
+#. module: customer_modification
+#: model:ir.model,name:customer_modification.model_res_partner_modification
+msgid "res.partner.modification"
+msgstr ""
+
+#. module: customer_modification
+#: model:ir.model,name:customer_modification.model_status_as_supplier
+msgid "status.as.supplier"
+msgstr ""
+

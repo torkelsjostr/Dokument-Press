@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="customer_group_form" model="ir.ui.view">
+        <field name="name">customer.group</field>
+        <field name="model">customer.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="customer_group_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="customer_group_tree_view" model="ir.ui.view">
+        <field name="name">customer.group</field>
+        <field name="model">customer.group</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="customer_group_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="customer_group_action" model="ir.actions.act_window">
+        <field name="name">Customer Group</field>
+        <field name="res_model">customer.group</field>
+        <field name="view_type">form</field>
+        <field name="view_model">tree,form</field>
+    </record>
+
+    <!--menu-->
+
+    <menuitem
+        id="menu_heading_customer_details"
+        name="Customer Details"
+        parent="sale.sale_order_menu"
+        sequence="4"/>
+
+    <menuitem id="menu_customer_group"
+              name="Customer Groups"
+              parent="menu_heading_customer_details"
+              groups="base.group_user"
+              action="customer_group_action"
+              sequence="5"/>
+</odoo>
