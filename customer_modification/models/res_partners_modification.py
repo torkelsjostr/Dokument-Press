@@ -3,7 +3,6 @@ from odoo import models, fields, api
 
 class ResCustomerModification(models.Model):
     _inherit = 'res.partner'
-
     customer_group = fields.Many2one('customer.group', string='Customer Group', translate=True)
     customer_vat_type = fields.Many2one('customer.vat.type', string='Customer VAT Type', translate=True)
     vat_of_the_client = fields.Char(string='The VAT of The Client', translate=True)
