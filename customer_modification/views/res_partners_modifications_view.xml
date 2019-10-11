@@ -12,7 +12,7 @@
                 <field name="currency"/>
             </xpath>
             <xpath expr="//field[@name='website']" position="after">
-                <field name="primary_name"/>
+                <!--<field name="primary_name"/>-->
                 <field name="email_2" widget="email"/>
                 <field name="primary_phone"/>
                 <field name="customer_code"/>
