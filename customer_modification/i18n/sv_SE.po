@@ -156,8 +156,8 @@ msgid "Other address"
 msgstr ""
 
 #. module: customer_modification
-#: model:ir.model.fields,field_description:customer_modification.field_res_partner__primary_name
-#: model:ir.model.fields,field_description:customer_modification.field_res_users__primary_name
+#: model:ir.model.fields,field_description:customer_modification.field_res_partner__primary_identification
+#: model:ir.model.fields,field_description:customer_modification.field_res_users__primary_identification
 msgid "Primary Contact Name"
 msgstr "Kunder Personer::Namn"
 
