@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0+e-20190207\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 03:07+0000\n"
-"PO-Revision-Date: 2019-09-25 03:07+0000\n"
+"POT-Creation-Date: 2019-10-09 09:07+0000\n"
+"PO-Revision-Date: 2019-10-09 09:07+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -35,14 +35,12 @@ msgstr "Kontakt"
 #. module: customer_modification
 #: model:ir.model.fields,field_description:customer_modification.field_customer_group__create_uid
 #: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__create_uid
-#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__create_uid
 msgid "Created by"
 msgstr "Skapad av"
 
 #. module: customer_modification
 #: model:ir.model.fields,field_description:customer_modification.field_customer_group__create_date
 #: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__create_date
-#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__create_date
 msgid "Created on"
 msgstr "Skapad den"
 
@@ -57,6 +55,11 @@ msgstr "Valuta"
 #: model:ir.model.fields,field_description:customer_modification.field_res_users__customer_code
 msgid "Customer Code"
 msgstr "Kundkod"
+
+#. module: customer_modification
+#: model:ir.ui.menu,name:customer_modification.menu_heading_customer_details
+msgid "Customer Details"
+msgstr ""
 
 #. module: customer_modification
 #: model:ir.actions.act_window,name:customer_modification.customer_group_action
@@ -76,6 +79,7 @@ msgid "Customer Groups"
 msgstr "Kundgrupp_Benamning"
 
 #. module: customer_modification
+#: model:ir.actions.act_window,name:customer_modification.customer_vat_type_action
 #: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__name
 #: model:ir.model.fields,field_description:customer_modification.field_res_partner__customer_vat_type
 #: model:ir.model.fields,field_description:customer_modification.field_res_users__customer_vat_type
@@ -83,7 +87,6 @@ msgid "Customer VAT Type"
 msgstr "Kundtyp"
 
 #. module: customer_modification
-#: model:ir.actions.act_window,name:customer_modification.customer_vat_type_action
 #: model:ir.ui.menu,name:customer_modification.menu_customer_vat_type
 msgid "Customer VAT Types"
 msgstr "Kundtyp"
@@ -96,7 +99,6 @@ msgstr "Lev_Adress"
 #. module: customer_modification
 #: model:ir.model.fields,field_description:customer_modification.field_customer_group__display_name
 #: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__display_name
-#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__display_name
 msgid "Display Name"
 msgstr "Visningsnamn"
 
@@ -115,8 +117,6 @@ msgstr "Noteringar..."
 #: model:ir.model.fields,field_description:customer_modification.field_customer_group__id
 #: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__customer_vat_id
 #: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__id
-#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__id
-#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__supplier_id
 msgid "ID"
 msgstr ""
 
@@ -135,21 +135,18 @@ msgstr "Viktigt..."
 #. module: customer_modification
 #: model:ir.model.fields,field_description:customer_modification.field_customer_group____last_update
 #: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type____last_update
-#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier____last_update
 msgid "Last Modified on"
 msgstr "Senast redigerad"
 
 #. module: customer_modification
 #: model:ir.model.fields,field_description:customer_modification.field_customer_group__write_uid
 #: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__write_uid
-#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__write_uid
 msgid "Last Updated by"
 msgstr "Senast uppdaterad av"
 
 #. module: customer_modification
 #: model:ir.model.fields,field_description:customer_modification.field_customer_group__write_date
 #: model:ir.model.fields,field_description:customer_modification.field_customer_vat_type__write_date
-#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__write_date
 msgid "Last Updated on"
 msgstr "Senast uppdaterad"
 
@@ -159,38 +156,27 @@ msgid "Other address"
 msgstr ""
 
 #. module: customer_modification
+#: model:ir.model.fields,field_description:customer_modification.field_res_partner__primary_name
+#: model:ir.model.fields,field_description:customer_modification.field_res_users__primary_name
+msgid "Primary Contact Name"
+msgstr "Kunder Personer::Namn"
+
+#. module: customer_modification
 #: model:ir.model.fields,field_description:customer_modification.field_res_partner__email_2
 #: model:ir.model.fields,field_description:customer_modification.field_res_users__email_2
 msgid "Primary contact: Email"
-msgstr "Kunder_Personer::Epost"
+msgstr "Kunder Personer::Epost"
 
 #. module: customer_modification
 #: model:ir.model.fields,field_description:customer_modification.field_res_partner__primary_phone
 #: model:ir.model.fields,field_description:customer_modification.field_res_users__primary_phone
 msgid "Primary contact: Phone number"
-msgstr "Kunder_Personer::Telefon"
+msgstr "Kunder Personer::Telefon"
 
 #. module: customer_modification
 #: selection:res.partner,type:0
 msgid "Private Address"
 msgstr ""
-
-#. module: customer_modification
-#: model:ir.model.fields,field_description:customer_modification.field_res_partner__status_as_supplier
-#: model:ir.model.fields,field_description:customer_modification.field_res_users__status_as_supplier
-msgid "Status As Supplier"
-msgstr "Sprak"
-
-#. module: customer_modification
-#: model:ir.model.fields,field_description:customer_modification.field_status_as_supplier__name
-msgid "Status as Supplier"
-msgstr "Sprak"
-
-#. module: customer_modification
-#: model:ir.actions.act_window,name:customer_modification.status_as_supplier_action
-#: model:ir.ui.menu,name:customer_modification.menu_status_as_supplier
-msgid "Supplier Status"
-msgstr "Sprak"
 
 #. module: customer_modification
 #: model:ir.model.fields,field_description:customer_modification.field_res_partner__vat_of_the_client
@@ -212,15 +198,5 @@ msgstr ""
 #. module: customer_modification
 #: model:ir.model,name:customer_modification.model_customer_vat_type
 msgid "customer.vat.type"
-msgstr ""
-
-#. module: customer_modification
-#: model:ir.model,name:customer_modification.model_res_partner_modification
-msgid "res.partner.modification"
-msgstr ""
-
-#. module: customer_modification
-#: model:ir.model,name:customer_modification.model_status_as_supplier
-msgid "status.as.supplier"
 msgstr ""
 
