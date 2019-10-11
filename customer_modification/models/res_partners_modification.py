@@ -21,7 +21,7 @@ class ResCustomerModification(models.Model):
          ], string='Address Type',
         default='contact',
         help="Used by Sales and Purchase Apps to select the relevant address depending on the context.")
-    # primary_name = fields.Char(string='Primary Contact: Name', translate=True)
+    primary_name = fields.Char(string='Primary Contact: Name', translate=True)
 
 
 class CustomerGroups(models.Model):
