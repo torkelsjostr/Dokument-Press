@@ -3,6 +3,7 @@ from odoo import models, fields, api
 
 class ResCustomerModification(models.Model):
     _inherit = 'res.partner'
+
     customer_group = fields.Many2one('customer.group', string='Customer Group', translate=True)
     customer_vat_type = fields.Many2one('customer.vat.type', string='Customer VAT Type', translate=True)
     vat_of_the_client = fields.Char(string='The VAT of The Client', translate=True)
@@ -20,6 +21,7 @@ class ResCustomerModification(models.Model):
          ], string='Address Type',
         default='contact',
         help="Used by Sales and Purchase Apps to select the relevant address depending on the context.")
+    primary_name = fields.Char(string='Primary Contact: Name', translate=True)
 
 
 class CustomerGroups(models.Model):
