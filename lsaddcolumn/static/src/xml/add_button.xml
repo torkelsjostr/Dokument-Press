@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+    <t t-extend="ListView.buttons">
+        <t t-jquery="button.o_list_button_add" t-operation="after">
+            <t t-name="AddCol_button">
+                <button 
+                    type="button" 
+                    class="btn btn-primary o_button_ls_add_column">
+                    Add Column
+                </button>
+            </t>    
+        </t>
+    </t>
+</templates>
