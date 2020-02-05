@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="ls__add__column.list">
+      <field name="name">LS_Add_Column list</field>
+      <field name="model">ls__add__column.ls__add__column</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="ls__add__column.action_window">
+      <field name="name">LS_Add_Column window</field>
+      <field name="res_model">ls__add__column.ls__add__column</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="ls__add__column.action_server">
+      <field name="name">LS_Add_Column server</field>
+      <field name="model_id" ref="model_ls__add__column_ls__add__column"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="LS_Add_Column" id="ls__add__column.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="ls__add__column.menu_1" parent="ls__add__column.menu_root"/>
+    <menuitem name="Menu 2" id="ls__add__column.menu_2" parent="ls__add__column.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="ls__add__column.menu_1_list" parent="ls__add__column.menu_1"
+              action="ls__add__column.action_window"/>
+    <menuitem name="Server to list" id="ls__add__column" parent="ls__add__column.menu_2"
+              action="ls__add__column.action_server"/>
+    -->
+  </data>
+</odoo>

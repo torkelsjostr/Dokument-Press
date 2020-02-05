@@ -1,0 +1,37 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+<odoo>
+
+		<record model="ir.ui.view" id="lsaddcolumn_wizard_form_view">
+			<field name="name">LS add column wizard form</field>
+			<field name="model">lsaddcolumn.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Select Field">
+					<group>
+						<field name = "column_fields_id" options="{ 'no_create_edit':True}" />
+					</group>
+						<footer>
+							 <button name="ok_button_clicked" 
+		                        string="Ok" type="object" 
+		                        class="btn-primary"/>
+		                    <button string="Cancel" 
+		                        class="btn-default" 
+		                        special="cancel" />
+						</footer>	
+				</form>
+			</field>
+		</record>
+
+
+		<record id="launch_ls_add_column_wizard" model="ir.actions.act_window">
+	        <field name="name">LS Add Column</field>
+            <field name="type">ir.actions.act_window</field>
+	        <field name="res_model">lsaddcolumn.wizard</field>
+	        <field name="view_type">form</field>
+	        <field name="view_mode">form</field>
+	        <field name="view_id" ref="lsaddcolumn_wizard_form_view"/>
+	        <field name="target">new</field>
+        </record>
+
+</odoo>
+
+
