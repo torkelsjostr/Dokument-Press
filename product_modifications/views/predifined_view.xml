@@ -1,0 +1,111 @@
+<odoo>
+    <record id="product_group_tree" model="ir.ui.view">
+        <field name="name">product.group.tree</field>
+        <field name="model">product.group</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name" required="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_group_action" model="ir.actions.act_window">
+        <field name="name">Product Group</field>
+        <field name="res_model">product.group</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="colour_tree" model="ir.ui.view">
+        <field name="name">colour.tree</field>
+        <field name="model">colour</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name" required="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="colour_action" model="ir.actions.act_window">
+        <field name="name">Colours</field>
+        <field name="res_model">colour</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="author_tree" model="ir.ui.view">
+        <field name="name">author.tree</field>
+        <field name="model">author</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name" required="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="author_action" model="ir.actions.act_window">
+        <field name="name">Authors</field>
+        <field name="res_model">author</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="binding_swe_tree" model="ir.ui.view">
+        <field name="name">binding.swe.tree</field>
+        <field name="model">binding.swe</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name" required="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="binding_swe_action" model="ir.actions.act_window">
+        <field name="name">Binding Sweden</field>
+        <field name="res_model">binding.swe</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="binding_eng_tree" model="ir.ui.view">
+        <field name="name">binding.eng.tree</field>
+        <field name="model">binding.eng</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name" required="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="binding_eng_action" model="ir.actions.act_window">
+        <field name="name">Binding English</field>
+        <field name="res_model">binding.eng</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="year_of_production_tree" model="ir.ui.view">
+        <field name="name">year.of.production.tree</field>
+        <field name="model">year.of.production</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name" required="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="year_of_production_action" model="ir.actions.act_window">
+        <field name="name">Year of Binding</field>
+        <field name="res_model">year.of.production</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_configurations" name="Predefined Views" parent="sale.menu_sale_config"/>
+    <menuitem id="menu_product_groups" action="product_group_action" parent="menu_configurations" name="Product Group"/>
+    <menuitem id="menu_colours" action="colour_action" parent="menu_configurations" name="Colours"/>
+    <menuitem id="menu_author" action="author_action" parent="menu_configurations" name="Authors"/>
+    <menuitem id="menu_binding_swe" action="binding_swe_action" parent="menu_configurations" name="Binding SWEDEN"/>
+    <menuitem id="menu_binding_eng" action="binding_eng_action" parent="menu_configurations" name="Binding ENGLISH"/>
+    <menuitem id="menu_year_of_production" action="year_of_production_action" parent="menu_configurations" name="Years of Binding"/>
+</odoo>

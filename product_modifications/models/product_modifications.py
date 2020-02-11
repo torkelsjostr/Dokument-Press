@@ -31,20 +31,29 @@ class ProductTemplateModifications(models.Model):
     distribution = fields.Boolean(string='Distribution', translate=True)
     not_included_in_web_store = fields.Boolean(string='Not Included in Web Store', translate=True)
     marked_as_product_sold_on_commission = fields.Boolean(string='Marked as "Product Sold on Commission"',translate=True)
-    date_of_arrival = fields.Date(string='Date of Arrival', translate=True)
+    date_of_arrival = fields.Date(string='Date of Arrival', translate=True, default=fields.Date.context_today)
     quantity = fields.Integer(string='Quantity', translate=True)
     year_of_production = fields.Char(string='Year of Production', translate=True)
+    year_of_production_id = fields.Many2one('year.of.production', string='Year of Production', translate=True)
     number_of_pages = fields.Integer(string='Number of Pages', translate=True)
     author_by = fields.Text(string='Author/By', translate=True)
+    author_id = fields.Many2one('author', string='Author/By', translate=True)
     country_id = fields.Char(string='Country', translate=True)
+    res_country_id = fields.Many2one('res.country', string='Country', translate=True)
     currency_id = fields.Many2one('res.currency', string='Currency', readonly=False, store=True, translate=True)
     binding_swe = fields.Char(string='Binding (SWE)', translate=True)
     binding_eng = fields.Char(string='Binding (ENG)', translate=True)
+    binding_swe_id = fields.Many2one('binding.swe', string='Binding (SWE)', translate=True)
+    binding_eng_id = fields.Many2one('binding.eng', string='Binding (ENG)', translate=True)
     product_group = fields.Char(string='Product Group', translate=True)
+    product_group_id = fields.Many2one('product.group', string='Product Group', translate=True)
     number_of_illustrations = fields.Integer(string='Number of Illustrations', translate=True)
     colour = fields.Char(string='Colour', translate=True)
+    colour_id = fields.Many2one('colour', string='Colour', translate=True)
     language_1 = fields.Char(string='Language 1', translate=True)
     language_2 = fields.Char(string='Language 2', translate=True)
+    language_1_id = fields.Many2one('res.lang', string='Language 1', translate=True)
+    language_2_id = fields.Many2one('res.lang', string='Language 2', translate=True)
     description_eng = fields.Text(string='Description (English)', translate=True)
     description_swd = fields.Text(string='Description (Swedish)', translate=True)
     comment_on_purchase = fields.Text(string='Comment On Purchase', translate=True)
@@ -60,3 +69,38 @@ class ProductTemplateModifications(models.Model):
         ('xl', 'XL'),
         ('xxl', 'XXL')], string='Size', translate=True)
 
+
+class ProductGroup(models.Model):
+    _name = 'product.group'
+
+    name = fields.Char(string="Name", required=True)
+
+
+class Colour(models.Model):
+    _name = 'colour'
+
+    name = fields.Char(string="Name", required=True)
+
+
+class YearOfProduction(models.Model):
+    _name = 'year.of.production'
+
+    name = fields.Char(string="Name", required=True)
+
+
+class Author(models.Model):
+    _name = 'author'
+
+    name = fields.Char(string="Name", required=True)
+
+
+class BindingSWE(models.Model):
+    _name = 'binding.swe'
+
+    name = fields.Char(string="Name", required=True)
+
+
+class BindingENG(models.Model):
+    _name = 'binding.eng'
+
+    name = fields.Char(string="Name", required=True)
