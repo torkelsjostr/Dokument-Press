@@ -10,7 +10,9 @@
     'depends': ['base',
                 'sale_management'],
     'data': [
+        'security/ir.model.access.csv',
         'views/product_modifications_view.xml',
+        'views/predifined_view.xml',
     ],
     'installable': True,
     'application': True,

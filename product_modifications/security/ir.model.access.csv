@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_product_group,access.product.group,model_product_group,base.group_user,1,1,1,1
+access_colour,access.colour,model_colour,base.group_user,1,1,1,1
+access_author,access.author,model_author,base.group_user,1,1,1,1
+access_binding_swe,access.binding.swe,model_binding_swe,base.group_user,1,1,1,1
+access_binding_eng,access.binding.eng,model_binding_eng,base.group_user,1,1,1,1
+access_year_of_production,access.year.of.production,model_year_of_production,base.group_user,1,1,1,1
