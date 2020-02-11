@@ -101,7 +101,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_configurations" name="Predefined Views" parent="sale.menu_sale_config"/>
+    <menuitem id="menu_configurations" name="Predefined Data" parent="sale.menu_sale_config"/>
     <menuitem id="menu_product_groups" action="product_group_action" parent="menu_configurations" name="Product Group"/>
     <menuitem id="menu_colours" action="colour_action" parent="menu_configurations" name="Colours"/>
     <menuitem id="menu_author" action="author_action" parent="menu_configurations" name="Authors"/>
