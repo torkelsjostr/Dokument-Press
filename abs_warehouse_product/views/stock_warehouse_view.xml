@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_inherit_stock_warehouse_form" model="ir.ui.view">
+	<field name="name">stock.warehouse.form</field>
+	<field name="model">stock.warehouse</field>
+	<field name="inherit_id" ref="stock.view_warehouse"></field>
+	<field name="arch" type="xml">
+	    <xpath expr="//group" position ="after">
+		<h3><strong> Available Products </strong></h3>
+		<field name="warehouse_product_ids">
+		   <tree>
+			<field name="product_id"/>
+			<field name="quantity" sum="Total"/>
+		    </tree>
+	       </field>
+	    </xpath>
+	</field>
+    </record>
+</odoo>
+
