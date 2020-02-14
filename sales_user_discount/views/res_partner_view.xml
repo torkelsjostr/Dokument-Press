@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Extended partner Form View to add user wise discount functionality -->
+    <record model="ir.ui.view" id="view_partner_form_sales_user_discount">
+        <field name="name">view.partner.form.sales.user.discount</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook[last()]" position="inside">
+                <page string="User Discounts" groups="sales_user_discount.group_own_user_discount,sales_user_discount.group_all_user_discount">
+                    <group string="User Discounts">
+                        <field name="user_partner_discount_ids" nolabel="1">
+                            <tree string="User Discounts" editable="bottom">
+                                <field name="user_id"/>
+                                <field name="discount"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

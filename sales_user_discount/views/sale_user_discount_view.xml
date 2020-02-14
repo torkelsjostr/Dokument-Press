@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="user_partner_discount_view_tree" model="ir.ui.view">
+        <field name="name">user.partner.discount.tree</field>
+        <field name="model">user.partner.discount</field>
+        <field name="arch" type="xml">
+            <tree string="Sales User Discount" editable="top">
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="discount"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="user_partner_discount_view_form" model="ir.ui.view">
+        <field name="name">user.partner.discount.from</field>
+        <field name="model">user.partner.discount</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="user_id"/>
+                        <field name="discount"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="user_partner_discount_view_search" model="ir.ui.view">
+        <field name="name">user.partner.discount.search</field>
+        <field name="model">user.partner.discount</field>
+        <field name="arch" type="xml">
+            <search string="Tickets To Invoice Search">
+                <field name="user_id"/>
+                <field name="partner_id"/>
+                <filter string="My Discount" domain="[('user_id','=', uid)]" name="my_discount"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Salesperson" name="salesperson" context="{'group_by':'invoice_responsible'}"/>
+                    <filter string="Customer" name="partner_id" context="{'group_by':'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="user_partner_discount_action_main" model="ir.actions.act_window">
+        <field name="name">Sales User Discount</field>
+        <field name="res_model">user.partner.discount</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="user_partner_discount_view_search"/>
+    </record>
+
+    <menuitem name="Sales User Discount"
+              id="sale_user_discount_menu"
+              parent="sales_team.menu_sale_config"
+              action="user_partner_discount_action_main"
+              groups="sales_user_discount.group_own_user_discount,sales_user_discount.group_all_user_discount"/>
+
+</odoo>
+
