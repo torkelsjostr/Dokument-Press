@@ -7,15 +7,15 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='vat']" position="after">
                 <field name="customer_group"/>
-                <field name="customer_vat_type"/>
-                <field name="vat_of_the_client"/>
+                <field name="customer_vat_type" invisible="1"/>
+                <field name="vat_of_the_client" invisible="1"/>
                 <field name="currency"/>
             </xpath>
             <xpath expr="//field[@name='website']" position="after">
-                <field name="primary_name"/>
-                <field name="email_2" widget="email"/>
-                <field name="primary_phone"/>
-                <field name="customer_code"/>
+                <field name="primary_name" invisible="1"/>
+                <field name="email_2" widget="email" invisible="1"/>
+                <field name="primary_phone" invisible="1"/>
+                <field name="customer_code" invisible="1"/>
             </xpath>
             <xpath expr="//page[@name='internal_notes']" position="replace">
                 <page name="internal_notes" string="General Notes">
