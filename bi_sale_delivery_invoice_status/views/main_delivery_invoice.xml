@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data>
+
+		<record id="view_inherit_sale_order_filter" model="ir.ui.view">
+            <field name="name">view.inherit.sale.order.search</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//filter[@name='my_quotation']" position="after">
+            		<separator/>
+                    <filter name="is_partially_delivery" string="Partially Shipped" domain="[('is_partially_delivery','=',True)]"/>
+                    <filter name="is_fully_delivery" string="Fully Shipped" domain="[('is_fully_delivery','=', True)]"/>
+                    <filter name="is_partially_paid" string="Partially Paid" domain="[('is_partially_paid','=', True)]"/>
+                    <filter name="is_fully_paid" string="Fully Paid" domain="[('is_fully_paid','=', True)]"/>
+            	</xpath>
+            </field>
+        </record>
+
+		<record id="view_inherit_sale_order_form" model="ir.ui.view">
+            <field name="name">view.inherit.sale.order.frm</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+	        	<xpath expr="//field[@name='payment_term_id']" position="after">
+	       			<field name="is_partially_delivery"/>
+	       			<field name="is_fully_delivery"/>
+	       			<field name="is_partially_paid"/>
+	       			<field name="is_fully_paid"/>
+			   	</xpath>
+			</field>
+		</record>
+
+		<record id="view_inherit_sale_order_tree" model="ir.ui.view">
+            <field name="name">view.inherit.sale.order.tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+            <field name="arch" type="xml">
+	        	<xpath expr="//tree/field[@name='state']" position="after">
+			   		<field name="is_partially_delivery"/>
+	       			<field name="is_fully_delivery"/>
+	       			<field name="is_partially_paid"/>
+	       			<field name="is_fully_paid"/>
+			   	</xpath>
+			</field>
+		</record>
+
+		<record id="view_inherit_picking_order" model="ir.ui.view">
+            <field name="name">view.inherit.picking.order</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+	        	<xpath expr="//form/sheet/div/field[@name='has_scrap_move']" position="after">
+	       			<field name="is_pick" invisible="True"/>
+			   	</xpath>
+			</field>
+		</record>
+
+		<record id="view_inherit_invoice_account" model="ir.ui.view">
+            <field name="name">view.inherit.invoice.order</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+	        	<xpath expr="//field[@name='number']" position="after">
+	       			<field name="is_invoice" invisible="True"/>
+			   	</xpath>
+			</field>
+		</record>
+
+	</data>
+</odoo>
