@@ -1,0 +1,988 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* bi_professional_reports_templates
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-05-15 11:17+0000\n"
+"PO-Revision-Date: 2018-05-15 11:17+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+msgid "<br/>\n"
+"                        <span><font color=\"#fff\">Bank Name :</font> </span>"
+msgstr "<br/>\n"
+"                        <span><font color=\"#fff\">Bank Name :</font> </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+msgid "<br/>\n"
+"                        <span><font color=\"#fff\">Branch Name/Address :</font> </span>"
+msgstr "<br/>\n"
+"                        <span><font color=\"#fff\">Branch Name/Address :</font> </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+msgid "<br/>\n"
+"                        <span><font color=\"#fff\">IFSC Code : </font></span>"
+msgstr "<br/>\n"
+"                        <span><font color=\"#fff\">IFSC Code : </font></span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+msgid "<br/>\n"
+"                        <span><font color=\"#fff\">Swift Code :</font> </span>"
+msgstr "<br/>\n"
+"                        <span><font color=\"#fff\">Swift Code :</font> </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+msgid "<br/>\n"
+"                <span><font color=\"#fff\">Bank Name :</font> </span>"
+msgstr "<br/>\n"
+"                <span><font color=\"#fff\">Bank Name :</font> </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+msgid "<br/>\n"
+"                <span><font color=\"#fff\">Branch Name/Address :</font> </span>"
+msgstr "<br/>\n"
+"                <span><font color=\"#fff\">Branch Name/Address :</font> </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+msgid "<br/>\n"
+"                <span><font color=\"#fff\">IFSC Code : </font></span>"
+msgstr "<br/>\n"
+"                <span><font color=\"#fff\">IFSC Code : </font></span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+msgid "<br/>\n"
+"                <span><font color=\"#fff\">Swift Code :</font> </span>"
+msgstr "<br/>\n"
+"                <span><font color=\"#fff\">Swift Code :</font> </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<br/>\n"
+"                <span>Bank Name : </span>"
+msgstr "<br/>\n"
+"                <span>Bank Name : </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<br/>\n"
+"                <span>Branch Name/Address : </span>"
+msgstr "<br/>\n"
+"                <span>Branch Name/Address : </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<br/>\n"
+"                <span>IFSC Code : </span>"
+msgstr "<br/>\n"
+"                <span>IFSC Code : </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<br/>\n"
+"                <span>Swift Code : </span>"
+msgstr "<br/>\n"
+"                <span>Swift Code : </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+msgid "<font color=\"#fff\">\n"
+"                                    Lot/Serial Number</font>"
+msgstr "<font color=\"#fff\">\n"
+"                                    Lot/Serial Number</font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
+msgid "<font color=\"#fff\"><strong>Date Req.</strong></font>"
+msgstr "<font color=\"#fff\"><strong>Date Req.</strong></font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+msgid "<font color=\"#fff\"><strong>Delivered Quantity</strong></font>"
+msgstr "<font color=\"#fff\"><strong>Delivered Quantity</strong></font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_purchasequotation_document
+msgid "<font color=\"#fff\"><strong>Description</strong></font>"
+msgstr "<font color=\"#fff\"><strong>Description</strong></font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_purchasequotation_document
+msgid "<font color=\"#fff\"><strong>Expected Date</strong></font>"
+msgstr "<font color=\"#fff\"><strong>Expected Date</strong></font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
+msgid "<font color=\"#fff\"><strong>Net Price</strong></font>"
+msgstr "<font color=\"#fff\"><strong>Net Price</strong></font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+msgid "<font color=\"#fff\"><strong>Ordered Quantity</strong></font>"
+msgstr "<font color=\"#fff\"><strong>Ordered Quantity</strong></font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+msgid "<font color=\"#fff\"><strong>Product</strong></font>"
+msgstr "<font color=\"#fff\"><strong>Product</strong></font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_purchasequotation_document
+msgid "<font color=\"#fff\"><strong>Qty</strong></font>"
+msgstr "<font color=\"#fff\"><strong>Qty</strong></font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
+msgid "<font color=\"#fff\"><strong>Taxes</strong></font>"
+msgstr "<font color=\"#fff\"><strong>Taxes</strong></font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
+msgid "<font color=\"#fff\"><strong>Unit Price</strong></font>"
+msgstr "<font color=\"#fff\"><strong>Unit Price</strong></font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<font color=\"#fff\">Cancelled Invoice</font>"
+msgstr "<font color=\"#fff\">Cancelled Invoice</font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+msgid "<font color=\"#fff\">Delivery Note # </font>"
+msgstr "<font color=\"#fff\">Delivery Note # </font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<font color=\"#fff\">Description</font>"
+msgstr "<font color=\"#fff\">Description</font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<font color=\"#fff\">Draft Invoice</font>"
+msgstr "<font color=\"#fff\">Draft Invoice</font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<font color=\"#fff\">Invoice</font>"
+msgstr "<font color=\"#fff\">Invoice</font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+msgid "<font color=\"#fff\">Origin: </font>"
+msgstr "<font color=\"#fff\">Origin: </font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<font color=\"#fff\">PRO-FORMA</font>"
+msgstr "<font color=\"#fff\">PRO-FORMA</font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<font color=\"#fff\">Price</font>"
+msgstr "<font color=\"#fff\">Price</font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<font color=\"#fff\">Quantity </font>"
+msgstr "<font color=\"#fff\">Quantity </font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<font color=\"#fff\">Refund</font>"
+msgstr "<font color=\"#fff\">Refund</font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+msgid "<font color=\"#fff\">Scheduled Date:</font>"
+msgstr "<font color=\"#fff\">Scheduled Date:</font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<font color=\"#fff\">Taxes</font>"
+msgstr "<font color=\"#fff\">Taxes</font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<font color=\"#fff\">Unit Price</font>"
+msgstr "<font color=\"#fff\">Unit Price</font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<font color=\"#fff\">Vendor Bill</font>"
+msgstr "<font color=\"#fff\">Vendor Bill</font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<font color=\"#fff\">Vendor Refund</font>"
+msgstr "<font color=\"#fff\">Vendor Refund</font>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
+msgid "<span style=\"background-color:#3498DB;\">Customer Address</span><br/>"
+msgstr "<span style=\"background-color:#3498DB;\">Customer Address</span><br/>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
+msgid "<span style=\"background-color:#3498DB;\">Delivery Address</span>"
+msgstr "<span style=\"background-color:#3498DB;\">Delivery Address</span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+msgid "<span style=\"background-color:#893b74; color:#FFF; font:20px lucida-console,sans-serif !important;\">Customer Address</span><br/>"
+msgstr "<span style=\"background-color:#893b74; color:#FFF; font:20px lucida-console,sans-serif !important;\">Customer Address</span><br/>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+msgid "<span style=\"background-color:#893b74; color:#FFF; font:20px lucida-console,sans-serif !important;\">Delivery Address</span>"
+msgstr "<span style=\"background-color:#893b74; color:#FFF; font:20px lucida-console,sans-serif !important;\">Delivery Address</span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "<span><font color=\"#fff\">Order# </font></span>"
+msgstr "<span><font color=\"#fff\">Order# </font></span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+msgid "<strong style=\"color:#3498DB !important;\">Bank Account Details</strong><br/>\n"
+"                <span>Account Id : </span>"
+msgstr "<strong style=\"color:#3498DB !important;\">Bank Account Details</strong><br/>\n"
+"                <span>Account Id : </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+msgid "<strong style=\"color:#3498DB !important;\">Paypal Account Details</strong><br/>\n"
+"                <span>Paypal Id : </span>"
+msgstr "<strong style=\"color:#3498DB !important;\">Paypal Account Details</strong><br/>\n"
+"                <span>Paypal Id : </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+msgid "<strong style=\"color:#fff !important;\">Bank Account Details</strong><br/>\n"
+"                        <span><font color=\"#fff\">Account Id :</font> </span>"
+msgstr "<strong style=\"color:#fff !important;\">Bank Account Details</strong><br/>\n"
+"                        <span><font color=\"#fff\">Account Id :</font> </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+msgid "<strong style=\"color:#fff !important;\">Bank Account Details</strong><br/>\n"
+"                <span><font color=\"#fff\">Account Id :</font> </span>"
+msgstr "<strong style=\"color:#fff !important;\">Bank Account Details</strong><br/>\n"
+"                <span><font color=\"#fff\">Account Id :</font> </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+msgid "<strong style=\"color:#fff !important;\">Paypal Account Details</strong><br/>\n"
+"                        <span><font color=\"#fff\">Paypal Id :</font> </span>"
+msgstr "<strong style=\"color:#fff !important;\">Paypal Account Details</strong><br/>\n"
+"                        <span><font color=\"#fff\">Paypal Id :</font> </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+msgid "<strong style=\"color:#fff !important;\">Paypal Account Details</strong><br/>\n"
+"                <span><font color=\"#fff\">Paypal Id :</font> </span>"
+msgstr "<strong style=\"color:#fff !important;\">Paypal Account Details</strong><br/>\n"
+"                <span><font color=\"#fff\">Paypal Id :</font> </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_purchasequotation_document
+msgid "<strong style=\"color:gray !important;\">Shipping address:</strong>"
+msgstr "<strong style=\"color:gray !important;\">Shipping address:</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_purchasequotation_document
+msgid "<strong style=\"color:gray !important;\">Vendor address:</strong><br/>"
+msgstr "<strong style=\"color:gray !important;\">Vendor address:</strong><br/>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "<strong> <span>Payment Term :</span></strong>"
+msgstr "<strong> <span>Payment Term :</span></strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "<strong> Payment Term:</strong>"
+msgstr "<strong> Payment Term:</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+msgid "<strong><font color=\"#FFF\"><span>Note:</span> </font></strong>"
+msgstr "<strong><font color=\"#FFF\"><span>Note:</span> </font></strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<strong><span>Comments:</span> </strong>"
+msgstr "<strong><span>Comments:</span> </strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "<strong><span>Note:</span> </strong>"
+msgstr "<strong><span>Note:</span> </strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<strong>Amount Due</strong>"
+msgstr "<strong>Montant dû</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<strong>Bank Account Details</strong><br/>\n"
+"                <span>Account Id : </span>"
+msgstr "<strong>Bank Account Details</strong><br/>\n"
+"                <span>Account Id : </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+msgid "<strong>Comment:</strong>"
+msgstr "<strong>Comment:</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+msgid "<strong>Date Req.</strong>"
+msgstr "<strong>Date Demandée.</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+msgid "<strong>Description</strong>"
+msgstr "<strong>Description</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+msgid "<strong>Due Date:</strong>"
+msgstr "<strong>Date d'échéance :</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<strong>Fiscal Position Remark:</strong>"
+msgstr "<strong>Remarque sur le régime fiscal :</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<strong>Invoice Date:</strong>"
+msgstr "<strong>Date de la facture :</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "<strong>Invoicing And Shipping Address</strong>"
+msgstr "<strong>Invoicing And Shipping Address</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+msgid "<strong>Net Price</strong>"
+msgstr "<strong>Net Price</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "<strong>Order Date:</strong>"
+msgstr "<strong>Date de commande:</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<strong>Paypal Account Details</strong><br/>\n"
+"                <span>Paypal Id : </span>"
+msgstr "<strong>Paypal Account Details</strong><br/>\n"
+"                <span>Paypal Id : </span>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+msgid "<strong>Qty</strong>"
+msgstr "<strong>Qté</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+msgid "<strong>Sales Person:</strong>"
+msgstr "<strong>Sales Person:</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "<strong>SalesPerson:</strong>"
+msgstr "<strong>SalesPerson:</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>Sous-total</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+msgid "<strong>Taxes</strong>"
+msgstr "<strong>Taxes</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "<strong>Total Without Taxes</strong>"
+msgstr "<strong>Total Without Taxes</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "<strong>Total</strong>"
+msgstr "<strong>Total</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+msgid "<strong>Unit Price</strong>"
+msgstr "<strong>Prix unitaire</strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "<strong>Your Reference:</strong>"
+msgstr "<strong>Votre référence : </strong>"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_res_company_account_template
+msgid "Account"
+msgstr "Compte"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.res_partner_bank_inherit_form_view
+msgid "Address"
+msgstr "Adresse"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+msgid "All items couldn't be shipped, the remaining ones will be shipped as soon as they become available."
+msgstr "Tous les éléments n'ont pas pu être expédiés, le reliquat sera expédié dès qu'il sera disponible"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchasequotation_document
+msgid "Approval Date"
+msgstr "Approval Date"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_res_company_bank_account_id
+msgid "Bank Account"
+msgstr "Compte bancaire"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model,name:bi_professional_reports_templates.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr "Comptes bancaires"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_res_partner_bank_branch_name
+msgid "Branch Name"
+msgstr "Branch Name"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_res_partner_bank_city
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.res_partner_bank_inherit_form_view
+msgid "City"
+msgstr "Ville"
+
+#. module: bi_professional_reports_templates
+#: selection:res.company,account_template:0
+#: selection:res.company,purchase_template:0
+#: selection:res.company,sale_template:0
+#: selection:res.company,stock_template:0
+msgid "Classic"
+msgstr "Classic"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model,name:bi_professional_reports_templates.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_deliveryslip_document
+msgid "Contact Address"
+msgstr "Contact Address"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_res_partner_bank_country_id
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.res_partner_bank_inherit_form_view
+msgid "Country"
+msgstr "Pays"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
+msgid "Customer"
+msgstr "Client"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_deliveryslip_document
+msgid "Customer Address"
+msgstr "Customer Address"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_deliveryslip_document
+msgid "Delevery #"
+msgstr "Delevery #"
+
+#. module: bi_professional_reports_templates
+#: model:ir.actions.report,name:bi_professional_reports_templates.action_report_delivery_custom
+msgid "Delivery Slip"
+msgstr "Bon de livraison"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "Description"
+msgstr "Description"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "Disc.(%)"
+msgstr "Rem.(%)"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+msgid "Draft Invoice"
+msgstr "Facture en brouillon"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+msgid "Due Date"
+msgstr "Date d'échéance"
+
+#. module: bi_professional_reports_templates
+#: selection:res.company,account_template:0
+#: selection:res.company,purchase_template:0
+#: selection:res.company,sale_template:0
+#: selection:res.company,stock_template:0
+msgid "Fency"
+msgstr "Fency"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_res_partner_bank_ifsc
+msgid "IFSC"
+msgstr "IFSC"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model,name:bi_professional_reports_templates.model_account_invoice
+msgid "Invoice"
+msgstr "Facture"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+msgid "Invoice #"
+msgstr "Facture n°"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+msgid "Invoice Date"
+msgstr "Date de facture"
+
+#. module: bi_professional_reports_templates
+#: model:ir.actions.report,name:bi_professional_reports_templates.custom_account_invoices
+msgid "Invoices"
+msgstr "Factures"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+msgid "Invoicing Address"
+msgstr "Invoicing Address"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
+msgid "Invoicing and shipping address"
+msgstr "Invoicing and shipping address"
+
+#. module: bi_professional_reports_templates
+#: selection:res.company,account_template:0
+#: selection:res.company,purchase_template:0
+#: selection:res.company,sale_template:0
+#: selection:res.company,stock_template:0
+msgid "Modern"
+msgstr "Modern"
+
+#. module: bi_professional_reports_templates
+#: selection:res.company,account_template:0
+#: selection:res.company,purchase_template:0
+#: selection:res.company,sale_template:0
+#: selection:res.company,stock_template:0
+msgid "Odoo Standard"
+msgstr "Odoo Standard"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchasequotation_document
+msgid "Order Date"
+msgstr "Date de la commande"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_deliveryslip_document
+msgid "Origin"
+msgstr "Origine"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+msgid "PRO-FORMA"
+msgstr "PRO-FORMA"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchasequotation_document
+msgid "Payment Term"
+msgstr "Payment Term"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_saleorder_document
+msgid "Payment Term :"
+msgstr "Payment Term :"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_account_invoice_paypal_chk
+msgid "Paypal"
+msgstr "Paypal"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_account_invoice_paypal_id
+msgid "Paypal Id"
+msgstr "Paypal Id"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "Price"
+msgstr "Prix"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_res_company_purchase_template
+msgid "Purchase"
+msgstr "Purchase"
+
+#. module: bi_professional_reports_templates
+#: model:ir.actions.report,name:bi_professional_reports_templates.custom_action_report_purchase_order
+#: model:ir.model,name:bi_professional_reports_templates.model_purchase_order
+msgid "Purchase Order"
+msgstr "Commande fournisseur"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+msgid "Purchase Order #"
+msgstr "Purchase Order #"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model,name:bi_professional_reports_templates.model_sale_order
+msgid "Quotation"
+msgstr "Devis"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
+msgid "Quotation #"
+msgstr "Devis №"
+
+#. module: bi_professional_reports_templates
+#: model:ir.actions.report,name:bi_professional_reports_templates.custom_report_sale_order
+msgid "Quotation / Order"
+msgstr "Devis / Commande"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
+msgid "Quotation Date"
+msgstr "Date du devis"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchasequotation_document
+msgid "Reference/Description"
+msgstr "Reference/Description"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchasequotation_document
+msgid "Request For Quatation #"
+msgstr "Request For Quatation #"
+
+#. module: bi_professional_reports_templates
+#: model:ir.actions.report,name:bi_professional_reports_templates.custom_report_purchase_quotation
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_purchasequotation_document
+msgid "Request for Quotation"
+msgstr "Demande de prix"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+msgid "Request for Quotation #"
+msgstr "Demande pour Devis #"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_res_company_sale_template
+msgid "Sale"
+msgstr "Sale"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
+msgid "SalesPerson"
+msgstr "SalesPerson"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchasequotation_document
+msgid "Scheduled Date"
+msgstr "Scheduled Date"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchasequotation_document
+msgid "Shipping Address"
+msgstr "Shipping Address"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_res_partner_bank_state_id
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.res_partner_bank_inherit_form_view
+msgid "State"
+msgstr "Région"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_res_company_stock_template
+msgid "Stock"
+msgstr "Stock"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_res_partner_bank_street
+msgid "Street"
+msgstr "Rue"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.res_partner_bank_inherit_form_view
+msgid "Street 2..."
+msgstr "Rue 2..."
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.res_partner_bank_inherit_form_view
+msgid "Street..."
+msgstr "Rue..."
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_res_partner_bank_street2
+msgid "Street2"
+msgstr "Rue 2"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_res_partner_bank_swift_code
+msgid "Swift Code"
+msgstr "Swift Code"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "Taxes"
+msgstr "Taxes"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+msgid "This shipment is a backorder of"
+msgstr "Cet envoi est un reliquat de"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+msgid "Unit Price"
+msgstr "Prix unitaire"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchasequotation_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchasequotation_document
+msgid "Vendor"
+msgstr "Fournisseur"
+
+#. module: bi_professional_reports_templates
+#: model:ir.ui.view,arch_db:bi_professional_reports_templates.res_partner_bank_inherit_form_view
+msgid "ZIP"
+msgstr "Code postal"
+
+#. module: bi_professional_reports_templates
+#: model:ir.model.fields,field_description:bi_professional_reports_templates.field_res_partner_bank_zip
+msgid "Zip"
+msgstr "Code postal"
+
