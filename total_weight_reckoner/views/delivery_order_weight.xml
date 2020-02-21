@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="delivery_order_weight_form">
+            <field name="name">stock.picking.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml"> 
+                <xpath expr="//form/sheet/notebook/page[3]/group/group" position="inside">
+                    <group>
+                            <field name="do_weight_total"/>
+                            <!-- <field name="do_net_weight_total"/> -->
+                    </group>
+                </xpath> 
+            </field> 
+        </record>   
+    </data>
+</openerp>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- add the total weight to the order form -->
+        <record model="ir.ui.view" id="purchase_order_weight_form">
+            <field name="name">purchase.order.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml"> 
+                <xpath expr="//notebook/page[1]/group" position="replace">
+                    <group>
+                        <group class="oe_subtotal_footer oe_right">
+                            <field name="amount_untaxed" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="amount_tax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <div class="oe_subtotal_footer_separator oe_inline">
+                                <label for="amount_total"/>
+                                <button name="button_dummy" states="draft" string="(update)" type="object" class="oe_edit_only oe_link"/>
+                            </div>
+                            <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                        <div>
+                             <group class="oe_subtotal_footer">
+                                <field name="po_weight_total"/>
+                            <!-- <field name="po_net_weight_total"/> -->
+                        </group>
+                        </div>
+                    </group>
+                </xpath> 
+            </field> 
+        </record>   
+    </data>
+</openerp>
