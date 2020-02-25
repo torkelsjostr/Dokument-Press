@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data>
+
+		<record id="view_inherit_purchase_order_filter" model="ir.ui.view">
+            <field name="name">view.inherit.purchase.order.search</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//filter[@name='my_purchases']" position="after">
+            		<separator/>
+                    <filter name="check_partially_delivery" string="Partially Shipped" domain="[('check_partially_delivery','=',True)]"/>
+                    <filter name="check_fully_delivery" string="Fully Shipped" domain="[('check_fully_delivery','=', True)]"/>
+                    <filter name="check_partially_paid" string="Partially Paid" domain="[('check_partially_paid','=', True)]"/>
+                    <filter name="check_fully_paid" string="Fully Paid" domain="[('check_fully_paid','=', True)]"/>
+            	</xpath>
+            </field>
+        </record>
+
+		<record id="view_inherit_purchase_order" model="ir.ui.view">
+            <field name="name">view.inherit.purchase.order</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+	        	<xpath expr="//form/sheet/group/group/field[@name='date_order']" position="after">
+	       			<field name="check_partially_delivery"/>
+	       			<field name="check_fully_delivery"/>
+	       			<field name="check_partially_paid"/>
+	       			<field name="check_fully_paid"/>
+			   	</xpath>
+			</field>
+		</record>
+
+		<record id="view_inherit_purchase_order_tree" model="ir.ui.view">
+            <field name="name">view.inherit.purchase.order.tree</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+            <field name="arch" type="xml">
+	        	<xpath expr="//tree/field[@name='state']" position="after">
+			   		<field name="check_partially_delivery"/>
+	       			<field name="check_fully_delivery"/>
+	       			<field name="check_partially_paid"/>
+	       			<field name="check_fully_paid"/>
+			   	</xpath>
+			</field>
+		</record>
+
+		<record id="view_inherit_picking_order" model="ir.ui.view">
+            <field name="name">view.inherit.picking.order</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+	        	<xpath expr="//form/sheet/div/field[@name='has_scrap_move']" position="after">
+	       			<field name="pick_bool" invisible="True"/>
+			   	</xpath>
+			</field>
+		</record>
+
+		<record id="view_inherit_invoice_account" model="ir.ui.view">
+            <field name="name">view.inherit.invoice.order</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+	        	<xpath expr="//field[@name='number']" position="after">
+	       			<field name="invoice_bool" invisible="True"/>
+			   	</xpath>
+			</field>
+		</record>
+
+	</data>
+</odoo>
