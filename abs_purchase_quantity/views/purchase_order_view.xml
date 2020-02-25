@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_purchase_order_total_product_form" model="ir.ui.view">
+        <field name="name">purchase.order.form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='notes']" position="after">
+                <br/>            
+                <label for="total_purchase_product" string="Total Products:" groups='abs_purchase_quantity.group_show_product_and_quantity_in_purchase_order'/>
+                <field name="total_purchase_product" groups='abs_purchase_quantity.group_show_product_and_quantity_in_purchase_order'></field>
+                <br/>            
+                <label for="total_purchase_quantity" string="Total Quantities:" groups='abs_purchase_quantity.group_show_product_and_quantity_in_purchase_order'/>
+                <field name="total_purchase_quantity" groups='abs_purchase_quantity.group_show_product_and_quantity_in_purchase_order'></field>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
