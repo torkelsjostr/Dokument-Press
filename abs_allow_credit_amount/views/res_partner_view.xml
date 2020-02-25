@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+              <xpath expr="//page[@name='sales_purchases']" position="inside">
+                  <group string="Allowed Credit Amount" >
+                      <field name = 'allowed_credit_amount' />
+                  </group>
+              </xpath>
+            </field>
+    </record>
+</odoo>
