@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record
+			id="purchase_order_tree_extends_add_contect_person_information"
+			model="ir.ui.view">
+			<field name="name">purchase.order.tree.extends.add.contect.person.information
+			</field>
+			<field name="model">purchase.order</field>
+			<field name="inherit_id"
+				ref="purchase.purchase_order_tree" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='partner_id']" position="after">
+					<field name="partner_contact_person_id"
+						options='{"always_reload": True}'
+						domain="[('parent_id', '=', partner_id)]" />
+				</xpath>
+			</field>
+		</record>
+
+		<record
+			id="purchase_order_form_extends_add_contect_person_information"
+			model="ir.ui.view">
+			<field name="name">purchase.order.form.extends.add.contect.person.information
+			</field>
+			<field name="model">purchase.order</field>
+			<field name="inherit_id" ref="purchase.purchase_order_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='partner_id']" position="after">
+					<field name="partner_contact_person_id"
+						options='{"always_reload": True}'
+						domain="[('parent_id', '=', partner_id)]" />
+				</xpath>
+			</field>
+		</record>
+
+		<record
+			id="view_purchase_order_filter_extends_add_contect_person_filter"
+			model="ir.ui.view">
+			<field name="name">view.purchase.order.filter.extends.add.contect.person.filter
+			</field>
+			<field name="model">purchase.order</field>
+			<field name="inherit_id" ref="purchase.view_purchase_order_filter" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='name']" position="after">
+					<field name="partner_contact_person_id"
+						string="Contact Person"
+						domain="[('partner_id_child_id', 'ilike', self)]" />
+				</xpath>
+				<xpath expr="//group" position="inside">
+					<filter string="Contact Person" name="contact_person"
+						context="{'group_by': 'partner_contact_person_id'}" />
+				</xpath>
+			</field>
+
+		</record>
+	</data>
+</odoo>

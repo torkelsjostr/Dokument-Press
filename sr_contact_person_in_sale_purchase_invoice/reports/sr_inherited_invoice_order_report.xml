@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template
+			id="report_invoice_document_extend_print_contact_information"
+			inherit_id="account.report_invoice_document">
+			<div id="informations" position="inside">
+				<div t-if="o.partner_contact_person_id"
+					class="col-auto mw-100 mb-2">
+					<strong>Contact Person:</strong>
+					<p class="m-0" t-field="o.partner_contact_person_id" />
+				</div>
+			</div>
+		</template>
+	</data>
+</odoo>
