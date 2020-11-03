@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record
+			id="invoice_tree_extends_add_contect_person_information"
+			model="ir.ui.view">
+			<field name="name">invoice.tree.extends.add.contect.person.information
+			</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id"
+				ref="account.invoice_tree" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='date_invoice']" position="before">
+					<field name="partner_contact_person_id"
+						options='{"always_reload": True}'
+						domain="[('parent_id', '=', partner_id)]" />
+				</xpath>
+			</field>
+		</record>
+
+		<record
+			id="invoice_form_extends_add_contect_person_information"
+			model="ir.ui.view">
+			<field name="name">invoice.form.extends.add.contect.person.information
+			</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.invoice_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='partner_id']" position="after">
+					<field name="partner_contact_person_id"
+						options='{"always_reload": True}'
+						domain="[('parent_id', '=', partner_id)]" />
+				</xpath>
+			</field>
+		</record>
+
+		<record
+			id="view_account_invoice_filter_extends_add_contect_person_filter"
+			model="ir.ui.view">
+			<field name="name">view.account.invoice.filter.extends.add.contect.person.filter
+			</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.view_account_invoice_filter" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='number']" position="after">
+					<field name="partner_contact_person_id"
+						string="Contact Person"
+						domain="[('partner_id_child_id', 'ilike', self)]" />
+				</xpath>
+				<xpath expr="//group" position="inside">
+					<filter string="Contact Person" name="contact_person"
+						context="{'group_by': 'partner_contact_person_id'}" />
+				</xpath>
+			</field>
+
+		</record>
+	</data>
+</odoo>
