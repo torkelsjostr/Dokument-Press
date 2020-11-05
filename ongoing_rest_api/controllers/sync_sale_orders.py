@@ -7,6 +7,7 @@ from odoo.exceptions import UserError
 
 class TransportServiceCode(models.Model):
     _name = 'transporter.service.code'
+    _rec_name = 'code'
 
     name = fields.Char(string="Transporter Code", required=True)
     code = fields.Char(string="Transporter Service Code", required=True)
