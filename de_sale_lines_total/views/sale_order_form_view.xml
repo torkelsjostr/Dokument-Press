@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="inherit_sale_order_form_view" model="ir.ui.view">
+            <field name="name">Sale Order</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook" position="after">
+                    <group>
+                        <group>
+                            <field name="tot_sale_qty" nolabel="0"/>
+                            <field name="tot_delivered_qty" nolabel="0" />
+                            <field name="tot_invoiced_qty" nolabel="0" />
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
