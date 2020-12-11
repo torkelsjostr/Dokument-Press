@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_api_form,api.form,model_api_form,base.group_user,1,1,1,0
+access_transporter_service_code,access.transporter.service.code,model_transporter_service_code,base.group_user,1,1,1,1
+access_customer_type,access.customer.type.code,model_customer_type,base.group_user,1,1,1,1

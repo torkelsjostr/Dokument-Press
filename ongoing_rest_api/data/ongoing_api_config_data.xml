@@ -1,0 +1,43 @@
+<odoo>
+    <data noupdate="1">
+        <record id="api_of_products" model="api.form">
+            <field name="name">product</field>
+            <field name="username">WSIOdooTest</field>
+            <field name="password">CNefbWoR6Xd7mbZTW22F</field>
+            <field name="goods_owner_id">67</field>
+            <field name="url">https://wms1.ongoingsystems.se/dokumentpress/api/v1/articles/</field>
+        </record>
+
+        <record id="api_of_sales_orders" model="api.form">
+            <field name="name">sale_order</field>
+            <field name="username">WSIOdooTest</field>
+            <field name="password">CNefbWoR6Xd7mbZTW22F</field>
+            <field name="goods_owner_id">67</field>
+            <field name="url">https://wms1.ongoingsystems.se/dokumentpress/api/v1/orders/</field>
+        </record>
+
+        <record id="api_of_purchase_orders" model="api.form">
+            <field name="name">purchase_order</field>
+            <field name="username">WSIOdooTest</field>
+            <field name="password">CNefbWoR6Xd7mbZTW22F</field>
+            <field name="goods_owner_id">67</field>
+            <field name="url">https://wms1.ongoingsystems.se/dokumentpress/api/v1/purchaseOrders/</field>
+        </record>
+
+        <record id="api_of_get_sales_orders" model="api.form">
+            <field name="name">get_sale_order</field>
+            <field name="username">WSIOdooTest</field>
+            <field name="password">CNefbWoR6Xd7mbZTW22F</field>
+            <field name="goods_owner_id">67</field>
+            <field name="url">https://wms1.ongoingsystems.se/dokumentpress/api/v1/orders/</field>
+        </record>
+
+        <record id="api_of_get_purchase_orders" model="api.form">
+            <field name="name">get_purchase_order</field>
+            <field name="username">WSIOdooTest</field>
+            <field name="password">CNefbWoR6Xd7mbZTW22F</field>
+            <field name="goods_owner_id">67</field>
+            <field name="url">https://wms1.ongoingsystems.se/dokumentpress/api/v1/purchaseOrders/</field>
+        </record>
+    </data>
+</odoo>

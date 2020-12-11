@@ -1,0 +1,111 @@
+<odoo>
+    <record id="inherit_view_order_form" model="ir.ui.view">
+        <field name="name">inherit.view.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="sheet/notebook/page[1]/field[@name='order_line']" position="before">
+                <button name="select_all" string="Select All" type="object" class="oe_right oe_highlight"/>
+            </xpath>
+            <xpath expr="sheet/notebook/page[1]/field[1]/tree//field[@name='price_subtotal']" position="after">
+                <field name="create_in_ongoing"/>
+            </xpath>
+            <xpath expr="//page[@name='other_information']" position="after">
+                <page string="Ongoing WMS Configurations" name="ongoing_config">
+                    <group>
+                        <group>
+                            <field name="customer_type_id"/>
+                            <field name="delivery_instruction"/>
+                            <field name="carrier_tracking_ref"/>
+                        </group>
+                        <group>
+                            <field name="transport_service_code_id"/>
+                            <field name="delivery_information"/>
+                            <field name="ongoing_order_ref" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Notifications">
+                        <group>
+                            <field name="email"/>
+                            <field name="email_message" attrs="{'invisible': [('email', '=', False)]}"/>
+                        </group>
+                        <group>
+                            <field name="sms"/>
+                            <field name="sms_message" attrs="{'invisible': [('sms', '=', False)]}"/>
+                        </group>
+                    </group>
+                    <field name="sales_order_remark" placeholder="Add an internal note that will be sent to Ongoing WMS"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_view_purchase_order_form" model="ir.ui.view">
+        <field name="name">inherit.view.purchase.order.form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="sheet/notebook/page[1]/field[@name='order_line']" position="before">
+                <button name="select_all" string="Select All" type="object" class="oe_right oe_highlight"/>
+            </xpath>
+            <xpath expr="sheet/notebook/page[1]/field[1]/tree//field[@name='price_subtotal']" position="after">
+                <field name="create_in_ongoing" force_save="1"/>
+            </xpath>
+            <xpath expr="//page[@name='purchase_delivery_invoice']" position="after">
+                <page string="Purchase Order Remark" name="purchase_order_remark">
+                    <group>
+                        <field name="purchase_order_remark" placeholder="Add an internal note that will be sent to Ongoing WMS"/>
+                        <field name="ongoing_order_ref" readonly="1"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_view_picking_form" model="ir.ui.view">
+        <field name="name">inherit.view.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_validate']" position="after">
+                <button name="run_manually" type="object" string="Sync with Ongoing"/>
+            </xpath>
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="picking_type_code"/>
+                <field name="create_purchase_order" attrs="{'invisible': [('picking_type_code','!=','internal')]}"/>
+                <field name="create_sale_order" attrs="{'invisible': [('picking_type_code','!=','internal')]}"/>
+            </xpath>
+            <xpath expr="//page[@name='extra']" position="after">
+                <page string="Ongoing WMS" name="ongoing_wms_config">
+                    <group string="Ongoing WMS Order Details" attrs="{'invisible': [('source_type', '=', False)]}">
+                        <group>
+                            <field name="source_type" readonly="1"/>
+                            <field name="sale_order_id" attrs="{'invisible': [('source_type', '!=', 'sale')]}" readonly="1"/>
+                            <field name="purchase_id" attrs="{'invisible': [('source_type', '=', 'sale')]}" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="ongoing_sale_ref" attrs="{'invisible': [('source_type', '!=', 'sale')]}" readonly="1"/>
+                            <field name="ongoing_purchase_ref" attrs="{'invisible': [('source_type', '=', 'sale')]}" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Ongoing WMS Configuration" attrs="{'invisible': [('picking_type_code','!=','internal')]}">
+                        <group attrs="{'invisible': [('create_sale_order','=',False)]}">
+                            <field name="customer_type_id" attrs="{'readonly': [('state','!=','draft')]}"/>
+                            <field name="delivery_instruction" attrs="{'readonly': [('state','!=','draft')]}"/>
+                            <field name="carrier_tracking_ref" attrs="{'readonly': [('state','!=','draft')]}"/>
+                            <field name="email" attrs="{'readonly': [('state','!=','draft')]}"/>
+                            <field name="email_message" attrs="{'readonly': [('state','!=','draft')], 'invisible': [('email', '=', False)]}"/>
+                        </group>
+                        <group attrs="{'invisible': [('create_sale_order','=',False)]}">
+                            <field name="transport_service_code_id" attrs="{'readonly': [('state','!=','draft')]}"/>
+                            <field name="delivery_information" attrs="{'readonly': [('state','!=','draft')]}"/>
+                            <field name="sms" attrs="{'readonly': [('state','!=','draft')]}"/>
+                            <field name="sms_message" attrs="{'readonly': [('state','!=','draft')], 'invisible': [('sms', '=', False)]}"/>
+                        </group>
+                        <field name="order_remark" placeholder="Add an internal note that will be sent to Ongoing WMS" attrs="{'readonly': [('state','!=','draft')]}"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

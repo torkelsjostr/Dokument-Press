@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="api_form_tree_view" model="ir.ui.view">
+            <field name="name">api.form.tree</field>
+            <field name="model">api.form</field>
+            <field name="arch" type="xml">
+                <tree string="Forms">
+                    <field name="name"/>
+                    <field name="url"/>
+                    <field name="goods_owner_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="api_form_id" model="ir.ui.view">
+            <field name="name">api.form.id</field>
+            <field name="model">api.form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="username" placeholder="username" required="1"/>
+                                <field name="password" placeholder="password" password="True" required="1"/>
+                                <field name="goods_owner_id" required="1"/>
+                                <field name="url" required="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="api_form_action" model="ir.actions.act_window">
+            <field name="name">Ongoing API Configurations</field>
+            <field name="res_model">api.form</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create"> Create The First Form
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_ongoing_wms" name="Ongoing API Configurations" parent="base.menu_administration" action="api_form_action" sequence="100" groups="base.group_no_one"/>
+    </data>
+</odoo>
