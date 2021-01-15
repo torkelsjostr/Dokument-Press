@@ -132,16 +132,17 @@ class SyncSaleOrder(models.TransientModel):
                 'value': sale_order_id.sms_message or None
             }
         }
-        return_response = requests.put(url, headers=headers, json=data)
-        if return_response.status_code in [200, 201]:
-            if not sale_order_id.ongoing_order_ref:
-                sale_order_id.write({
-                    "ongoing_order_ref": json.loads(return_response.text).get('orderId')
-                })
-        else:
-            raise UserError(str(sale_order_id.id) + " - " + str(sale_order_id.name) + " ------ " + str(
-                json.loads(return_response.text).get('message')) + " - " + str(
-                json.loads(return_response.text).get('modelState')))
+        if order_line:
+            return_response = requests.put(url, headers=headers, json=data)
+            if return_response.status_code in [200, 201]:
+                if not sale_order_id.ongoing_order_ref:
+                    sale_order_id.write({
+                        "ongoing_order_ref": json.loads(return_response.text).get('orderId')
+                    })
+            else:
+                raise UserError(str(sale_order_id.id) + " - " + str(sale_order_id.name) + " ------ " + str(
+                    json.loads(return_response.text).get('message')) + " - " + str(
+                    json.loads(return_response.text).get('modelState')))
 
 
 class InheritSaleOrderLine(models.Model):
