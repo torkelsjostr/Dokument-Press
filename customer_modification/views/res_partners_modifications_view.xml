@@ -17,11 +17,6 @@
                 <field name="primary_phone" invisible="1"/>
                 <field name="customer_code" invisible="1"/>
             </xpath>
-            <xpath expr="//page[@name='internal_notes']" position="replace">
-                <page name="internal_notes" string="General Notes">
-                    <field name="comment" placeholder="General notes..."/>
-                </page>
-            </xpath>
             <xpath expr="//page[@name='internal_notes']" position="after">
                 <page name="important_notes" string="Important Notes">
                     <field name="important_notes" placeholder="Important notes..."/>

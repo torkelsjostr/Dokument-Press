@@ -80,16 +80,17 @@ class SyncPurchaseOrder(models.TransientModel):
             'purchaseOrderLines': order_line,
             'purchaseOrderRemark': purchase_order_id.purchase_order_remark
         }
-        return_response = requests.put(url, headers=headers, json=data)
-        if return_response.status_code in [200, 201]:
-            if not purchase_order_id.ongoing_order_ref:
-                purchase_order_id.write({
-                    "ongoing_order_ref": json.loads(return_response.text).get('purchaseOrderId')
-                })
-        else:
-            raise UserError(str(purchase_order_id.id) + " - " + str(purchase_order_id.name) + " ------ " + str(
-                json.loads(return_response.text).get('message')) + " - " + str(
-                json.loads(return_response.text).get('modelState')))
+        if order_line:
+            return_response = requests.put(url, headers=headers, json=data)
+            if return_response.status_code in [200, 201]:
+                if not purchase_order_id.ongoing_order_ref:
+                    purchase_order_id.write({
+                        "ongoing_order_ref": json.loads(return_response.text).get('purchaseOrderId')
+                    })
+            else:
+                raise UserError(str(purchase_order_id.id) + " - " + str(purchase_order_id.name) + " ------ " + str(
+                    json.loads(return_response.text).get('message')) + " - " + str(
+                    json.loads(return_response.text).get('modelState')))
 
 
 class InheritPurchaseOrderLine(models.Model):
