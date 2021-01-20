@@ -25,7 +25,9 @@ class InheritProductTemplate(models.Model):
         only product type is product"""
         product_obj = super(InheritProductTemplate, self).write(vals)
         if self.type == 'product':
-            self.env['sync.products'].create_product_in_ongoing(self)
+            sql = """UPDATE product_template SET  ongoing_product_ref = %s where id = %s"""
+            values = (self.env['sync.products'].create_product_in_ongoing(self), self.id)
+            self._cr.execute(sql, values)
         return product_obj
 
     @api.multi
@@ -80,10 +82,7 @@ class SyncProducts(models.TransientModel):
         }
         return_response = requests.put(url, headers=headers, json=data)
         if return_response.status_code == 200:
-            if not product_id.ongoing_product_ref:
-                product_id.write({
-                    "ongoing_product_ref": json.loads(return_response.text).get('articleSystemId')
-                })
+            return json.loads(return_response.text).get('articleSystemId')
         else:
             raise UserError(str(product_id.id) + " - " + str(product_id.name) + " ------ " + str(json.loads(return_response.text).get('message')) + " - " + str(json.loads(return_response.text).get('modelState')))
 
