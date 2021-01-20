@@ -16,7 +16,7 @@ class InheritProductTemplate(models.Model):
         only product type is product"""
         product_obj = super(InheritProductTemplate, self).create(vals)
         if product_obj.type == 'product':
-            self.env['sync.products'].create_product_in_ongoing(product_obj)
+            product_obj.ongoing_product_ref = self.env['sync.products'].create_product_in_ongoing(product_obj)
         return product_obj
 
     @api.multi
