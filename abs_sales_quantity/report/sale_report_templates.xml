@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//p[@t-field='doc.note']" position="before">
+            <strong style="font-size: 11px;font-family:Arial;" groups="abs_sales_quantity.group_show_product_and_quantity_in_sales_order">Total Ordered Products: </strong>
+            <span t-field="doc.total_sale_product" groups="abs_sales_quantity.group_show_product_and_quantity_in_sales_order"/>
+            <br/>
+            <strong style="font-size: 11px;font-family:Arial;" groups="abs_sales_quantity.group_show_product_and_quantity_in_sales_order">Total Ordered Quantity: </strong>
+            <span t-field="doc.total_sale_product_qty" groups="abs_sales_quantity.group_show_product_and_quantity_in_sales_order"/>
+        </xpath>
+    </template>
+
+</odoo>

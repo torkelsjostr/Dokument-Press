@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="group_show_product_and_quantity_in_sales_order" model="res.groups">
+		<field name="name">Show Products and Quantity on Sales Order</field>
+	</record>
+</odoo>
