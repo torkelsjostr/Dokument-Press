@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_account_form_inherit" model="ir.ui.view">
+            <field name="name">view_account_form_inherit</field>
+            <field name="model">account.account</field>
+            <field name="inherit_id" ref="account.view_account_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_type_id']" position="after">
+                    <field name="is_tax_adjustment"/>
+                    <field name="is_other_discount"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_search_inherit" model="ir.ui.view">
+            <field name="name">view_account_search.inherit</field>
+            <field name="model">account.account</field>
+            <field name="inherit_id" ref="account.view_account_search"/>
+            <field name="arch" type="xml">
+                <filter name="receivableacc" position='before'>
+                    <filter string="Ajuste de Impuesto" name="tax_adjustment" domain="[('is_tax_adjustment','=', 'True')]"/>
+                    <filter string="Otros Descuentos" name="other_discount" domain="[('is_other_discount','=', 'True')]"/>
+                </filter>
+            </field>
+        </record>
+    </data>
+</odoo>
