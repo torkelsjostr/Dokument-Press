@@ -9,9 +9,11 @@ class InheritStockPicking(models.Model):
     _inherit = 'stock.picking'
 
     sale_order_id = fields.Many2one('sale.order', string="Sale Order", compute='get_order_id')
-    ongoing_sale_ref = fields.Integer("Ongoing Product Ref", related='sale_order_id.ongoing_order_ref', store=True)
+    ongoing_sale_ref = fields.Integer("Ongoing Sale Ref", related='sale_order_id.ongoing_order_ref', store=True)
+    ongoing_int_sale_ref = fields.Integer("Ongoing Internal Sale Ref", store=True)
     purchase_order_id = fields.Many2one('purchase.order', string="Purchase Order", compute='get_order_id')
-    ongoing_purchase_ref = fields.Integer("Ongoing Product Ref", related='purchase_order_id.ongoing_order_ref', store=True)
+    ongoing_purchase_ref = fields.Integer("Ongoing Purchase Ref", related='purchase_order_id.ongoing_order_ref', store=True)
+    ongoing_int_purchase_ref = fields.Integer("Ongoing Internal Purchase Ref", store=True)
     source_type = fields.Selection([('sale', 'Sale'), ('purchase', 'Purchase'), ('internal', 'Internal')], "Source Type", compute='get_order_id', store=True)
     create_sale_order = fields.Boolean('Create Sale Order')
     create_purchase_order = fields.Boolean('Create Purchase Order')
@@ -48,6 +50,9 @@ class InheritStockPicking(models.Model):
         """Function to retrieve data from Ongoing"""
         if self.ongoing_sale_ref or self.ongoing_purchase_ref:
             ongoing_id = self.ongoing_sale_ref if self.source_type == 'sale' else self.ongoing_purchase_ref
+            self.env['sync.sale.transfers'].retrieve_values_from_ongoing(ongoing_id, self.source_type, self)
+        elif self.ongoing_int_sale_ref or self.ongoing_int_purchase_ref:
+            ongoing_id = self.ongoing_int_sale_ref if self.source_type == 'sale' else self.ongoing_int_purchase_ref
             self.env['sync.sale.transfers'].retrieve_values_from_ongoing(ongoing_id, self.source_type, self)
 
     def scheduled_run(self):
@@ -196,6 +201,7 @@ class SyncSaleTransfer(models.TransientModel):
             if not purchase_order_id.ongoing_purchase_ref:
                 purchase_order_id.write({
                     "ongoing_purchase_ref": json.loads(return_response.text).get('purchaseOrderId'),
+                    "ongoing_int_purchase_ref": json.loads(return_response.text).get('purchaseOrderId'),
                     "source_type": 'purchase',
                 })
         else:
@@ -268,6 +274,7 @@ class SyncSaleTransfer(models.TransientModel):
             if not sale_order_id.ongoing_sale_ref:
                 sale_order_id.write({
                     "ongoing_sale_ref": json.loads(return_response.text).get('orderId'),
+                    "ongoing_int_sale_ref": json.loads(return_response.text).get('orderId'),
                     "source_type": 'sale',
                 })
         else:

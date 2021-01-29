@@ -85,7 +85,9 @@
                         </group>
                         <group>
                             <field name="ongoing_sale_ref" attrs="{'invisible': [('source_type', '!=', 'sale')]}" readonly="1"/>
+                            <field name="ongoing_int_sale_ref" attrs="{'invisible': [('source_type', '!=', 'sale')]}" readonly="1"/>
                             <field name="ongoing_purchase_ref" attrs="{'invisible': [('source_type', '=', 'sale')]}" readonly="1"/>
+                            <field name="ongoing_int_purchase_ref" attrs="{'invisible': [('source_type', '=', 'sale')]}" readonly="1"/>
                         </group>
                     </group>
                     <group string="Ongoing WMS Configuration" attrs="{'invisible': [('picking_type_code','!=','internal')]}">
