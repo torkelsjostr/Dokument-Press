@@ -71,6 +71,7 @@
                 <button name="run_manually" type="object" string="Sync with Ongoing"/>
             </xpath>
             <xpath expr="//field[@name='origin']" position="after">
+                <field name="partial_transfer" readonly="1"/>
                 <field name="picking_type_code"/>
                 <field name="create_purchase_order" attrs="{'invisible': [('picking_type_code','!=','internal')]}"/>
                 <field name="create_sale_order" attrs="{'invisible': [('picking_type_code','!=','internal')]}"/>

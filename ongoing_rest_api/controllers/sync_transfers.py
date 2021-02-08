@@ -17,6 +17,7 @@ class InheritStockPicking(models.Model):
     source_type = fields.Selection([('sale', 'Sale'), ('purchase', 'Purchase'), ('internal', 'Internal')], "Source Type", compute='get_order_id', store=True)
     create_sale_order = fields.Boolean('Create Sale Order')
     create_purchase_order = fields.Boolean('Create Purchase Order')
+    partial_transfer = fields.Boolean('Partial Transfer')
     order_remark = fields.Text("Order Remark")
 
     ongoing_order_ref = fields.Integer("Ongoing Product Ref", copy=False)
@@ -157,8 +158,30 @@ class SyncSaleTransfer(models.TransientModel):
                         stock_picking_id.write({
                             "carrier_tracking_ref": response_converted_json.get('orderInfo').get('wayBill')
                         })
-                elif order_status_code < 400:
-                    print("Open")
+                elif order_status_code == 380:
+                    if stock_picking_id.state != 'done':
+                        for line in stock_picking_id.move_ids_without_package:
+                            for item in response_converted_json.get('orderLines'):
+                                if int(item.get('article').get(
+                                        'articleSystemId')) == line.product_id.ongoing_product_ref and item.get(
+                                        'orderedNumberOfItems') == line.product_uom_qty:
+                                    line.with_context(noupdate=True).write(
+                                        {'quantity_done': item.get('pickedNumberOfItems')})
+                    if stock_picking_id.sale_order_id:
+                        sql = """UPDATE sale_order SET carrier_tracking_ref = %s where id = %s"""
+                        values = (
+                        response_converted_json.get('orderInfo').get('wayBill'), stock_picking_id.sale_order_id.id)
+                        self._cr.execute(sql, values)
+                        print("Picked")
+                    else:
+                        stock_picking_id.write({
+                            "carrier_tracking_ref": response_converted_json.get('orderInfo').get('wayBill')
+                        })
+                    cancel_backorder_obj = self.env['stock.backorder.confirmation'].create({'pick_ids': [(4, stock_picking_id.id)]})
+                    cancel_backorder_obj.process_cancel_backorder()
+                    stock_picking_id.write({
+                        'partial_transfer': True
+                    })
                 else:
                     raise UserError("Status Not Found")
 
