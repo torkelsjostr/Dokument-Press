@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author      : Niova Group ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova Group ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+<odoo>
+	<data>
+		<delete model="ir.ui.view" id="niova_invoice_scan.vendorbill_inherit_form"/>
+
+		<record id="account_journal_dashboard_kanban_view" model="ir.ui.view">
+			<field name="name">account.journal.dashboard.kanban</field>
+			<field name="model">account.journal</field>
+			<field name="inherit_id" ref="account.account_journal_dashboard_kanban_view" />
+			<field name="arch" type="xml">
+				<xpath expr="//t[@t-name='JournalBodySalePurchase']//button[@name='action_create_new' and not(contains(@class,'o_invoice_new'))]" position="after">		
+					<button name="%(action_invoice_scan_upload)d" type="action" class="btn btn-primary">
+						<span>Invoice Scan Upload</span>
+					</button>
+					<button name="action_sync_invoice_scan" type="object" class="btn btn-primary">
+						<span>Sync Invoice Scan</span>
+					</button>
+				</xpath>
+			</field>
+		</record>
+
+		<record id="view_invoice_supplier_form" model="ir.ui.view">
+			<field name="name">view.invoice.supplier.form</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.invoice_supplier_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//header" position="inside">
+					<button name="action_add_single_line" 
+				       		class="btn btn-primary mr-1 oe_edit_only"
+				       		string="Add total line"
+				       		icon="fa-plus"
+							type="object"
+							attrs="{'invisible':['|','|','|',('partner_id', '=', False),('invoice_line_ids', '!=', []),('state', '!=', 'draft'),('voucher_id', '=', False)]}"/>
+					<button name="action_add_scanned_lines" 
+						class="btn btn-primary oe_edit_only"
+						string="Add scanned lines"
+						icon="fa-plus"
+						type="object"
+						attrs="{'invisible':['|','|','|',('partner_id', '=', False),('invoice_line_ids', '!=', []),('state', '!=', 'draft'),('voucher_id', '=', False)]}"/>
+					<button name="action_clear_invoice_lines" 
+						class="btn btn-primary oe_edit_only"
+						string="Clear lines"
+						icon="fa-minus"
+						type="object"
+						attrs="{'invisible':['|','|','|',('partner_id', '=', False),('invoice_line_ids', '=', []),('state', '!=', 'draft'),('voucher_id', '=', False)]}"/>
+				</xpath>
+				<xpath expr="//field[@name='partner_id']" position="after">
+					<field name="voucher_company_name" attrs="{'invisible':['|', ('state', '!=', 'draft'),('voucher_id', '=', False)]}"/>
+					<field name="duplicated_invoice_ids" 
+						   widget="many2many_tags"
+    					   options="{'no_create': True}"
+    					   attrs="{'invisible':['|', ('state', '!=', 'draft'), ('duplicated_invoice_ids', '=', [])]}"/>
+				</xpath>
+				<xpath expr="//field[@name='date_due']" position="after">
+					<field name="payment_date" attrs="{'invisible':['|', ('state', '!=', 'draft'),('voucher_id', '=', False)]}"/>
+				</xpath>
+				<xpath expr='//group' position="after">
+					<field name="voucher_id" invisible="1"/>
+					<group name="invoice_scan" attrs="{'invisible':[('voucher_id', '=', False)]}">
+						<group string="Values">
+							<field name="total_amount_incl_vat" />
+							<field name="total_vat_amount_scanned" />
+							<field name="total_amount_excl_vat" />
+							<field name="control_value" string="Control Value" />
+							<field name="default_currency_used" invisible="1"/>
+						</group>
+						<group string="References">
+							<field name="purchase_reference" />
+						</group>
+					</group>
+				</xpath>
+				<xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='company_id']" position="after">
+					<field name="voucher_line_id" invisible="1" readonly="0" />
+				</xpath>
+				<xpath expr="//field[@name='invoice_line_ids']" position="attributes">		
+					<attribute name="context">{'type': type, 'journal_id': journal_id, 'partner_id': partner_id}</attribute>
+				</xpath>
+				<xpath expr='//sheet/div' position="before">
+					<div class="oe_button_box" name="button_box">
+	                   <button name="action_voucher_wizard"
+                           class="oe_stat_button"
+                           icon="fa-file-text-o"
+                           type="object"
+                           string="Scanned Voucher"
+                           attrs="{'invisible':['|', ('state', '!=', 'draft'),('voucher_id', '=', False)]}"/>
+                       <button name="%(action_view_invoice_scan_support)d"
+	                       class="oe_stat_button"
+	                       icon="fa-envelope"
+	                       type="action"
+	                       context="{'voucher_id': voucher_id}"
+	                       string="Improve Scan"
+	                       attrs="{'invisible':['|', ('state', '!=', 'draft'),('voucher_id', '=', False)]}"/>
+	               </div>
+				   <div class="alert alert-danger" role="alert" attrs="{'invisible':[('default_currency_used', '=', False)]}">
+						OBS: The currency is set by the default and is not necessary the right currency.
+					</div>
+                </xpath>
+                <xpath expr="//notebook/page//group/group/field[@name='company_id']" position="replace">
+					<label for="company_id" />
+					<button name="%(action_invoice_change_company)d"
+							class="oe_stat_button"
+	                        type="action"
+	                        required="True"
+	                        context="{'invoice_id': active_id, 'company_id': company_id}">
+	                        <div class="o_form_field">
+	                            <span class="o_stat_text">
+	                            	<field name="company_id" readonly="1" options="{'no_open': True}"/>
+                            	</span>
+	                        </div>
+	                </button>
+	            </xpath>
+			</field>
+		</record>
+
+		<record id="action_voucher_vendor_bill" model="ir.actions.act_window">
+            <field name="name">Vendor Bill</field>
+            <field name="res_model">account.invoice</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field eval="False" name="view_id"/>
+        </record>
+	</data>
+</odoo>

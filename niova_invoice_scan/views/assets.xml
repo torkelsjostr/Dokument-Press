@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author      : Niova Group ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova Group ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+<odoo>
+    <template id="assets_backend" name="assets_invoice_scan" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script src="/niova_invoice_scan/static/src/js/invoice_scan_sync_button.js" type="text/javascript"/>
+        </xpath>
+    </template>
+</odoo>

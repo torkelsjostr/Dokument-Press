@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author      : Niova Group ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova Group ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+<odoo>
+    <data>
+        <record id="view_invoice_scan_activate_from" model="ir.ui.view">
+            <field name="name">invoice.scan.activation.form</field>
+            <field name="model">invoicescan.activation</field>
+            <field name="arch" type="xml">
+                <form string="Activate Invoice Scan">
+                	<div class="">
+                		Insert the key and press activate.
+                    </div>
+            	    
+                    <group>
+                    	<group>
+	                    	<field name="client_secret"/>
+	                    </group>
+                    </group>
+                    
+                    <div>
+                    	You can found the key here if you do not have any:
+                    	<button type="object" name="recieve_activation_key" string="Get Activation Key" icon="fa-arrow-right" class="oe_link"/>
+                    </div>
+                    
+                    <footer>
+                        <button string="Activate" name="action_activate_invoice_scan" type="object" default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+        
+        <record id="view_invoice_scan_deactivate_from" model="ir.ui.view">
+            <field name="name">invoice.scan.activation.form</field>
+            <field name="model">invoicescan.activation</field>
+            <field name="arch" type="xml">
+                <form string="Deactivate Invoice Scan">
+                	<div class="">
+                		Are you sure you want to deactivate Invoice Scan?
+                    </div>
+                    <field name="client_secret" invisible="1"/>
+                    <footer>
+                        <button string="Deactivate" name="action_dactivate_invoice_scan" type="object" default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+        
+        <record id="action_view_invoice_scan_activate" model="ir.actions.act_window">
+            <field name="name">Activate Invoice Scan</field>
+            <field name="res_model">invoicescan.activation</field>
+            <field name="view_mode">form</field>        
+            <field name="view_id" ref="view_invoice_scan_activate_from"/>
+            <field name="target">new</field>
+        </record>
+        
+        <record id="action_view_invoice_scan_deactivate" model="ir.actions.act_window">
+            <field name="name">Deactivate Invoice Scan</field>
+            <field name="res_model">invoicescan.activation</field>
+            <field name="view_mode">form</field>        
+            <field name="view_id" ref="view_invoice_scan_deactivate_from"/>
+            <field name="target">new</field>
+            <field name="context">{'default_client_secret': client_secret}</field>
+        </record>
+    </data>
+</odoo>

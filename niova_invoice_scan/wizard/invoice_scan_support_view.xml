@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author      : Niova Group ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova Group ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+<odoo>
+    <data>
+        <record id="view_invoice_scan_support" model="ir.ui.view">
+            <field name="name">invoice.scan.support.form</field>
+            <field name="model">invoicescan.support</field>
+            <field name="arch" type="xml">
+                <form string="Invoice Scan Support">
+                	<div class="">
+                		We are glad you want to contribute to OCR engine!
+                		Please write down some of the issues you see in relation to the scanned document.
+                		The improvement will in the end insure your document are scanned even more accurate!
+
+                        You will be contacted directly to your Odoo email.
+                    </div>
+                    <group>
+                        <field name="voucher_id" invisible="1"/>
+                        <field name="type_supported" invisible="1"/>
+                        <!--What type is it-->
+                        <field name="voucher_type"/>
+                        <div attrs="{'invisible':[('type_supported', '=', True)]}">
+                            We do only support Vendor Bill and Vendor Credit Note. Feel free to contact Niova IT to ask for support of other document types.
+                        </div>
+                        <!-- Scanning type-->
+                        <field name="scanning_type" attrs="{'invisible':[('type_supported', '=', False)]}"/>
+                        <!-- Add note to the scanned result-->
+                        <field name="error_type" attrs="{'invisible':[('scanning_type', '=', False)]}"/>
+                		<!-- Add note to the scanned result-->
+                        <field name="note" attrs="{'invisible':[('error_type', '=', False)]}"/>
+                    </group>
+                    <footer>
+                        <button string="Send Email" name="action_send_email" type="object" default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+        
+        <record id="action_view_invoice_scan_support" model="ir.actions.act_window">
+            <field name="name">Invoice Scan Support</field>
+            <field name="res_model">invoicescan.support</field>
+            <field name="view_mode">form</field>
+            <field name="context">{'default_voucher_id': voucher_id}</field>
+            <field name="view_id" ref="view_invoice_scan_support"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

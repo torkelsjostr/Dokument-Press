@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author      : Niova Group ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova Group ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+<odoo>
+    <data>
+        <record id="view_invoice_scan_upload" model="ir.ui.view">
+            <field name="name">invoice.scan.upload.form</field>
+            <field name="model">invoicescan.upload</field>
+            <field name="arch" type="xml">
+                <form string="Invoice Scan Upload">
+                    <sheet string="Invoice Scan Upload">
+                        <div class="">
+                            Select type of files and upload the files to Invoice Scan to be extracted into the selected type.
+                        </div>
+                        <group>
+                            <group>
+                                <field name="type"/>
+                                <field name="attachment_ids" widget="many2many_binary" string="Select Files" nolabel="1" colspan="2"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Optionals">
+                                <field name="company_id"/>
+                                <field name="payment_method"/>
+                                <field name="note"/>
+                            </group>
+                        </group>
+                        <footer>
+                            <button string="Upload Files" name="action_upload" type="object" default_focus="1" class="btn-primary"/>
+                            <button string="Cancel" class="btn-default" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_invoice_scan_upload" model="ir.actions.act_window">
+            <field name="name">Invoice Scan Upload</field>
+            <field name="res_model">invoicescan.upload</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_invoice_scan_upload"/>
+            <field name="target">inline</field>
+        </record>
+    </data>
+</odoo>

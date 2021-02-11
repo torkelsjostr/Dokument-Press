@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author      : Niova Group ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova Group ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+<odoo>
+	<data>
+		<delete model="ir.ui.view" id="niova_invoice_scan.invoice_scan_view_partner_property_form"/>
+		<record id="invoice_scan_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority">17</field>
+            <field name="arch" type="xml">
+            	<xpath expr='//field[@name="parent_id"]' position="before">
+					<field name="alias" placeholder="Alias" attrs="{'invisible': [('is_company','!=', True)]}"/>
+				</xpath>
+				
+                <page name="sales_purchases" position="after">
+                    <page string="Invoice Scan" name="invoice_scan" attrs="{'invisible': [('is_company','=',False),('parent_id','!=',False)]}" groups="account.group_account_invoice">
+                        <group>
+                        	<group string="Automation" name="invoice_scan_automation">
+                        		<field name="property_invoice_automation" attrs="{'required': [('supplier','=', True), ('property_invoice_automation','!=', False)]}"/>
+                            </group>
+                            
+                            <group string="Defaults" name="invoice_scan_settings">
+                                <field name="property_invoice_default_account_expense_id"
+                                       string="Invoice Line Expense Account"
+	                           		   attrs="{'required': [('property_invoice_automation','=', 'one_line')]}"/>
+			                    
+			                    <field name="property_invoice_default_line_tax_id" 
+                                       string="Invoice Line Tax"/>
+		                        
+		                        <field name="property_invoice_default_line_description" 
+                                       string="Invoice Line Description"
+		                      		   attrs="{'required': [('property_invoice_automation','=', 'one_line')]}"/>
+		                      	
+		                      	<field name="property_invoice_default_account_analytic_id" 
+                                       string="Invoice Line Analytic Account"
+		                      		   groups="analytic.group_analytic_accounting"/>
+                            </group>
+                            
+                            <group string="Validation Criteria" name="invoice_scan_criteria">
+                                <field name="property_invoice_validation_deviation" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+			                    
+			                    <field name="property_invoice_validation_limit" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+		                        
+		                        <field name="property_invoice_validation_vat" />
+                            </group>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+	</data>
+</odoo>

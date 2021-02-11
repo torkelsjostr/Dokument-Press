@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author      : Niova Group ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova Group ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+<odoo>
+	<record id="view_general_configuration" model="ir.ui.view">
+		<field name="name">view.general.configuration</field>
+		<field name="model">res.config.settings</field>
+		<field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//div[@name='integration']" position="inside">
+				<div class="col-xs-12 col-md-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="module_niova_invoice_scan" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label string="Invoice Scan" for="module_niova_invoice_scan"/>
+                        <div class="text-muted">
+                            Invoice Scan automatically scans all relevant data from invoices and receipts with 100% accuracy.
+                        </div>
+                        <div class="content-group" attrs="{'invisible': [('module_niova_invoice_scan','=',False)]}">
+	                        <div class="mt16 row">	                            
+	                            <field name="invscan_client_secret" invisible="1"/>
+								<field name="invscan_active" invisible="1"/>
+	                        </div>
+                        	<div attrs="{'invisible':[('invscan_active', '!=', False)]}">
+                            	<button type="action"
+                            			name="%(action_view_invoice_scan_activate)d"
+                            			string="Activate Invoice Scan"
+                            			icon="fa-check"
+                            			class="btn-primary"/>
+                        	</div>
+                        	<div attrs="{'invisible':[('invscan_active', '=', False)]}">
+                            	<button type="action"
+                            			name="%(action_view_invoice_scan_deactivate)d"
+                            			string="Deactivate Invoice Scan"
+                            			icon="fa-rotate-left"
+                            			class="oe_link"
+                            			context="{'client_secret': invscan_client_secret}"/>
+                        	</div>
+                    	</div>
+                    </div>
+                </div>
+			</xpath>
+
+			<xpath expr="//div[hasclass('settings')]" position="inside">
+				<div class="app_settings_block" data-string="Invoice Scan" string="Invoice Scan" data-key="niova_invoice_scan" groups="account.group_account_manager">
+					<div id="app_settings_invoice_scan_deactive" attrs="{'invisible':[('invscan_active', '!=', False)]}">
+						<h2>Activation</h2>
+						<div class="row mt16 o_settings_container">
+							<div class="col-12 col-lg-6 o_setting_box">
+								<div class="o_setting_left_pane"/>
+								<div class="o_setting_right_pane">
+									<div class="text-muted">
+										Please activate Invoice Scan under general settings.
+									</div>
+									<div class="content-group">
+                                        <div class="mt16">
+                                            <button type="action" name="base_setup.action_general_configuration" icon="fa-arrow-right" string="Go to activation" class="btn-link"/>
+                                        </div>
+                                    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="app_settings_invoice_scan_active" attrs="{'invisible':[('invscan_active', '=', False)]}">
+						<h2>Debitors</h2>
+						<div class="row mt16 o_settings_container">
+							<div class="col-12 col-lg-6 o_setting_box">
+								<div class="o_setting_left_pane"/>
+								<div class="o_setting_right_pane">
+									<div class="text-muted">
+										Upload companies to invoice scan as debitors. The scan-engine will 
+                						match the debitors with the uploaded vendor bills.
+									</div>
+									<div class="content-group">
+										<div>
+											<button type="action"
+														name="%(action_view_invoice_scan_debitor)d"
+														string="Upload companies to invoice scan as debitors"
+														icon="fa-upload"
+														class="btn-primary"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<h2>Forward Email</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="col-12 col-lg-6 o_setting_box" title="You can setup a generic email alias to create incoming expenses easily. Write an email with the receipt in attachment to create an expense line in one click. If the mail subject contains the product's internal reference between brackets, the product will be set automatically. Type the expense amount in the mail subject to set it on the expense too.">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <div class="text-muted">
+									    When receiving an email with bills as attachments,
+										Invoice Scan automatically scans all relevant data from the bills and receipts to
+										parse them into Odoo as Vendor Bills.
+                                    </div>
+                                    <div class="content-group" attrs="{'invisible': [('alias_domain', 'in', ['localhost', '', False])]}">
+                                        <div class="mt16">
+                                            <label for="invscan_mail_prefix" string="Email Alias" class="o_light_label"/>
+                                            <field name="invscan_mail_prefix" class="oe_inline"/>
+                                            <span>@</span>
+                                            <field name="alias_domain"  class="oe_inline" readonly="1"/>
+                                        </div>
+										<div class="mt16">
+                                            <label for="invscan_mail_contact" string="Security" class="o_light_label"/>
+                                            <field name="invscan_mail_contact" class="oe_inline" required="True"/>
+                                        </div>
+                                    </div>
+                                    <div class="content-group" attrs="{'invisible': [('alias_domain', 'not in', ['localhost', '', False])]}">
+                                        <div class="mt16">
+                                            <button type="action" name="base_setup.action_general_configuration" icon="fa-arrow-right" string="Setup your domain alias" class="btn-link"/>
+                                        </div>
+										<div class="text-muted">
+											There is not configured an alias domain. Please do that under general settings.
+											If there is not configured any mail server, please do that first.
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+						<h2>Download Vouchers</h2>
+						<div class="row mt16 o_settings_container">
+							<div class="col-12 col-lg-6 o_setting_box">
+								<div class="o_setting_left_pane"/>
+								<div class="o_setting_right_pane">
+									<div class="text-muted">
+										If you have deleted or moved to a new system. You can then download all your vouchers
+										once again or only part of them.
+									</div>
+									<div class="content-group">
+										<div>
+											<button type="action"
+														name="%(action_invoice_scan_download)d"
+														string="Download Vouchers"
+														icon="fa-download"
+														class="btn-primary"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</xpath>
+		</field>
+	</record>
+
+	<record id="action_invoice_scan_settings" model="ir.actions.act_window">
+		<field name="name">Settings</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">res.config.settings</field>
+		<field name="view_mode">form</field>
+		<field name="target">inline</field>
+		<field name="context">{'module' : 'niova_invoice_scan'}</field>
+	</record>  
+</odoo>

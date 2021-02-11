@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author      : Niova Group ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova Group ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+<odoo>
+	<data>	
+		<record id="view_voucher_lines_wizard_tree" model="ir.ui.view">
+			<field name="name">invoice.scan.voucher.line</field>
+			<field name="model">invoicescan.voucher.line</field>
+			<field name="arch" type="xml">
+				<tree string="Voucher Lines" create="false" edit="false" delete="false">
+					<field name="description" />
+					<field name="discount_percentage" />
+					<field name="quantity" />
+					<field name="unit_price" />
+					<field name="amount" />
+				</tree>
+			</field>
+		</record>
+		
+		<record id="view_voucher_tree" model="ir.ui.view">
+			<field name="name">invoice.scan.voucher</field>
+			<field name="model">invoicescan.voucher</field>
+			<field name="arch" type="xml">
+				<tree string="Voucher" create="false" edit="false">
+					<field name="voucher_id" />					
+					<field name="upload_user_id" />
+					<field name="upload_email" />
+					<field name="company_name" />
+					<field name="total_amount_incl_vat" />
+					<field name="create_date" />
+					<field name="state" />
+					<button name="action_refresh_voucher"
+                            string="Refresh Voucher"
+                            icon="fa-refresh"
+                            type="object"
+                            attrs="{'invisible':[('state', 'in', ('upload', 'ready', 'generated', 'failed', 'deleted'))]}"/>
+					<button name="action_create_invoice"
+                            string="Create Invoice"
+                            icon="fa-plus"
+                            type="object"
+                            attrs="{'invisible':[('state', 'not in', ('deleted', 'failed'))]}"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_voucher_wizard_form" model="ir.ui.view">
+			<field name="name">invoice.scan.voucher</field>
+			<field name="model">invoicescan.voucher</field>
+			<field name="arch" type="xml">
+				<form>
+					<header>
+						<field name="state" widget="statusbar" statusbar_visible="upload,waiting,ready,generated" />
+					</header>
+					<sheet string="Scanned Voucher">
+						<div class="oe_button_box" name="button_box">
+							<field name="invoice_id" invisible="1"/>
+                            <button name="action_open_invoice"
+									string="Invoice"
+									type="object"
+									class="oe_stat_button"
+									icon="fa-file"
+									attrs="{'invisible':[('invoice_id', '=', False)]}"/>
+                        </div>
+						<div class="alert alert-warning" role="alert" attrs="{'invisible':[('invoice_id', '=', False)]}">
+							OBS: The original attachment/document is moved to the Vendor Bill when it is created.
+						</div>
+						<group>
+							<group string="Type and User">
+								<field name="voucher_type" />
+								<field name="upload_user_id" />
+								<field name="upload_email" />
+							</group>
+
+							<group string="Optional Fields">
+								<field name="note" />
+								<field name="payment_method" />
+							</group>
+
+							<group string="Scanned References">
+								<field name="voucher_id" />
+								<field name="reference" />
+								<field name="voucher_number" />
+								<field name="order_number" />
+							</group>
+
+							<group string="Scanned Amount Fields">
+								<field name="currency" />
+								<field name="total_vat_amount_scanned" />
+								<field name="total_amount_excl_vat" />
+								<field name="total_amount_incl_vat" />
+								<field name="vat_rate" />
+								<field name="penny_difference" />
+							</group>
+
+							<group string="Scanned Partner and Company Fields">
+								<field name="company_name" />
+								<field name="company_vat_reg_no" />
+								<field name="creditor_number" />
+								<field name="danish_industry_code" />
+								<field name="country" />
+								<field name="company_id" />
+							</group>
+
+							<group string="Scanned Payment Fields">
+								<field name="joint_payment_id" />
+								<field name="payment_id" />
+								<field name="payment_date" />
+								<field name="payment_code_id" />
+								<field name="invoice_date" />
+								<field name="payment_reg_number" />
+								<field name="gln_number" />
+								<field name="payment_account_number" />
+								<field name="payment_iban" />
+								<field name="payment_swift_bic" />
+							</group>
+							<group string="Error Messages">
+								<field name="error_message" />
+							</group>
+						</group>
+						<notebook>
+							<page string="Scanned Voucher Lines">
+								<field name="voucher_line_ids"/>
+							</page>
+						</notebook>
+					</sheet>
+					<div class="o_attachment_preview"/>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="activity_ids" widget="mail_activity"/>
+						<field name="message_ids" widget="mail_thread"/>
+					</div>
+				</form>
+			</field>
+		</record>
+		
+		<record id="action_invoice_scan_voucher" model="ir.actions.act_window">
+			<field name="name">Synchronization Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">invoicescan.voucher</field>
+			<field name="view_mode">tree,form</field>
+    	</record>
+	</data>
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author      : Niova Group ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova Group ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+<odoo>
+    <data>
+        <record id="view_invoice_scan_debitor" model="ir.ui.view">
+            <field name="name">invoice.scan.debitor.form</field>
+            <field name="model">invoicescan.debitor</field>
+            <field name="arch" type="xml">
+                <form string="Invoice Scan Debitors">
+                	<div class="">
+                		Upload companies to invoice scan as debitors. The scan-engine will 
+                		match the debitors with the uploaded vendor bills.
+                		<br/>
+                		If want to redirect all uploaded vendor bills to one company, then only select debitor in the list.
+                    </div>
+                    <group>
+                    	<group>
+	                    	<field name="company_ids" widget="many2many_checkboxes" options="{'no_create_edit': True}"/>
+	                    </group>
+	                    <group>
+	                    	<field name="company_id" domain="[('id', 'in', company_ids)]" options="{'no_create_edit': True}"/>
+	                    </group>
+                    </group>
+                    <footer>
+                        <button string="Upload" name="action_upload_debitors" type="object" default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+        
+        <record id="action_view_invoice_scan_debitor" model="ir.actions.act_window">
+            <field name="name">Invoice Scan Debitors</field>
+            <field name="res_model">invoicescan.debitor</field>
+            <field name="view_mode">form</field>        
+            <field name="view_id" ref="view_invoice_scan_debitor"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author      : Niova Group ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova Group ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+<odoo>
+<data>
+    <!-- Top menu item -->       
+    <menuitem name="Invoice Scan"
+        id="menu_invoice_scan"
+        groups="account.group_account_invoice,niova_invoice_scan.group_invoice_scan_user"
+        web_icon="niova_invoice_scan,static/description/icon.png"
+        sequence="41"/>
+        <menuitem id="menu_invoice_scan_upload"
+            name="Upload"
+            parent="menu_invoice_scan"
+            sequence="2"
+            action="action_invoice_scan_upload"/>
+        <menuitem id="menu_invoice_scan_voucher"
+            name="Sync Report"
+            parent="menu_invoice_scan"
+            sequence="3"
+            action="action_invoice_scan_voucher"
+            groups="account.group_account_invoice"/>
+        <menuitem id="menu_invoice_scan_configuration"
+            name="Configuration"
+            parent="menu_invoice_scan"
+            sequence="40"
+            groups="account.group_account_manager"/>
+            <menuitem id="menu_invoice_scan_settings" 
+                name="Settings" 
+                parent="menu_invoice_scan_configuration" 
+                sequence="0" 
+                groups="base.group_system"
+                action="action_invoice_scan_settings"/>
+</data>
+</odoo>

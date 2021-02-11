@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_invoicescan_voucher,access_invoicescan_voucher,model_invoicescan_voucher,account.group_account_invoice,1,1,1,1
+access_invoicescan_voucher_line,access_invoicescan_voucher_line,model_invoicescan_voucher_line,account.group_account_invoice,1,1,1,1
+access_invoicescan_app_voucher,access_invoicescan_app_voucher,model_invoicescan_voucher,group_invoice_scan_user,1,1,1,0
+access_invoicescan_app_voucher_line,access_invoicescan_app_voucher_line,model_invoicescan_voucher_line,group_invoice_scan_user,1,1,1,0

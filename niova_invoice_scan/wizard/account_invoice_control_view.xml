@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_account_invoice_control_form" model="ir.ui.view">
+        <field name="name">view.account.invoice.control.form</field>
+        <field name="model">account.invoice.control</field>
+        <field name="arch" type="xml">
+            <form string="Control Value Exceeded">
+            	<div class="">
+            		The difference between Control Value and total is too high! Do you want to validate anyway?
+                </div>
+                <field name="invoice_id" invisible="1"/>
+                <footer>
+                    <button name="action_invoice_open" 
+                    		string="Validate Invoice Anyway" 
+                    		type="object" 
+                    		class="btn btn-sm btn-primary"
+                    		groups="account.group_account_invoice"/>
+                    <button string="Cancel" class="btn btn-sm btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_account_invoice_control" model="ir.actions.act_window">
+        <field name="name">Control Value</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">account.invoice.control</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_account_invoice_control_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

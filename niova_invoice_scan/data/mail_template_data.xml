@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author      : Niova Group ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova Group ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+<odoo>
+    <data>
+        <record id="email_template_invoice_scan" model="mail.template">
+			<field name="name">Invoice Scan Email</field>
+			<field name="model_id" ref="model_invoicescan_support"/>
+			<field name="email_from">${object.email_from or ''}</field>
+			<field name="subject">Invoice Scan - Voucher (${object.voucher_id.voucher_id}) needs to be looked at</field>
+			<field name="email_to">${object.email_to|safe}</field>
+			<field name="auto_delete" eval="True"/>
+			<field name="body_html" type="html">
+ 				<div style="margin: 0px; padding: 0px;">
+			 		<p style="margin: 0px; padding: 0px; font-size: 13px;">
+					    Hi,<br/><br/>
+					    I have noticed an invoice/voucher, which did not fulfill my expectations. Could you please have a look?<br/>
+					  	I have following notes to the invoice/voucher.<br/><br/>
+				  	
+						Voucher ID: ${object.voucher_id.voucher_id}<br/>
+						Voucher Type: ${object.name_voucher_type}<br/>
+						Scanning Type: ${object.name_scanning_type}<br/>
+						Error Type: ${object.name_error_type}<br/>
+						Note: ${object.note}<br/><br/>
+
+				        Best Regards,<br/>
+				        ${object.name}
+				    </p>
+				</div>
+			</field>
+       </record>
+    </data>
+</odoo>

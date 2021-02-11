@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author      : Niova Group ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova Group ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+<templates xml:space="preserve">
+    <t t-extend="ListView.buttons">
+        <t t-jquery="button.o_list_button_discard" t-operation="after">
+            <button t-if="widget.modelName == 'invoicescan.voucher'" type="button" class="btn btn-primary oe_sync_invoice_scan" accesskey="r">
+                Sync Invoices
+            </button>
+         </t>
+    </t>
+</templates>
