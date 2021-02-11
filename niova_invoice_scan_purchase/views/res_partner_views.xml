@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author      : Niova IT ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova IT ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+<odoo>
+	<data>
+		<record id="invoice_scan_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="niova_invoice_scan.invoice_scan_partner_form"/>
+            <field name="priority">17</field>
+            <field name="arch" type="xml">
+            	<xpath expr='//field[@name="property_invoice_automation"]' position="after">
+					<field name="property_invoice_automation_purchase"/>
+				</xpath>
+            </field>
+        </record>
+	</data>
+</odoo>

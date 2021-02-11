@@ -1,0 +1,394 @@
+<!-- Author      : Niova IT ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova IT ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+
+<section class="oe_container">
+        <header style="text-align: center;background:#222B51;">
+            <div class="container">
+                <h1 style="font-weight: 600;
+                            letter-spacing: -1px;
+                            font-size: 50px;
+                            margin-bottom: 1.5rem;
+                            padding-top: 1.5rem;
+                            color: #fff;">
+                    Match Purchase Orders Automatic With Vendor Bills
+                </h1>
+                <p style="font-size: 19px;
+                            font-weight: 400;
+                            color: #fff;
+                            max-width: 800px;
+                            margin: 0 auto;">
+                    This module is an addon to the <a href="https://apps.odoo.com/apps/modules/13.0/niova_invoice_scan/" style="color: #F39218;">Invoice-Scan module</a>. The module auto apply purchase orders to the scanned vendor bills.
+                </p>
+            </div>
+            <div style="height: 0;
+			    padding-bottom: 33%;
+			    overflow: hidden;
+			    position: relative;
+                text-align: center;
+                margin-top: 10%;">
+                <h5 style="font-size: 28px;
+                    font-weight: 400;
+                    color: #fff;
+                    margin-top: 18px;
+                    background-color: transparent;
+                    background-image: none;
+                    border-color: #fff;">Install and sign up for Invoice Scan to use this module</h5>
+                    <a href="https://invoice-scan.com/">
+                        <h1 style="font-weight: 600;
+                        letter-spacing: -1px;
+                        font-size: 50px;
+                        color: #fff;">
+                            <span style="color: #F39218;">Invoice-Scan.com</span>
+                        </h1>
+                    </a>
+            </div>
+        </header>
+</section>
+
+<section class="oe_container">
+	<div class="container text-center" style="padding: 20px; ">
+        <div class="row">
+            <div class="col-12 col-lg-4" style="flex: 0 0 33.33333333%; align-self: center!important;">
+                <h5 class="oe_slogan" style="font-size: 28px;
+                    font-weight: 300;
+                    color: #222B51;
+                    margin-top: 18px;">Powered by </h5>
+            </div>
+            <div class="col-12 col-lg-4">
+                <a href="https://niova.dk"><img src="niova_logo.png" alt="Niova IT" style="max-width: 100%; height: auto;"></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div style="padding: 40px 0;
+        background-color: #eee; ">
+            <div class="container">
+                <div style="text-align: center;
+                    margin-bottom: 3rem;">
+                    <small style="color: #998a9b;
+                        font-size: 80%;
+                        font-weight: 400;">HIGHLIGHTS</small>
+                    <h3 style="color: #222B51;
+                        font-weight: 500;
+                        font-size: 33px;">Features</h3>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-4">
+                        <div style="border: 0;
+                            border-radius: 3px;
+                            -webkit-box-shadow: 0 5px 7px 0 rgba(0,0,0,.04);
+                            box-shadow: 0 5px 7px 0 rgba(0,0,0,.04);
+                            -webkit-transition: all .3s ease;
+                            transition: all .3s ease;
+                            position: relative;
+                            display: -webkit-box;
+                            display: -ms-flexbox;
+                            display: flex;
+                            -webkit-box-orient: vertical;
+                            -webkit-box-direction: normal;
+                            -ms-flex-direction: column;
+                            flex-direction: column;
+                            min-width: 0;
+                            word-wrap: break-word;
+                            background-color: #fff;
+                            background-clip: border-box;">
+                            <div style="-webkit-box-flex: 1;
+                                -ms-flex: 1 1 auto;
+                                flex: 1 1 auto;
+                                padding: 1.25rem">
+                                <div class="media">
+                                    <span class="icon-money gradient-fill icon-3x mr-3"></span>
+                                    <div class="media-body">
+                                        <h4 style="margin-bottom: .75rem;
+                                            font-size: 20px;
+                                            color: #222B51;
+                                            font-weight: 500;">Works With Invoice Scan</h4>
+                                        <p class="card-text">This module only works with Invoice Scan. Invoice Scan is a scan engine that scans your Vendor Bills with 100% correctness.<a href="https://apps.odoo.com/apps/modules/13.0/niova_invoice_scan/">Go to the Invoice Scan Module</a>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div style="border: 0;
+                            border-radius: 3px;
+                            -webkit-box-shadow: 0 5px 7px 0 rgba(0,0,0,.04);
+                            box-shadow: 0 5px 7px 0 rgba(0,0,0,.04);
+                            -webkit-transition: all .3s ease;
+                            transition: all .3s ease;
+                            position: relative;
+                            display: -webkit-box;
+                            display: -ms-flexbox;
+                            display: flex;
+                            -webkit-box-orient: vertical;
+                            -webkit-box-direction: normal;
+                            -ms-flex-direction: column;
+                            flex-direction: column;
+                            min-width: 0;
+                            word-wrap: break-word;
+                            background-color: #fff;
+                            background-clip: border-box;">
+                            <div style="-webkit-box-flex: 1;
+                                -ms-flex: 1 1 auto;
+                                flex: 1 1 auto;
+                                padding: 1.25rem">
+                                <div class="media">
+                                    <span class="icon-face-smile gradient-fill icon-3x mr-3"></span>
+                                    <div class="media-body">
+                                        <h4 style="margin-bottom: .75rem;
+                                            font-size: 20px;
+                                            color: #222B51;
+                                            font-weight: 500;">Automation</h4>
+                                        <p class="card-text">Enables you to automatically match your Vendor Bills with Purchase Orders.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div style="border: 0;
+                            border-radius: 3px;
+                            -webkit-box-shadow: 0 5px 7px 0 rgba(0,0,0,.04);
+                            box-shadow: 0 5px 7px 0 rgba(0,0,0,.04);
+                            -webkit-transition: all .3s ease;
+                            transition: all .3s ease;
+                            position: relative;
+                            display: -webkit-box;
+                            display: -ms-flexbox;
+                            display: flex;
+                            -webkit-box-orient: vertical;
+                            -webkit-box-direction: normal;
+                            -ms-flex-direction: column;
+                            flex-direction: column;
+                            min-width: 0;
+                            word-wrap: break-word;
+                            background-color: #fff;
+                            background-clip: border-box;">
+                            <div style="-webkit-box-flex: 1;
+                                -ms-flex: 1 1 auto;
+                                flex: 1 1 auto;
+                                padding: 1.25rem">
+                                <div class="media">
+                                    <span class="icon-target gradient-fill icon-3x mr-3"></span>
+                                    <div class="media-body">
+                                        <h4 style="margin-bottom: .75rem;
+                                            font-size: 20px;
+                                            color: #222B51;
+                                            font-weight: 500;">Matching based on Vendor Bill Prefix</h4>
+                                        <p class="card-text">Uses the Vendor Bill sequence for matching purpose.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+<section class="oe_container">
+    <div style="padding: 40px 0;
+        background-color: #eee; ">
+            <div class="container">
+                <div style="text-align: center;
+                    margin-bottom: 3rem;">
+                    <small style="color: #998a9b;
+                        font-size: 80%;
+                        font-weight: 400;">EXTRA FEATURES</small>
+                    <h3 style="color: #222B51;
+                        font-weight: 500;
+                        font-size: 33px;">Addons</h3>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-4"></div>
+                    <div class="col-12 col-lg-4">
+                        <div style="border: 0;
+                            border-radius: 3px;
+                            -webkit-box-shadow: 0 5px 7px 0 rgba(0,0,0,.04);
+                            box-shadow: 0 5px 7px 0 rgba(0,0,0,.04);
+                            -webkit-transition: all .3s ease;
+                            transition: all .3s ease;
+                            position: relative;
+                            display: -webkit-box;
+                            display: -ms-flexbox;
+                            display: flex;
+                            -webkit-box-orient: vertical;
+                            -webkit-box-direction: normal;
+                            -ms-flex-direction: column;
+                            flex-direction: column;
+                            min-width: 0;
+                            word-wrap: break-word;
+                            background-color: #fff;
+                            background-clip: border-box;">
+                            <div style="-webkit-box-flex: 1;
+                                -ms-flex: 1 1 auto;
+                                flex: 1 1 auto;
+                                padding: 1.25rem">
+                                <div class="media">
+                                    <span class="icon-target gradient-fill icon-3x mr-3"></span>
+                                    <div class="media-body">
+                                        <h4 style="margin-bottom: .75rem;
+                                            font-size: 20px;
+                                            color: #222B51;
+                                            font-weight: 500;">Vendor Bill Approval Flow</h4>
+                                        <p class="card-text">Do your Managers need to approve Vendor Bills before payment? Then we have the module for you. Ask for module at <a href="mailto:contact@niova.dk">contact@niova.dk</a>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+<section class="oe_container">
+    <div style="padding: 40px 0;
+        background-color: #eee; ">
+            <div class="container">
+                <div style="text-align: center;
+                     margin-bottom: 3rem;">
+                    <small style="color: #998a9b;
+                        font-size: 80%;
+                        font-weight: 400;">CONFIGURATION</small>
+                    <h3 style="    color: #222B51;
+                        font-weight: 500;
+                        font-size: 33px;">Easy Setup</h3>
+                </div>
+            </div>
+        </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row mb0" style="margin-bottom:2%; padding-left:7%;padding-right:7%;">
+        <div class="card-deck">
+            <div style="border-top-width: 3px;
+                color: #222B51;background:#FFF;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-flex: 1;
+                -ms-flex: 1 0 0%;
+                flex: 1 0 0%;
+                -webkit-box-orient: vertical;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                margin-right: 15px;
+                margin-bottom: 0;
+                margin-left: 15px;">
+                <div style="    text-align: center;
+                    padding: 40px 0 20px; color: #222B51;">
+                    <span style="display: block;
+                        font-size: 45px;
+                        font-weight: 300;
+                        color: #222B51;">Configure the Sequence</span>
+                </div>
+                <div class="list-group-item" style="border:0; border-radius:0;text-align: center; color: #959094; padding: 1.05rem 1.25rem;">Setup the purchase order sequence, so the engine looks for the right prefix of your purchase orders. Odoo default would be POXXXX, so the engine will look for purchase order numbers like PO0001, PO-0001 or PO 0001.</div>
+            </div>
+        </div>
+		<div class="oe_row mt0" style="margin-bottom:4%;margin-top:0%;">
+			<img src="purchase_configure.png" style="display:block;margin:0px auto;width:50%;">	
+		</div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row mb0" style="margin-bottom:2%; padding-left:7%;padding-right:7%;">
+        <div class="card-deck">
+            <div style="border-top-width: 3px;
+                color: #222B51;background:#FFF;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-flex: 1;
+                -ms-flex: 1 0 0%;
+                flex: 1 0 0%;
+                -webkit-box-orient: vertical;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                margin-right: 15px;
+                margin-bottom: 0;
+                margin-left: 15px;">
+                <div style="    text-align: center;
+                    padding: 40px 0 20px; color: #222B51;">
+                    <span style="display: block;
+                        font-size: 45px;
+                        font-weight: 300;
+                        color: #222B51;">Configure the Partner</span>
+                </div>
+                <div class="list-group-item" style="border:0; border-radius:0;text-align: center; color: #959094; padding: 1.05rem 1.25rem;">Setup the partner to auto apply purchase orders. The purchase order lines will then be applied to the scanned Vendor Bill instead of the scanned lines.</div>
+                <div class="list-group-item" style="border:0; border-radius:0;text-align: center; color: #959094; padding: 1.05rem 1.25rem;">You can setup the degree of automatization of Invoice Scan to auto process Vendor Bills. If the control value (purchase order amount compared to the scanned total gross amount) is zero on the Vendor Bill it can be auto validated.</div>
+        </div>
+		<div class="oe_row mt0" style="margin-bottom:4%;margin-top:0%;">
+			<img src="purchase_configure_partner.png" style="display:block;margin:0px auto;width:100%;">	
+		</div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row mb0" style="margin-bottom:2%; padding-left:7%;padding-right:7%;">
+        <div class="card-deck">
+            <div style="border-top-width: 3px;
+                color: #222B51;background:#FFF;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-flex: 1;
+                -ms-flex: 1 0 0%;
+                flex: 1 0 0%;
+                -webkit-box-orient: vertical;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                margin-right: 15px;
+                margin-bottom: 0;
+                margin-left: 15px;">
+                <div style="    text-align: center;
+                    padding: 40px 0 20px; color: #222B51;">
+                    <span style="display: block;
+                        font-size: 45px;
+                        font-weight: 300;
+                        color: #222B51;">Apply Purchase Order Manually</span>
+                </div>
+                <div class="list-group-item" style="border:0; border-radius:0;text-align: center; color: #959094; padding: 1.05rem 1.25rem;">You can apply purchase orders by pressing "Add purchase order lines" in Edit mode.</div>
+                <div class="list-group-item" style="border:0; border-radius:0;text-align: center; color: #959094; padding: 1.05rem 1.25rem;">This will apply purchase orders that can be found from the scanned Vendor Bill. This is mostly used when the automation of purchase orders is deactivated.</div>
+		<div class="oe_row mt0" style="margin-bottom:4%;margin-top:0%;">
+			<img src="purchase_configure_bill.png" style="display:block;margin:0px auto;width:100%;">	
+		</div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row mb0" style="margin-bottom:2%; padding-left:7%;padding-right:7%;">
+        <div class="card-deck">
+            <div style="border-top-width: 3px;
+                color: #222B51;background:#FFF;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-flex: 1;
+                -ms-flex: 1 0 0%;
+                flex: 1 0 0%;
+                -webkit-box-orient: vertical;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                margin-right: 15px;
+                margin-bottom: 0;
+                margin-left: 15px;">
+                <div style="    text-align: center;
+                    padding: 40px 0 20px; color: #222B51;">
+                    <span style="display: block;
+                        font-size: 45px;
+                        font-weight: 300;
+                        color: #222B51;">Auto Apply Purchase Order</span>
+                </div>
+                <div class="list-group-item" style="border:0; border-radius:0;text-align: center; color: #959094; padding: 1.05rem 1.25rem;">Purchase order lines is auto applied if it is activated under the the partner.</div>
+                <div class="list-group-item" style="border:0; border-radius:0;text-align: center; color: #959094; padding: 1.05rem 1.25rem;">As you can see in the image below, the control value is zero. This is fulfilled because the purchase order PO0007 total amount matches the scanned Vendor Bill Gross Amount.</div>
+		<div class="oe_row mt0" style="margin-bottom:4%;margin-top:0%;">
+			<img src="purchase_configure_bill_auto.png" style="display:block;margin:0px auto;width:100%;">	
+		</div>
+    </div>
+</section>

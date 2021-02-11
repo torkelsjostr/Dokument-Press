@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author      : Niova IT ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova IT ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+<odoo>
+    <record id="view_invoice_supplier_purchase_form" model="ir.ui.view">
+        <field name="name">account.invoice.supplier.purchase</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="purchase.view_invoice_supplier_purchase_form"/>
+        <field name="arch" type="xml">
+        	<field name="purchase_id" position="attributes">
+            	<attribute name="domain">[('company_id','=', company_id)]</attribute>
+            </field>
+            
+            <field name="vendor_bill_purchase_id" position="attributes">
+            	<attribute name="domain">[('partner_id','child_of',[partner_id]),('company_id','=', company_id)]</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_invoice_supplier_form" model="ir.ui.view">
+        <field name="name">view.invoice.supplier.form</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="niova_invoice_scan.view_invoice_supplier_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_add_scanned_lines']" position="before">
+                <button name="action_add_purchase_lines" 
+                    class="btn btn-primary mr-1 oe_edit_only"
+                    string="Add purchse order lines"
+                    icon="fa-plus"
+                    type="object"
+                    attrs="{'invisible':['|','|','|',('partner_id', '=', False),('invoice_line_ids', '!=', []),('state', '!=', 'draft'),('voucher_id', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

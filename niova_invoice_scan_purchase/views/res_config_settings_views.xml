@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Author      : Niova IT ApS (<https://niova.dk/>) -->
+<!-- Copyright(c): 2018-Present Niova IT ApS -->
+<!-- License URL : https://invoice-scan.com/license/ -->
+<!-- All Rights Reserved. -->
+<odoo>
+	<record id="view_general_configuration" model="ir.ui.view">
+		<field name="name">view.general.configuration</field>
+		<field name="model">res.config.settings</field>
+		<field name="inherit_id" ref="niova_invoice_scan.view_general_configuration" />
+		<field name="arch" type="xml">
+			<xpath expr="//div[@id='app_settings_invoice_scan_active']" position="inside">
+				<h2>Purchase Order Prefix</h2>
+				<div class="row mt16 o_settings_container">
+					<div class="col-12 col-lg-6 o_setting_box">
+						<div class="o_setting_left_pane"/>
+						<div class="o_setting_right_pane">
+							<div class="text-muted">
+								Set the sequence for purchase orders. This will be used to match purchase orders
+								from vendor bills.
+							</div>
+							<div class="content-group">
+								<div class="mt16">
+									<field name="invscan_purchase_sequence" class="oe_inline"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</xpath>
+		</field>
+	</record>
+</odoo>
