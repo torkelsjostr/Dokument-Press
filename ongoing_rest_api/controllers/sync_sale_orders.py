@@ -139,6 +139,8 @@ class SyncSaleOrder(models.TransientModel):
                     sale_order_id.write({
                         "ongoing_order_ref": json.loads(return_response.text).get('orderId')
                     })
+            elif json.loads(return_response.text).get('message') == 'Order already exists and is not allowed to be updated because of its order status.':
+                sale_order_id.message_post(body="Record Updated in Odoo but not in Ongoing")
             else:
                 raise UserError(str(sale_order_id.id) + " - " + str(sale_order_id.name) + " ------ " + str(
                     json.loads(return_response.text).get('message')) + " - " + str(
