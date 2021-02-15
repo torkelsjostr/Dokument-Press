@@ -1,0 +1,32 @@
+<odoo>
+    <record id="inherit_product_template_form_modifications" model="ir.ui.view">
+        <field name="name">inherit.product.template.form.modifications</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product_modifications.product_template_form_modifications"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='author_id']" position="after">
+                <field name="commission_structure"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="inherit_product_form_modifications" model="ir.ui.view">
+        <field name="name">inherit.product.form.modifications</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product_modifications.product_form_modifications"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='author_id']" position="after">
+                <field name="commission_structure"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="inherit_author_tree" model="ir.ui.view">
+        <field name="name">inherit.author.tree</field>
+        <field name="model">author</field>
+        <field name="inherit_id" ref="product_modifications.author_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="partner_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

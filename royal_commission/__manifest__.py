@@ -1,0 +1,21 @@
+{
+    'name': 'Royal Commission',
+    'version': '1.0',
+    'sequence': 1,
+    'author': "Allion Technologies PVT Ltd",
+    'website': 'http://www.alliontechnologies.com/',
+    'summary': 'This Module contains royal commission for authors',
+    'description': """This Module contains royal commission for authors""",
+    'depends': ['account', 'product_modifications'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/sequence_data.xml',
+        'wizards/commission_register_payment_view.xml',
+        'views/commission_structure_view.xml',
+        'views/commission_file.xml',
+        'views/inherit_product_view.xml',
+     ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}
