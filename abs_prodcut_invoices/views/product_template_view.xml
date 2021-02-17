@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Extended the functionality of product.template to show total product invoices table of customer invoice and vendor bills in product.-->
+    <record id="view_product_template_invoices_view" model="ir.ui.view">
+        <field name="name">product.template.product.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">	
+	    <xpath expr="//page[@name='sales']" position="inside">
+	        <group string="Customer Invoices">						        
+		    <field name='cust_invoice_line_ids' nolabel="1">
+                       <tree decoration-success="invoice_state in ('paid','open')">
+                            <field name="partner_id" string = "Customer"/>
+                            <field name="number" string = "Invoice number"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="price_unit"/>
+                            <field name="quantity"/>
+                            <field name="price_subtotal" sum = "Total Amount" widget = "monetary"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="invoice_state"/>
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+	    <xpath expr="//page[@name='purchase']" position="inside">
+		<group string="Vendor bills">
+		    <field name='vendor_bill_line_ids' nolabel="1">
+                       <tree decoration-success="invoice_state in ('paid','open')">
+                            <field name="partner_id" string = "Vendor"/>
+                            <field name="number" string = "Bill number"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="price_unit"/>
+                            <field name="quantity"/>
+                            <field name="price_subtotal" sum = "Total Amount" widget = "monetary"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="invoice_state"/>
+                        </tree>           
+                    </field>
+                </group>
+            </xpath>
+	</field>
+    </record>
+</odoo>
+
+            
+
