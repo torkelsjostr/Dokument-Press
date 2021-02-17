@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <template id="purchase_order_line_view_list" name="purchase.order.line.view.list" inherit_id="web.assets_backend">
+	    <xpath expr="//link" position="before">
+		<!-- Custom empty file for user custom bootstrap override -->
+		<link rel="stylesheet" href="/wedo_purchase_product_location_qty/static/src/css/table.css"/>
+	    </xpath>
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/wedo_purchase_product_location_qty/static/src/js/qty_at_date_widget.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>
+

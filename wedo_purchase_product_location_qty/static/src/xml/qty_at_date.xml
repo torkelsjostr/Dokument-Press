@@ -1,0 +1,25 @@
+
+
+<templates>
+
+    <div t-name="wedo_purchase_product_location_qty.qtyAtDate">
+        <div>
+            <a tabindex="0" class="fa fa-info-circle text-info"/>
+        </div>
+    </div>
+
+    <div t-name="wedo_purchase_product_location_qty.QtyDetailPopOver">
+        <table class="table bet_history table-striped table-hover table-bordered text-center" >
+            <tbody id="quantities_table">
+                <tr style="last-child:{background-color: #875A7B;};">
+                    <td colspan="5"><strong><span t-esc="data.product_id.data.display_name"/></strong></td>
+                </tr>
+		<tr>
+					<th>Location</th><th>Qty</th><th>LWC</th><th>LMC</th>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</templates>
