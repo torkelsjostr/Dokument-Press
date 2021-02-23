@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record id="group_return_reason_manager" model="res.groups">
+	        <field name="name">Return Reasons Manager</field>
+	        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+	        <field name="comment">The users of this group will have all access rights to manipulate all Return Reason records (Read, Update, Delete, Create).</field>
+	        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+    	</record>
+    </data>
+</odoo>
