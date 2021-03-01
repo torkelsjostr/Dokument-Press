@@ -100,7 +100,7 @@ class SyncSaleOrder(models.TransientModel):
             'orderNumber': sale_order_id.name,
             'deliveryDate': str(sale_order_id.confirmation_date),
             'consignee': {
-                'name': sale_order_id.partner_id.name,
+                'name': sale_order_id.partner_shipping_id.name or sale_order_id.partner_id.name,
                 'address1': sale_order_id.partner_shipping_id.street or None,
                 'address2': sale_order_id.partner_shipping_id.street2 or None,
                 'postCode': sale_order_id.partner_shipping_id.zip or None,
