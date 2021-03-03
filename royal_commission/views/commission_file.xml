@@ -10,11 +10,11 @@
                     <button name="confirm" type="object" string="Confirm" states="calculated" confirm="You are going to confirm this commission. Do you confirm the action?"/>
                     <button name="cancel" type="object" string="Cancel" states="calculated" invisible="1"/>
                     <button name="reset_to_draft" type="object" string="Set to Draft" states="calculated"/>
-                    <button name="%(action_commission_register_payments_wizard)d" type="action" string="Register Payment" class="oe_highlight o_expense_sheet_pay" states="confirm"/>
+                    <button name="create_vendor_bill" type="object" string="Create Bill" class="oe_highlight o_expense_sheet_pay" states="confirm"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="open_payments" icon="fa-money" class="oe_stat_button" string="Payments" type="object" states="paid"/>
+                        <button name="open_vendor_bill" icon="fa-money" class="oe_stat_button" string="Vendor Bills" type="object" states="paid,vendor_bill"/>
                     </div>
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only"/>
@@ -26,10 +26,11 @@
                     <group col="4">
                         <field name="start_date" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                         <field name="end_date" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                        <field name="product_id" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                        <field name="author_id" required="1" readonly="1" force_save="1"/>
-                        <field name="commission_struct_id" required="1" readonly="1" force_save="1"/>
-                        <field name="previous_commission_struct_id"/>
+                        <field name="commission_plan_id" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="product_id" required="1"/>
+                        <field name="author_id" required="1" force_save="1"/>
+                        <field name="commission_struct_id" required="1" force_save="1"/>
+                        <field name="previous_commission_struct_id" domain="[('commission_struct_id', '=', commission_struct_id),('state', 'not in', ['draft', 'calculated', 'cancel'])]"/>
                         <field name="currency_id" readonly="1" force_save="1"/>
                         <field name="carry_forward_qty" invisible="1"/>
                     </group>
@@ -82,10 +83,10 @@
                     <group col="2" attrs="{'invisible': [('state', '=', 'draft')]}">
                         <field name="total_commission"/>
                     </group>
-                    <group col="4" attrs="{'invisible': [('state', '!=', 'paid')]}">
-                        <field name="paid_amount" readonly="1"/>
-                        <field name="paid_currency_id" readonly="1"/>
-                    </group>
+<!--                    <group col="4" attrs="{'invisible': [('state', '!=', 'paid')]}">-->
+<!--                        <field name="paid_amount" readonly="1"/>-->
+<!--                        <field name="paid_currency_id" readonly="1"/>-->
+<!--                    </group>-->
                 </sheet>
             </form>
         </field>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="commissions_settlement_report_form" model="ir.ui.view">
+        <field name="name">commissions.settlement.report.form</field>
+        <field name="model">commissions.settlement.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="is_printed" nolabel="1" readonly="1" invisible="1"/>
+                <group attrs="{'invisible': [('is_printed','=',True)]}">
+                    <group>
+                        <field name="start_date" required="1"/>
+<!--                        <field name="state" required="1"/>-->
+                    </group>
+                    <group>
+                        <field name="end_date" required="1"/>
+                    </group>
+                </group>
+                <group attrs="{'invisible': [('is_printed','!=',True)]}" colspan="4">
+                    <field widget="binary" name="report_file" nolabel="1" filename="report_name" colspan="4"/>
+                    <field name="report_name" nolabel="1" readonly="1" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="export_commission_xlsx" string="Export" type="object"
+                            class="oe_highlight" attrs="{'invisible': [('is_printed','=',True)]}"/>
+                    <button string="Cancel" special="cancel" class="btn-default"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_commissions_settlement_report" model="ir.actions.act_window">
+        <field name="name">Commissions Settlement Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">commissions.settlement.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            name="Commissions Settlement Report"
+            parent="menu_commission_reporting"
+            action="action_commissions_settlement_report"
+            id="menu_commissions_settlement_report"/>
+
+    <!--<record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_summary_dept">-->
+    <!--<field name="action" eval="False"/>-->
+    <!--</record>-->
+</odoo>

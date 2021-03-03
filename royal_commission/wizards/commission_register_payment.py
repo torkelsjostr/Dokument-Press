@@ -60,6 +60,7 @@ class CommissionRegisterPayment(models.TransientModel):
 
     @api.onchange('journal_id')
     def _onchange_journal(self):
+        """onchange journal id"""
         res = super(CommissionRegisterPayment, self)._onchange_journal()
         active_ids = self._context.get('active_ids')
         invoices = self.env['account.invoice'].browse(active_ids)
@@ -199,6 +200,7 @@ class CommissionRegisterPayment(models.TransientModel):
     @api.one
     @api.constrains('amount')
     def _check_amount(self):
+        """check amount validation"""
         if self.amount < 0:
             raise ValidationError(_('The payment amount cannot be negative.'))
 
@@ -216,6 +218,7 @@ class CommissionRegisterPayment(models.TransientModel):
     @api.multi
     @api.depends('payment_type', 'journal_id')
     def _compute_hide_payment_method(self):
+        """hide payment method"""
         for payment in self:
             if not payment.journal_id or payment.journal_id.type not in ['bank', 'cash']:
                 payment.hide_payment_method = True
@@ -227,6 +230,7 @@ class CommissionRegisterPayment(models.TransientModel):
 
     @api.depends('commission_ids', 'amount', 'payment_date', 'currency_id')
     def _compute_payment_difference(self):
+        """Compute payment difference"""
         for pay in self.filtered(lambda p: p.commission_ids):
             payment_amount = pay.amount
             pay.payment_difference = pay._compute_payment_amount() - payment_amount
@@ -271,6 +275,7 @@ class CommissionRegisterPayment(models.TransientModel):
 
     @api.onchange('amount', 'currency_id')
     def _onchange_amount(self):
+        """Onchange Amount"""
         jrnl_filters = self._compute_journal_domain_and_types()
         journal_types = jrnl_filters['journal_types']
         domain_on_types = [('type', 'in', list(journal_types))]

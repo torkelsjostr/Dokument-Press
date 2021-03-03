@@ -1,5 +1,6 @@
 from odoo import models, api, fields
 from odoo.exceptions import UserError
+from datetime import date
 
 
 class Commission(models.Model):
@@ -8,12 +9,13 @@ class Commission(models.Model):
     name = fields.Char(string="Name", default="New")
     start_date = fields.Date(string="Start Date")
     end_date = fields.Date(string="End Date")
-    commission_struct_id = fields.Many2one('commission.structure')
+    commission_struct_id = fields.Many2one('commission.structure', string="Commission Structure", related='commission_plan_id.commission_structure')
     previous_commission_struct_id = fields.Many2one('commission')
-    author_id = fields.Many2one('author', string="Author")
-    partner_id = fields.Many2one('res.partner', related="author_id.partner_id", string="Partner")
-    product_id = fields.Many2one('product.product', string="Product", domain=[('type', '=', 'product')])
-    state = fields.Selection([('draft', 'Draft'), ('calculated', 'Calculated'), ('confirm', 'Confirmed'), ('paid', 'Paid'), ('cancel', 'Cancel')], default='draft')
+    commission_plan_id = fields.Many2one('commission.plan', string="Royalty Configuration")
+    author_id = fields.Many2one('commission.authors', string="Author", related='commission_plan_id.author_id')
+    partner_id = fields.Many2one('res.partner', string="Partner", related='author_id.partner_id')
+    product_id = fields.Many2one('product.product', string="Product", domain=[('type', '=', 'product')], related='commission_plan_id.product_id')
+    state = fields.Selection([('draft', 'Draft'), ('calculated', 'Calculated'), ('confirm', 'Confirmed'), ('vendor_bill', 'Vendor Bill'), ('paid', 'Paid'), ('cancel', 'Cancel')], default='draft')
     commission_lines = fields.One2many('commission.lines', 'line_id')
     deduction_lines = fields.One2many('commission.deductions', 'line_id')
     allowance_lines = fields.One2many('commission.allowances', 'line_id')
@@ -30,54 +32,100 @@ class Commission(models.Model):
     paid_currency_id = fields.Many2one('res.currency', string="Paid Currency")
     payment_ids = fields.Many2many('account.payment')
     carry_forward_qty = fields.Float('Carry Forward Total')
+    invoice_id = fields.Many2one('account.invoice', string="Vendoe Bill")
 
-    def open_payments(self):
+    def create_vendor_bill(self):
+        """Creating a vendor bill for the author and loading the vendor bill"""
+        purchase_journal = self.env['account.journal'].sudo().search([('type', '=', 'purchase')])
+        if not purchase_journal:
+            raise UserError("Please setup a Journal for Vendor Bills(Type=Purchase).")
+        if not self.partner_id:
+            raise UserError("Please create a partner for the Author.")
+        account_val = {
+            'partner_id': self.partner_id.id,
+            'date_invoice': date.today(),
+            'type': 'in_invoice',
+            'commission_id': self.id,
+            'invoice_line_ids': [],
+            'journal_id': purchase_journal.id
+        }
+        account_val['invoice_line_ids'].append((0, 0, {
+            'name': "Commission of " + self.name,
+            'quantity': 1,
+            'price_unit': self.total_commission,
+            'account_id': purchase_journal.default_debit_account_id.id,
+        }))
+        record = self.env['account.invoice'].create(account_val)
+        self.write({
+            'invoice_id': record.id,
+            'state': 'vendor_bill'
+        })
+        return {
+            'type': 'ir.actions.act_window',
+            'view_type': 'form',
+            'view_mode': 'form,tree',
+            'res_model': 'account.invoice',
+            'target': 'current',
+            'res_id': record.id,
+        }
+
+    def open_vendor_bill(self):
         """Opening related finished product screen in Lot and  serial"""
         self.ensure_one()
-        action = self.env.ref('account.action_account_payments_payable').read()[0]
-        action['domain'] = [('id', '=', self.payment_ids.ids)]
+        action = self.env.ref('account.action_vendor_bill_template').read()[0]
+        action['domain'] = [('id', '=', self.invoice_id.id)]
         action['view_mode'] = 'form'
         return action
 
     @api.model
     def create(self, vals):
+        """Creating sequence"""
         return_obj = super(Commission, self).create(vals)
         return_obj.name = self.env['ir.sequence'].next_by_code('commission')
         return return_obj
 
     def _get_total_commission(self):
+        """Calculating final total of commission"""
         for line in self:
             line.total_commission = line.commission + line.total_allowances - line.total_deductions
 
     def _get_total_allowances(self):
+        """Calculating total of allowances"""
         for line in self:
             line.total_allowances = sum(line.allowance_lines.mapped('amount'))
 
     def _get_total_deductions(self):
+        """Calculating total of deductions"""
         for line in self:
             line.total_deductions = sum(line.deduction_lines.mapped('amount'))
 
     def _get_total_qty(self):
+        """Calculating total of quantity"""
         for line in self:
             line.total_qty = sum(line.commission_lines.mapped('quantity'))
 
     def _get_total_margin(self):
+        """Calculating total margin"""
         for line in self:
             line.total_margin = sum(line.commission_lines.mapped('margin'))
 
     def _get_total_sales(self):
+        """Calculating total sales"""
         for line in self:
             line.total_sales = sum(line.commission_lines.mapped('subtotal'))
 
-    @api.onchange('product_id')
-    def onchange_product_id(self):
-        self.author_id = self.product_id.author_id.id
-        self.commission_struct_id = self.product_id.commission_structure.id
-
     def calculate_commission(self):
-        lines = self.env['account.invoice.line'].search([('product_id', '=', self.product_id.id), ('price_subtotal', '>', 0),
-                                                         ('invoice_id.state', '=', 'paid'), ('invoice_id.date_invoice', '>=', str(self.start_date))
-                                                         , ('invoice_id.date_invoice', '<=', str(self.end_date)), ('commission_calculated', '=', False)])
+        """Calculating commissions, advances, and deductions"""
+        lines = self.env['account.invoice.line'].search([('product_id', '=', self.product_id.id),
+                                                         ('price_subtotal', '>', 0),
+                                                         ('invoice_id.state', 'not in', ['draft', 'cancel']),
+                                                         ('invoice_id.date_invoice', '>=', str(self.start_date)),
+                                                         ('invoice_id.date_invoice', '<=', str(self.end_date)),
+                                                         ('invoice_id.type', '=', 'out_invoice')])
+        # getting eligible invoice lines and filtering them.
+        default_deduction_lines = self.commission_plan_id.deduction_ids.filtered(lambda x: self.start_date <= x.date <= self.end_date and x.commission_id.id == False)
+        default_allowance_lines = self.commission_plan_id.allowance_ids.filtered(lambda x: self.start_date <= x.date <= self.end_date and x.commission_id.id == False)
+        lines = lines.filtered(lambda x: self.author_id.id not in x.author_ids.ids)
         for line in lines:
             self.commission_lines.create({
                 'account_move_line_id': line.id,
@@ -87,13 +135,28 @@ class Commission(models.Model):
                 'margin': line.product_id.standard_price * line.quantity,
                 'line_id': self.id
             })
-        lines.write({'commission_id': self.id})
+        for ded in default_deduction_lines:
+            self.deduction_lines.create({
+                'name': ded.name,
+                'amount': ded.amount,
+                'line_id': self.id
+            })
+        for all in default_allowance_lines:
+            self.allowance_lines.create({
+                'name': all.name,
+                'amount': all.amount,
+                'line_id': self.id
+            })
+        default_deduction_lines.write({'commission_id': self.id})
+        default_allowance_lines.write({'commission_id': self.id})
+        lines.write({'author_ids': [(4, self.author_id.id)]})
         self.write({
             'state': 'calculated',
             'commission': self._get_commission(),
         })
 
     def _get_commission(self):
+        """Calculating commissions according to the equations and returning amounts"""
         if self.commission_struct_id.commission_type == 'percentage' and self.commission_struct_id.commission_base == 'gross_amount':
             return (self.total_sales * (self.commission_struct_id.commission_rate / 100))
         elif self.commission_struct_id.commission_type == 'percentage' and self.commission_struct_id.commission_base == 'fixed_amount':
@@ -126,9 +189,14 @@ class Commission(models.Model):
         return 0
 
     def reset_to_draft(self):
+        """Reset to draft function"""
         self.commission_lines.mapped('account_move_line_id').write({
-            'commission_id': self.id
+            'author_ids': [(3, self.author_id.id)]
         })
+        self.commission_plan_id.deduction_ids.filtered(lambda x: x.commission_id.id == self.id).write({'commission_id': False})
+        self.commission_plan_id.allowance_ids.filtered(lambda x: x.commission_id.id == self.id).write({'commission_id': False})
+        self.deduction_lines.unlink()
+        self.allowance_lines.unlink()
         self.commission_lines.unlink()
         self.write({
             'state': 'draft',
@@ -136,6 +204,7 @@ class Commission(models.Model):
         })
 
     def confirm(self):
+        """Confirm commission function"""
         if self.commission < 0:
             raise UserError("Commission amount should be greater than 0")
         self.commission_lines.mapped('account_move_line_id').write({
@@ -147,11 +216,13 @@ class Commission(models.Model):
         })
 
     def set_as_paid(self):
+        """Set as paid function"""
         self.write({
             'state': 'paid'
         })
 
     def cancel(self):
+        """Set as cancel function"""
         self.write({
             'state': 'cancel'
         })

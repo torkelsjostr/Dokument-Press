@@ -24,6 +24,7 @@ class CommissionStructureLines(models.Model):
 
     @api.model
     def create(self, vals):
+        """Validation to avoid minimum greater than maximum"""
         obj = super(CommissionStructureLines, self).create(vals)
         if obj.minimum_amount >= obj.maximum_amount:
             raise UserError("Minimum should be less than Maximum")

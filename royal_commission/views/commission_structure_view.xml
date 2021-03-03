@@ -5,6 +5,16 @@
               name="Commissions"
               web_icon="royal_commission,static/description/menu.png"/>
 
+    <menuitem id="menu_commission_configurations"
+              parent="menu_commission"
+              sequence="120"
+              name="Configurations"/>
+
+    <menuitem id="menu_commission_reporting"
+              parent="menu_commission"
+              sequence="110"
+              name="Reporting"/>
+
     <record id="commission_structure_form_view" model="ir.ui.view">
         <field name="name">commission.structure.form.view</field>
         <field name="model">commission.structure</field>
@@ -27,7 +37,7 @@
                     <group attrs="{'invisible': [('commission_type', 'not in', ['percentage'])]}">
                         <field name="commission_rate"/>
                     </group>
-                    <group attrs="{'invisible': [('commission_base', 'not in', ['fixed_amount'])]}">
+                    <group attrs="{'invisible': ['|',('commission_base', 'not in', ['fixed_amount']),('commission_type', 'in', ['sections'])]}">
                         <field name="commission_fixed_rate"/>
                     </group>
                     <field name="commission_structure_ids" attrs="{'invisible': [('commission_type', 'not in', ['sections'])]}">
@@ -62,5 +72,5 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_commission_structure" name="Commission Structures" parent="menu_commission" action="commission_structure_action" sequence="105"/>
+    <menuitem id="menu_commission_structure" name="Commission Structures" parent="menu_commission_configurations" action="commission_structure_action" sequence="105"/>
 </odoo>
