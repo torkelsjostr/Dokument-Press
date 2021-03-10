@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_sale_order_total_weight_detail" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='note']" position="after">
+                <group col="2">
+                    <field name="total_weight"/>
+                    <!-- <field name="weight"/> -->
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom']" position="after">
+                <field name="weight"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- <record id="view_sale_order_weight_detail" model="ir.ui.view">
+        <field name="name">sale.order.line.form</field>
+        <field name="model">sale.order.line</field>
+        <field name="inherit_id" ref="sale.view_order_line_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='note']" position="after">
+                <group col="4">
+                    <field name="weight"/>
+                </group>
+            </xpath>
+        </field> 
+    </record> -->
+    </data>
+</odoo>
