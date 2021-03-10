@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_total_net_gross_weight_calculator_total_net_gross_weight_calculator,total_net_gross_weight_calculator.total_net_gross_weight_calculator,model_total_net_gross_weight_calculator_total_net_gross_weight_calculator,,1,0,0,0
