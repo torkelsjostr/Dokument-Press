@@ -20,7 +20,7 @@
     <!-- <record id="view_purchase_order_weight_detail" model="ir.ui.view">
         <field name="name">purchase.order.line.form</field>
         <field name="model">purchase.order.line</field>
-        <field name="inherit_id" ref="purchase.view_order_line_form" />
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='note']" position="after">
                 <group col="4">
