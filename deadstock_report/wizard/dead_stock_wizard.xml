@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_deadstock_report_view_form">
+        <field name="name">dead.stock.wiz.form</field>
+        <field name="model">dead.stock.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Deadstock Report">
+                <group colspan="4" col="4">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <group>
+                 <field name="warehouse"
+                  domain="[('usage','=','internal')]"
+                  widget="many2many_tags"/>
+                 </group>
+               
+              <footer>
+                    <button name="get_item_data" type="object" string="Print" class="oe_highlight"/>
+                    Or
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_deadstock_excel">
+        <field name="name">view.dead.stock.excel</field>
+        <field name="model">dead.stock.excel</field>
+        <field name="arch" type="xml">
+            <form string="Download Report Here">
+                <field name="name" invisible="1"/>
+                <field name="file_download" filename="name"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_deadstock_reporting_excel" model="ir.actions.act_window">
+        <field name="name">Dead Stock Report</field>
+        <field name="res_model">dead.stock.wiz</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_deadstock_report" name="Dead Stock Report" action="action_deadstock_reporting_excel"
+              parent="stock.menu_warehouse_report"/>
+</odoo>

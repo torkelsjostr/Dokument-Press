@@ -1,0 +1,1 @@
+from . import dead_stock_wizard
