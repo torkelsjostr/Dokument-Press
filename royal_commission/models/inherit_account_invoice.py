@@ -5,7 +5,7 @@ from odoo.exceptions import UserError
 class InheritAccountInvoiceLine(models.Model):
     _inherit = 'account.invoice.line'
 
-    author_ids = fields.Many2many('commission.authors', string="Commission Authors")
+    author_ids = fields.Many2many('commission.authors', string="Commission Authors", copy=False)
 
 
 class InheritAccountInvoice(models.Model):

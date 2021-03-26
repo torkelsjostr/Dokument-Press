@@ -10,7 +10,7 @@ class CommissionsAggregateReport(models.TransientModel):
 
     start_date = fields.Date("Start Date", required=True)
     end_date = fields.Date("End Date", required=True)
-    state = fields.Selection([('confirm', 'Confirmed'), ('vendor_bill', 'Vendor Bill'), ('paid', 'Paid')], required=True)
+    state = fields.Selection([('confirm', 'Confirmed'), ('vendor_bill', 'Vendor Bill'), ('paid', 'Paid'), ('calculated', 'Calculated')], required=True)
 
     report_file = fields.Binary('File', readonly=True)
     report_name = fields.Text(string='File Name')
@@ -59,6 +59,8 @@ class CommissionsAggregateReport(models.TransientModel):
         font_center = workbook.add_format({'align': 'center', 'valign': 'vcenter', 'font_size': 10, 'border': 1})
         font_center_bold = workbook.add_format(
             {'align': 'center', 'valign': 'vcenter', 'font_size': 10, 'bold': True, 'border': 1})
+        font_right_bold = workbook.add_format({'align': 'right', 'valign': 'vcenter', 'font_size': 10, 'num_format': '#,##0.00', 'bold': True})
+        font_left_bold = workbook.add_format({'align': 'left', 'valign': 'vcenter', 'font_size': 10, 'num_format': '#,##0.00', 'bold': True})
 
         worksheet.set_column('A:S', 16)
         worksheet.set_row(0, 20)
@@ -90,6 +92,9 @@ class CommissionsAggregateReport(models.TransientModel):
             worksheet.write(row, col + 2, commission.author_id.name, font_right)
             worksheet.write(row, col + 3, commission.total_commission, font_right)
             row += 1
+        row += 2
+        worksheet.write(row, col + 2, "Total", font_left_bold)
+        worksheet.write(row, col + 3, sum(commissions.mapped('total_commission')), font_right_bold)
         workbook.close()
         return report
 

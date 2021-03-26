@@ -32,7 +32,8 @@ class Commission(models.Model):
     paid_currency_id = fields.Many2one('res.currency', string="Paid Currency")
     payment_ids = fields.Many2many('account.payment')
     carry_forward_qty = fields.Float('Carry Forward Total')
-    invoice_id = fields.Many2one('account.invoice', string="Vendoe Bill")
+    invoice_id = fields.Many2one('account.invoice', string="Vendor Bill")
+    previous_stop = fields.Many2one('commission.structure.lines', string="Vendor Bill")
 
     def create_vendor_bill(self):
         """Creating a vendor bill for the author and loading the vendor bill"""
@@ -166,11 +167,15 @@ class Commission(models.Model):
         elif self.commission_struct_id.commission_type == 'sections' and self.commission_struct_id.commission_base == 'fixed_amount':
             previous_total = 0
             commission = 0
+            previous_commission_obj = None
             if self.previous_commission_struct_id:
                 previous_total = self.previous_commission_struct_id.carry_forward_qty + self.total_qty
+                previous_commission_obj = self.previous_commission_struct_id.previous_stop
             count = 1
             for line in self.commission_struct_id.commission_structure_ids.filtered(lambda x: x.maximum_amount >= self.previous_commission_struct_id.carry_forward_qty).sorted(key=lambda y: y.minimum_amount):
                 current_total = previous_total
+                if previous_commission_obj:
+                    self.write({'previous_stop': previous_commission_obj.id})
                 if line.maximum_amount <= (current_total or self.total_qty):
                     previous_stop = 0
                     if count == 1:
@@ -179,12 +184,13 @@ class Commission(models.Model):
                 elif line.maximum_amount >= (current_total or self.total_qty):
                     previous_stop = 0
                     if count == 1:
-                        previous_stop = self.previous_commission_struct_id.carry_forward_qty - line.minimum_amount
-                    commission += (line.rate / 100) * line.fixed_amount * ((current_total or self.total_qty) - line.minimum_amount - previous_stop)
+                        previous_stop = self.previous_commission_struct_id.carry_forward_qty - (self.previous_stop.maximum_amount)
+                    commission += (line.rate / 100) * line.fixed_amount * ((current_total or self.total_qty) - previous_commission_obj.maximum_amount - previous_stop)
                     break
                 else:
                     commission += 0
                 count += 1
+                previous_commission_obj = line
             return commission
         return 0
 

@@ -5,7 +5,7 @@
         <field name="arch" type="xml">
             <tree editable="top">
                 <field name="name" required="1"/>
-                <field name="partner_id" readonly="1"/>
+                <field name="partner_id" required="1"/>
             </tree>
         </field>
     </record>

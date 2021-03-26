@@ -10,7 +10,9 @@ class CommissionsSettlementReport(models.TransientModel):
 
     start_date = fields.Date("Start Date", required=True)
     end_date = fields.Date("End Date", required=True)
-    author_id = fields.Many2one('commission.authors', string="Author")
+    commission_plan_id = fields.Many2one('commission.plan', string="Commission Plan")
+    author_id = fields.Many2one('commission.authors', string="Author", related='commission_plan_id.author_id')
+    product_id = fields.Many2one('product.product', string="Product", domain=[('type', '=', 'product')], related='commission_plan_id.product_id')
 
     report_file = fields.Binary('File', readonly=True)
     report_name = fields.Text(string='File Name')
@@ -59,6 +61,8 @@ class CommissionsSettlementReport(models.TransientModel):
         font_center = workbook.add_format({'align': 'center', 'valign': 'vcenter', 'font_size': 10})
         font_center_bold = workbook.add_format(
             {'align': 'center', 'valign': 'vcenter', 'font_size': 10, 'bold': True})
+        font_left_bold = workbook.add_format(
+            {'align': 'left', 'valign': 'vcenter', 'font_size': 10, 'bold': True})
 
         worksheet.set_column('A:S', 16)
         worksheet.set_row(0, 20)
@@ -70,8 +74,13 @@ class CommissionsSettlementReport(models.TransientModel):
         worksheet.write(row, col, " ", heading)
         worksheet.merge_range(row, col, row, col + 9,  "Settlement Report ", heading)
 
+        worksheet.write(3, col, "Author : ", font_left_bold)
+        worksheet.write(4, col, "Period : ", font_left_bold)
+        worksheet.write(3, col + 1, self.commission_plan_id.author_id.name)
+        worksheet.write(4, col + 1, str(self.start_date) + " to " + str(self.end_date))
+
         col = 0
-        row = 3
+        row = 6
 
         worksheet.write(row, col, "Name", font_center_bold)
         worksheet.write(row, col + 1, "Title", font_center_bold)
@@ -86,7 +95,7 @@ class CommissionsSettlementReport(models.TransientModel):
 
         row += 1
 
-        commissions = self.env['commission'].search([('start_date', '>=', self.start_date), ('end_date', '<=', self.end_date)])
+        commissions = self.env['commission'].search([('start_date', '>=', self.start_date), ('end_date', '<=', self.end_date), ('state', 'in', ['confirm']), ('commission_plan_id', '=', self.commission_plan_id.id)])
         if not commissions:
             raise UserError("There are no records for the given period.")
         for commission in commissions:
@@ -95,7 +104,7 @@ class CommissionsSettlementReport(models.TransientModel):
             worksheet.write(row, col + 2, commission.product_id._compute_quantities_dict(lot_id=None, owner_id=None, package_id=None, to_date=self.start_date)[commission.product_id.id].get('qty_available'), font_right)
             worksheet.write(row, col + 3, commission.product_id._compute_quantities_dict(lot_id=None, owner_id=None, package_id=None, to_date=self.end_date)[commission.product_id.id].get('qty_available'), font_right)
             worksheet.write(row, col + 4, " ", font_right)
-            worksheet.write(row, col + 5, commission.total_sales, font_right)
+            worksheet.write(row, col + 5, commission.total_qty, font_right)
             worksheet.write(row, col + 6, " ", font_right)
             worksheet.write(row, col + 7, "Commission", font_center)
             worksheet.write(row, col + 8, commission.commission, font_right)
