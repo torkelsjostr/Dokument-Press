@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_xls_excel,access.xls.excel,model_xls_excel,base.group_user,1,1,1,1
+access_sale_excel,access.sale.excel,model_sale_excel,base.group_user,1,1,1,1
