@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+         <record id="view_print_invoice_summary_form" model="ir.ui.view">
+            <field name="name">print.invoice.summary.form</field>
+            <field name="model">print.invoice.summary</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+	            <form string="Print Invoice Summary Report">
+	                	<field name="invoice_report_printed" invisible="1"/>
+	                		<group  attrs="{'invisible':[('invoice_report_printed','=',True)]}">
+	                		 	<group>
+		                			<field name="from_date" required="1" style="width:200px;"/>
+		                			<field name="to_date" required="1" style="width:200px;"/>
+	                		   	</group>
+	                		   	<group>
+	                		   		<field name="invoice_status" required="1" style="width:200px;"/>
+	                		   </group>
+	                	   </group>
+	                	<group attrs="{'invisible':[('invoice_report_printed','=',False)]}">
+	                	    <field name="file_name" invisible="1"/>
+	                		<field name="invoice_summary_file" readonly="1"  filename="file_name"/>
+	                	</group>
+	                <footer>
+	                <button string='Print'  name="action_print_invoice_summary" 
+	                	type="object" class="btn-primary" attrs="{'invisible':[('invoice_report_printed','=',True)]}"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+	                </footer>
+	            </form>
+            </field>
+        </record>
+       
+        <record id="action_print_invoice_summary" model="ir.actions.act_window">
+            <field name="name">Print Invoice Summary Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">print.invoice.summary</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+<!--       <menuitem  id="menu_print_invoice_pdf_report" name="PDF Reports"
+       	sequence="4" parent="account.menu_finance_reports" /> -->
+        
+       <menuitem  id="menu_print_invoice_summary_report" action="action_print_invoice_summary"
+       	sequence="205" parent="account.menu_finance_reports" />
+        
+</odoo>
