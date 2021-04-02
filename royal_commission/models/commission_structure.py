@@ -11,6 +11,7 @@ class CommissionStructure(models.Model):
     commission_rate = fields.Float(string="Rate (%)")
     commission_fixed_rate = fields.Float(string="Fixed Rate")
     commission_structure_ids = fields.One2many('commission.structure.lines', 'line_id')
+    currency_id = fields.Many2one('res.currency', default=lambda self: self.env.user.company_id.currency_id, string="Currency")
 
 
 class CommissionStructureLines(models.Model):

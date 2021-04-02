@@ -72,7 +72,7 @@ class CommissionsSettlementReport(models.TransientModel):
 
         # Write data on the worksheet
         worksheet.write(row, col, " ", heading)
-        worksheet.merge_range(row, col, row, col + 9,  "Settlement Report ", heading)
+        worksheet.merge_range(row, col, row, col + 10,  "Settlement Report ", heading)
 
         worksheet.write(3, col, "Author : ", font_left_bold)
         worksheet.write(4, col, "Period : ", font_left_bold)
@@ -92,6 +92,7 @@ class CommissionsSettlementReport(models.TransientModel):
         worksheet.write(row, col + 7, "Base", font_center_bold)
         worksheet.write(row, col + 8, "Amount", font_center_bold)
         worksheet.write(row, col + 9, "Currency", font_center_bold)
+        worksheet.write(row, col + 10, "Company Currency Currency", font_center_bold)
 
         row += 1
 
@@ -99,13 +100,15 @@ class CommissionsSettlementReport(models.TransientModel):
         if not commissions:
             raise UserError("There are no records for the given period.")
         for commission in commissions:
+            beginning_inventory = commission.product_id._compute_quantities_dict(lot_id=None, owner_id=None, package_id=None, to_date=self.start_date)[commission.product_id.id].get('qty_available')
+            receipts_total = self._get_receipts_total(commission.product_id.id, self.start_date, self.end_date)
             worksheet.write(row, col, commission.name, font_center)
             worksheet.write(row, col + 1, commission.product_id.name, font_center)
-            worksheet.write(row, col + 2, commission.product_id._compute_quantities_dict(lot_id=None, owner_id=None, package_id=None, to_date=self.start_date)[commission.product_id.id].get('qty_available'), font_right)
+            worksheet.write(row, col + 2, beginning_inventory, font_right)
             worksheet.write(row, col + 3, commission.product_id._compute_quantities_dict(lot_id=None, owner_id=None, package_id=None, to_date=self.end_date)[commission.product_id.id].get('qty_available'), font_right)
-            worksheet.write(row, col + 4, " ", font_right)
+            worksheet.write(row, col + 4, receipts_total, font_right)
             worksheet.write(row, col + 5, commission.total_qty, font_right)
-            worksheet.write(row, col + 6, " ", font_right)
+            worksheet.write(row, col + 6, (beginning_inventory + receipts_total) - commission.total_qty, font_right)
             worksheet.write(row, col + 7, "Commission", font_center)
             worksheet.write(row, col + 8, commission.commission, font_right)
             worksheet.write(row, col + 9, commission.currency_id.name, font_right)
@@ -129,11 +132,16 @@ class CommissionsSettlementReport(models.TransientModel):
             worksheet.write(row, col + 7, "Payable", font_center_bold)
             worksheet.write(row, col + 8, commission.total_commission, font_right_bold)
             worksheet.write(row, col + 9, commission.currency_id.name, font_right_bold)
+            worksheet.write(row, col + 10, commission.company_commission, font_right_bold)
             row += 1
         row += 2
         worksheet.write(row, col + 7, "Total Payable", font_center_bold)
         worksheet.write(row, col + 8, sum(commissions.mapped('total_commission')), font_right_bold)
         worksheet.write(row, col + 9, commissions[0].currency_id.name, font_right_bold)
+        worksheet.write(row, col + 10, sum(commissions.mapped('company_commission')), font_right_bold)
         workbook.close()
         return report
 
+    def _get_receipts_total(self, product_id, start_date, end_date):
+        purchase_orders_lines = self.env['purchase.order'].search([]).filtered(lambda x: x.date_order.date() >= start_date and x.date_order.date() <= end_date and x.state == 'purchase').mapped('order_line')
+        return sum(purchase_orders_lines.filtered(lambda x: x.product_id.id == product_id).mapped('product_qty'))

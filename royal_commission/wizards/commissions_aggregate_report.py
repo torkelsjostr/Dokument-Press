@@ -62,7 +62,7 @@ class CommissionsAggregateReport(models.TransientModel):
         font_right_bold = workbook.add_format({'align': 'right', 'valign': 'vcenter', 'font_size': 10, 'num_format': '#,##0.00', 'bold': True})
         font_left_bold = workbook.add_format({'align': 'left', 'valign': 'vcenter', 'font_size': 10, 'num_format': '#,##0.00', 'bold': True})
 
-        worksheet.set_column('A:S', 16)
+        worksheet.set_column('A:S', 20)
         worksheet.set_row(0, 20)
 
         row = 0
@@ -70,7 +70,7 @@ class CommissionsAggregateReport(models.TransientModel):
 
         # Write data on the worksheet
         worksheet.write(row, col, " ", heading)
-        worksheet.merge_range(row, col, row, col + 3,  "Aggregation Report ", heading)
+        worksheet.merge_range(row, col, row, col + 4,  "Aggregation Report ", heading)
 
         col = 0
         row = 3
@@ -78,7 +78,8 @@ class CommissionsAggregateReport(models.TransientModel):
         worksheet.write(row, col, "Name", font_center_bold)
         worksheet.write(row, col + 1, "Product", font_center_bold)
         worksheet.write(row, col + 2, "Author", font_center_bold)
-        worksheet.write(row, col + 3, "Sum(SEK)", font_center_bold)
+        worksheet.write(row, col + 3, "Sum(Actual Currency)", font_center_bold)
+        worksheet.write(row, col + 4, "Sum(SEK)", font_center_bold)
 
         row += 1
 
@@ -90,11 +91,12 @@ class CommissionsAggregateReport(models.TransientModel):
             worksheet.write(row, col, commission.name, font_center)
             worksheet.write(row, col + 1, commission.product_id.name, font_right)
             worksheet.write(row, col + 2, commission.author_id.name, font_right)
-            worksheet.write(row, col + 3, commission.total_commission, font_right)
+            worksheet.write(row, col + 3, str(commission.total_commission) + " " + str(commission.currency_id.name), font_right)
+            worksheet.write(row, col + 4, commission.company_commission, font_right)
             row += 1
         row += 2
-        worksheet.write(row, col + 2, "Total", font_left_bold)
-        worksheet.write(row, col + 3, sum(commissions.mapped('total_commission')), font_right_bold)
+        worksheet.write(row, col + 3, "Total", font_left_bold)
+        worksheet.write(row, col + 4, sum(commissions.mapped('company_commission')), font_right_bold)
         workbook.close()
         return report
 

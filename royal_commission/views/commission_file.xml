@@ -33,6 +33,7 @@
                         <field name="previous_commission_struct_id" domain="[('commission_struct_id', '=', commission_struct_id),('state', 'not in', ['draft', 'calculated', 'cancel'])]"/>
                         <field name="currency_id" readonly="1" force_save="1"/>
                         <field name="carry_forward_qty" invisible="1"/>
+                        <field name="exchange_rate_date" required="1"/>
                     </group>
                     <group attrs="{'invisible': [('state', '=', 'draft')]}">
                         <h2 class="text-primary">Commissions from Invoices</h2>
@@ -42,8 +43,8 @@
                             <field name="invoice_id"/>
                             <field name="account_move_line_id"/>
                             <field name="quantity"/>
-                            <field name="subtotal" widget="monetary"/>
-                            <field name="margin" widget="monetary"/>
+                            <field name="subtotal"/>
+                            <field name="margin"/>
                             <field name="currency_id" invisible="1"/>
                         </tree>
                     </field>
@@ -82,6 +83,7 @@
                     </group>
                     <group col="2" attrs="{'invisible': [('state', '=', 'draft')]}">
                         <field name="total_commission"/>
+                        <field name="company_commission" widget="monetary" options="{'currency_field': 'company_currency_id'}" invisible="1"/>
                     </group>
 <!--                    <group col="4" attrs="{'invisible': [('state', '!=', 'paid')]}">-->
 <!--                        <field name="paid_amount" readonly="1"/>-->

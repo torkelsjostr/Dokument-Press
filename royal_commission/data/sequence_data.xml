@@ -6,4 +6,28 @@
         <field name="prefix">COM/</field>
         <field name="padding">5</field>
     </record>
+
+    <record model="ir.actions.server" id="action_reset_to_draft">
+        <field name="name">Reset to Draft</field>
+        <field name="model_id" ref="royal_commission.model_commission"/>
+        <field name="state">code</field>
+        <field name="code">
+for commission in records:
+    if commission.state == 'calculated':
+        commission.reset_to_draft()
+        </field>
+        <field name="binding_model_id" ref="royal_commission.model_commission"/>
+    </record>
+
+    <record model="ir.actions.server" id="action_calculate_commission">
+        <field name="name">Calculate Commission</field>
+        <field name="model_id" ref="royal_commission.model_commission"/>
+        <field name="state">code</field>
+        <field name="code">
+for commission in records:
+    if commission.state == 'draft':
+        commission.calculate_commission()
+        </field>
+        <field name="binding_model_id" ref="royal_commission.model_commission"/>
+    </record>
 </odoo>

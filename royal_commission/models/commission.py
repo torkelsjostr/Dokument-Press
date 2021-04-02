@@ -23,11 +23,15 @@ class Commission(models.Model):
     total_margin = fields.Monetary('Total Margin', compute='_get_total_margin')
     total_sales = fields.Monetary('Total Sales', compute='_get_total_sales')
     commission = fields.Monetary('Commission')
-    currency_id = fields.Many2one('res.currency', default=lambda self: self.env.user.company_id.currency_id,
+    currency_id = fields.Many2one('res.currency', related='commission_struct_id.currency_id',
                                   string="Currency")
+    company_currency_id = fields.Many2one('res.currency', default=lambda self: self.env.user.company_id.currency_id,
+                                  string="Company Currency")
+    exchange_rate_date = fields.Date(string="Exchange Rate Date", default=fields.Date.context_today, required=True)
     total_allowances = fields.Monetary('Total Allowances', compute='_get_total_allowances')
     total_deductions = fields.Monetary('Total Deductions', compute='_get_total_deductions')
     total_commission = fields.Monetary('Total Commission', compute='_get_total_commission')
+    company_commission = fields.Monetary('Commission', compute='_get_company_total_commission')
     paid_amount = fields.Float('Paid Amount')
     paid_currency_id = fields.Many2one('res.currency', string="Paid Currency")
     payment_ids = fields.Many2many('account.payment')
@@ -48,6 +52,7 @@ class Commission(models.Model):
             'type': 'in_invoice',
             'commission_id': self.id,
             'invoice_line_ids': [],
+            'currency_id': self.currency_id.id,
             'journal_id': purchase_journal.id
         }
         account_val['invoice_line_ids'].append((0, 0, {
@@ -90,6 +95,12 @@ class Commission(models.Model):
         for line in self:
             line.total_commission = line.commission + line.total_allowances - line.total_deductions
 
+    @api.depends('total_commission')
+    def _get_company_total_commission(self):
+        """Calculating Commission in company currency"""
+        for line in self:
+            line.company_commission = line.currency_id.with_context(date=line.exchange_rate_date).compute(line.total_commission, line.company_currency_id) if line.currency_id.id != line.company_currency_id.id else line._get_commission()
+
     def _get_total_allowances(self):
         """Calculating total of allowances"""
         for line in self:
@@ -119,7 +130,7 @@ class Commission(models.Model):
         """Calculating commissions, advances, and deductions"""
         lines = self.env['account.invoice.line'].search([('product_id', '=', self.product_id.id),
                                                          ('price_subtotal', '>', 0),
-                                                         ('invoice_id.state', 'not in', ['draft', 'cancel']),
+                                                         ('invoice_id.state', 'in', ['paid']),
                                                          ('invoice_id.date_invoice', '>=', str(self.start_date)),
                                                          ('invoice_id.date_invoice', '<=', str(self.end_date)),
                                                          ('invoice_id.type', '=', 'out_invoice')])
@@ -158,6 +169,7 @@ class Commission(models.Model):
 
     def _get_commission(self):
         """Calculating commissions according to the equations and returning amounts"""
+        self._get_total_sales()
         if self.commission_struct_id.commission_type == 'percentage' and self.commission_struct_id.commission_base == 'gross_amount':
             return (self.total_sales * (self.commission_struct_id.commission_rate / 100))
         elif self.commission_struct_id.commission_type == 'percentage' and self.commission_struct_id.commission_base == 'fixed_amount':
@@ -241,10 +253,9 @@ class CommissionLines(models.Model):
     invoice_id = fields.Many2one('account.invoice', string="Invoice")
     line_id = fields.Many2one('commission')
     quantity = fields.Float(string="Quantity")
-    subtotal = fields.Monetary(string="Subtotal")
-    margin = fields.Monetary(string="Margin")
-    currency_id = fields.Many2one('res.currency', default=lambda self: self.env.user.company_id.currency_id,
-                                  string="Currency")
+    subtotal = fields.Float(string="Subtotal")
+    margin = fields.Float(string="Margin")
+    currency_id = fields.Many2one('res.currency', related='line_id.currency_id', string="Currency")
 
 
 class CommissionAllowances(models.Model):
@@ -253,8 +264,7 @@ class CommissionAllowances(models.Model):
     name = fields.Char('Name')
     amount = fields.Monetary('Amount')
     line_id = fields.Many2one('commission')
-    currency_id = fields.Many2one('res.currency', default=lambda self: self.env.user.company_id.currency_id,
-                                  string="Currency")
+    currency_id = fields.Many2one('res.currency', related='line_id.currency_id', string="Currency")
 
 
 class CommissionDeductions(models.Model):
@@ -263,5 +273,4 @@ class CommissionDeductions(models.Model):
     name = fields.Char('Name')
     amount = fields.Monetary('Amount')
     line_id = fields.Many2one('commission')
-    currency_id = fields.Many2one('res.currency', default=lambda self: self.env.user.company_id.currency_id,
-                                  string="Currency")
+    currency_id = fields.Many2one('res.currency', related='line_id.currency_id', string="Currency")

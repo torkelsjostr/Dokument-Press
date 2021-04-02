@@ -30,6 +30,7 @@
                     <group col="4">
                         <field name="commission_type" required="1"/>
                         <field name="commission_base" required="1"/>
+                        <field name="currency_id" required="1" attrs="{'readonly': ['|',('commission_base', 'not in', ['fixed_amount'])]}"/>
                     </group>
                     <group>
                         <h2 class="text-primary">Rates</h2>
