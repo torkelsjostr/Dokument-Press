@@ -82,17 +82,17 @@ class CommissionsSettlementReport(models.TransientModel):
         col = 0
         row = 6
 
-        worksheet.write(row, col, "Name", font_center_bold)
+        worksheet.write(row, col, "Reference", font_center_bold)
         worksheet.write(row, col + 1, "Title", font_center_bold)
         worksheet.write(row, col + 2, "Beg. Inv.", font_center_bold)
         worksheet.write(row, col + 3, "End. Inv.", font_center_bold)
         worksheet.write(row, col + 4, "Receipts", font_center_bold)
         worksheet.write(row, col + 5, "Sold PCS", font_center_bold)
-        worksheet.write(row, col + 6, "Free/Inv.adj/Scrap", font_center_bold)
-        worksheet.write(row, col + 7, "Base", font_center_bold)
+        worksheet.write(row, col + 6, "On Order/Free/Inv.adj.", font_center_bold)
+        worksheet.write(row, col + 7, "Remark", font_center_bold)
         worksheet.write(row, col + 8, "Amount", font_center_bold)
         worksheet.write(row, col + 9, "Currency", font_center_bold)
-        worksheet.write(row, col + 10, "Company Currency Currency", font_center_bold)
+        worksheet.write(row, col + 10, "Equivalent SEK value", font_center_bold)
 
         row += 1
 
@@ -101,14 +101,15 @@ class CommissionsSettlementReport(models.TransientModel):
             raise UserError("There are no records for the given period.")
         for commission in commissions:
             beginning_inventory = commission.product_id._compute_quantities_dict(lot_id=None, owner_id=None, package_id=None, to_date=self.start_date)[commission.product_id.id].get('qty_available')
+            ending_inventory = commission.product_id._compute_quantities_dict(lot_id=None, owner_id=None, package_id=None, to_date=self.end_date)[commission.product_id.id].get('qty_available')
             receipts_total = self._get_receipts_total(commission.product_id.id, self.start_date, self.end_date)
             worksheet.write(row, col, commission.name, font_center)
             worksheet.write(row, col + 1, commission.product_id.name, font_center)
             worksheet.write(row, col + 2, beginning_inventory, font_right)
-            worksheet.write(row, col + 3, commission.product_id._compute_quantities_dict(lot_id=None, owner_id=None, package_id=None, to_date=self.end_date)[commission.product_id.id].get('qty_available'), font_right)
+            worksheet.write(row, col + 3, ending_inventory, font_right)
             worksheet.write(row, col + 4, receipts_total, font_right)
             worksheet.write(row, col + 5, commission.total_qty, font_right)
-            worksheet.write(row, col + 6, (beginning_inventory + receipts_total) - commission.total_qty, font_right)
+            worksheet.write(row, col + 6, (beginning_inventory) - (ending_inventory) + (receipts_total) - commission.total_qty, font_right)
             worksheet.write(row, col + 7, "Commission", font_center)
             worksheet.write(row, col + 8, commission.commission, font_right)
             worksheet.write(row, col + 9, commission.currency_id.name, font_right)
@@ -129,7 +130,7 @@ class CommissionsSettlementReport(models.TransientModel):
                 row += 1
             worksheet.write(row, col, commission.name, font_center_bold)
             worksheet.write(row, col + 1, commission.product_id.name, font_center_bold)
-            worksheet.write(row, col + 7, "Payable", font_center_bold)
+            worksheet.write(row, col + 7, "Total", font_center_bold)
             worksheet.write(row, col + 8, commission.total_commission, font_right_bold)
             worksheet.write(row, col + 9, commission.currency_id.name, font_right_bold)
             worksheet.write(row, col + 10, commission.company_commission, font_right_bold)
