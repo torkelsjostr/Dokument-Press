@@ -92,7 +92,7 @@ class CommissionsAggregateReport(models.TransientModel):
             worksheet.write(row, col + 1, commission.product_id.name, font_right)
             worksheet.write(row, col + 2, commission.author_id.name, font_right)
             worksheet.write(row, col + 3, str(commission.total_commission) + " " + str(commission.currency_id.name), font_right)
-            worksheet.write(row, col + 4, commission.company_commission, font_right)
+            worksheet.write(row, col + 4, commission.currency_id.with_context(date=commission.exchange_rate_date).compute(commission.total_commission, commission.company_currency_id) if commission.currency_id.id != commission.company_currency_id.id else commission.total_commission, font_right)
             row += 1
         row += 2
         worksheet.write(row, col + 3, "Total", font_left_bold)

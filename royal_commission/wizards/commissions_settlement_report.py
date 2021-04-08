@@ -113,6 +113,7 @@ class CommissionsSettlementReport(models.TransientModel):
             worksheet.write(row, col + 7, "Commission", font_center)
             worksheet.write(row, col + 8, commission.commission, font_right)
             worksheet.write(row, col + 9, commission.currency_id.name, font_right)
+            worksheet.write(row, col + 10, commission.currency_id.with_context(date=commission.exchange_rate_date).compute(commission.commission, commission.company_currency_id) if commission.currency_id.id != commission.company_currency_id.id else commission.commission, font_right)
             row += 1
             for ded in commission.deduction_lines:
                 worksheet.write(row, col, commission.name, font_center)
@@ -120,6 +121,7 @@ class CommissionsSettlementReport(models.TransientModel):
                 worksheet.write(row, col + 7, ded.name, font_center)
                 worksheet.write(row, col + 8, ded.amount * -1, font_right)
                 worksheet.write(row, col + 9, commission.currency_id.name, font_right)
+                worksheet.write(row, col + 10, commission.currency_id.with_context(date=commission.exchange_rate_date).compute(ded.amount, commission.company_currency_id) if commission.currency_id.id != commission.company_currency_id.id else ded.amount * -1, font_right)
                 row += 1
             for all in commission.allowance_lines:
                 worksheet.write(row, col, commission.name, font_center)
@@ -127,19 +129,21 @@ class CommissionsSettlementReport(models.TransientModel):
                 worksheet.write(row, col + 7, all.name, font_center)
                 worksheet.write(row, col + 8, all.amount, font_right)
                 worksheet.write(row, col + 9, commission.currency_id.name, font_right)
+                worksheet.write(row, col + 10, commission.currency_id.with_context(date=commission.exchange_rate_date).compute(all.amount, commission.company_currency_id) if commission.currency_id.id != commission.company_currency_id.id else all.amount, font_right)
                 row += 1
             worksheet.write(row, col, commission.name, font_center_bold)
             worksheet.write(row, col + 1, commission.product_id.name, font_center_bold)
             worksheet.write(row, col + 7, "Total", font_center_bold)
             worksheet.write(row, col + 8, commission.total_commission, font_right_bold)
             worksheet.write(row, col + 9, commission.currency_id.name, font_right_bold)
-            worksheet.write(row, col + 10, commission.company_commission, font_right_bold)
+            worksheet.write(row, col + 10, commission.currency_id.with_context(date=commission.exchange_rate_date).compute(commission.total_commission, commission.company_currency_id) if commission.currency_id.id != commission.company_currency_id.id else commission.total_commission, font_right_bold)
             row += 1
         row += 2
+        total_commission = sum(commissions.mapped('total_commission')) if sum(commissions.mapped('total_commission')) >= 0 else 0
         worksheet.write(row, col + 7, "Total Payable", font_center_bold)
-        worksheet.write(row, col + 8, sum(commissions.mapped('total_commission')), font_right_bold)
+        worksheet.write(row, col + 8, total_commission, font_right_bold)
         worksheet.write(row, col + 9, commissions[0].currency_id.name, font_right_bold)
-        worksheet.write(row, col + 10, sum(commissions.mapped('company_commission')), font_right_bold)
+        worksheet.write(row, col + 10, commission[0].currency_id.with_context(date=commission[0].exchange_rate_date).compute(total_commission, commission[0].company_currency_id) if commission[0].currency_id.id != commission[0].company_currency_id.id else total_commission, font_right_bold)
         workbook.close()
         return report
 

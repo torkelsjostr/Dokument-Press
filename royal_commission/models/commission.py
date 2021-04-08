@@ -27,6 +27,7 @@ class Commission(models.Model):
                                   string="Currency")
     company_currency_id = fields.Many2one('res.currency', default=lambda self: self.env.user.company_id.currency_id,
                                   string="Company Currency")
+
     exchange_rate_date = fields.Date(string="Exchange Rate Date", default=fields.Date.context_today, required=True)
     total_allowances = fields.Monetary('Total Allowances', compute='_get_total_allowances')
     total_deductions = fields.Monetary('Total Deductions', compute='_get_total_deductions')
@@ -99,7 +100,7 @@ class Commission(models.Model):
     def _get_company_total_commission(self):
         """Calculating Commission in company currency"""
         for line in self:
-            line.company_commission = line.currency_id.with_context(date=line.exchange_rate_date).compute(line.total_commission, line.company_currency_id) if line.currency_id.id != line.company_currency_id.id else line._get_commission()
+            line.company_commission = line.currency_id.with_context(date=line.exchange_rate_date).compute(line.total_commission, line.company_currency_id) if line.currency_id.id != line.company_currency_id.id else line.total_commission
 
     def _get_total_allowances(self):
         """Calculating total of allowances"""
@@ -130,7 +131,7 @@ class Commission(models.Model):
         """Calculating commissions, advances, and deductions"""
         lines = self.env['account.invoice.line'].search([('product_id', '=', self.product_id.id),
                                                          ('price_subtotal', '>', 0),
-                                                         ('invoice_id.state', 'in', ['paid']),
+                                                         ('invoice_id.state', 'in', ['open']),
                                                          ('invoice_id.date_invoice', '>=', str(self.start_date)),
                                                          ('invoice_id.date_invoice', '<=', str(self.end_date)),
                                                          ('invoice_id.type', '=', 'out_invoice')])
