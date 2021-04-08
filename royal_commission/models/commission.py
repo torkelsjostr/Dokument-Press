@@ -197,7 +197,10 @@ class Commission(models.Model):
                 elif line.maximum_amount >= (current_total or self.total_qty):
                     previous_stop = 0
                     if count == 1:
-                        previous_stop = self.previous_commission_struct_id.carry_forward_qty - (self.previous_stop.maximum_amount)
+                        if self.previous_stop:
+                            previous_stop = self.previous_commission_struct_id.carry_forward_qty - (self.previous_stop.maximum_amount)
+                        else:
+                            previous_stop = self.previous_commission_struct_id.carry_forward_qty - 0
                     commission += (line.rate / 100) * line.fixed_amount * ((current_total or self.total_qty) - previous_commission_obj.maximum_amount - previous_stop)
                     break
                 else:
