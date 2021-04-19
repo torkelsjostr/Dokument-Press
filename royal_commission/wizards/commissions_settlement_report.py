@@ -110,7 +110,7 @@ class CommissionsSettlementReport(models.TransientModel):
             worksheet.write(row, col + 4, receipts_total, font_right)
             worksheet.write(row, col + 5, commission.total_qty, font_right)
             worksheet.write(row, col + 6, (beginning_inventory) - (ending_inventory) + (receipts_total) - commission.total_qty, font_right)
-            worksheet.write(row, col + 7, "Commission", font_center)
+            worksheet.write(row, col + 7, "Royalty", font_center)
             worksheet.write(row, col + 8, commission.commission, font_right)
             worksheet.write(row, col + 9, commission.currency_id.name, font_right)
             worksheet.write(row, col + 10, commission.currency_id.with_context(date=commission.exchange_rate_date).compute(commission.commission, commission.company_currency_id) if commission.currency_id.id != commission.company_currency_id.id else commission.commission, font_right)
@@ -148,5 +148,7 @@ class CommissionsSettlementReport(models.TransientModel):
         return report
 
     def _get_receipts_total(self, product_id, start_date, end_date):
-        purchase_orders_lines = self.env['purchase.order'].search([]).filtered(lambda x: x.date_order.date() >= start_date and x.date_order.date() <= end_date and x.state == 'purchase').mapped('order_line')
-        return sum(purchase_orders_lines.filtered(lambda x: x.product_id.id == product_id).mapped('product_qty'))
+        """get receipts total"""
+        orders = self.env['stock.picking'].search([('state', '=', 'done'), ('picking_type_code', '=', 'incoming')])
+        purchase_orders_lines = orders.filtered(lambda x: x.date_done.date() >= start_date and x.date_done.date() <= end_date).mapped('move_ids_without_package')
+        return sum(purchase_orders_lines.filtered(lambda x: x.product_id.id == product_id).mapped('quantity_done'))
