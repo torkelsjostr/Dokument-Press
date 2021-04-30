@@ -1,0 +1,21 @@
+<odoo>
+    <record id="commission_authors" model="ir.ui.view">
+        <field name="name">commission.authors.tree</field>
+        <field name="model">commission.authors</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name" required="1"/>
+                <field name="partner_id" required="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="commission_authors_action" model="ir.actions.act_window">
+        <field name="name">Commission Authors</field>
+        <field name="res_model">commission.authors</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_commission_authors" action="commission_authors_action" parent="menu_commission_configurations" name="Commission Authors" sequence="100"/>
+</odoo>

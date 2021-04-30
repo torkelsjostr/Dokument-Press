@@ -1,0 +1,123 @@
+<odoo>
+    <record id="commission_form_view" model="ir.ui.view">
+        <field name="name">commission.form.view</field>
+        <field name="model">commission</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                    <button name="calculate_commission" type="object" string="Calculate" states="draft"/>
+                    <button name="confirm" type="object" string="Confirm" states="calculated" confirm="You are going to confirm this commission. Do you confirm the action?"/>
+                    <button name="cancel" type="object" string="Cancel" states="calculated" invisible="1"/>
+                    <button name="reset_to_draft" type="object" string="Set to Draft" states="calculated"/>
+                    <button name="create_vendor_bill" type="object" string="Create Bill" class="oe_highlight o_expense_sheet_pay" states="confirm"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="open_vendor_bill" icon="fa-money" class="oe_stat_button" string="Vendor Bills" type="object" states="paid,vendor_bill"/>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" required="1" readonly="1"  placeholder="Name"/>
+                        </h1>
+                    </div>
+
+                    <group col="4">
+                        <field name="start_date" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="end_date" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="commission_plan_id" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="product_id" required="1"/>
+                        <field name="author_id" required="1" force_save="1"/>
+                        <field name="commission_struct_id" required="1" force_save="1"/>
+                        <field name="previous_commission_struct_id" domain="[('commission_struct_id', '=', commission_struct_id),('state', 'not in', ['draft', 'calculated', 'cancel'])]"/>
+                        <field name="currency_id" readonly="1" force_save="1"/>
+                        <field name="carry_forward_qty" invisible="1"/>
+                        <field name="exchange_rate_date" required="1"/>
+                    </group>
+                    <group attrs="{'invisible': [('state', '=', 'draft')]}">
+                        <h2 class="text-primary">Commissions from Invoices</h2>
+                    </group>
+                    <field name="commission_lines" attrs="{'invisible': [('state', '=', 'draft')]}" readonly="1">
+                        <tree>
+                            <field name="invoice_id"/>
+                            <field name="account_move_line_id"/>
+                            <field name="quantity"/>
+                            <field name="subtotal"/>
+                            <field name="margin"/>
+                            <field name="currency_id" invisible="1"/>
+                        </tree>
+                    </field>
+                    <group class="oe_subtotal_footer oe_right" attrs="{'invisible': [('state', '=', 'draft')]}">
+                        <field name="total_qty"/>
+                        <field name="total_margin"/>
+                        <field name="total_sales"/>
+                        <field name="commission" readonly="1"/>
+                    </group>
+                    <group attrs="{'invisible': [('state', '=', 'draft')]}">
+                        <h2 class="text-primary">Allowances</h2>
+                    </group>
+                    <field name="allowance_lines" attrs="{'invisible': [('state', '=', 'draft')], 'readonly': [('state', '!=', 'calculated')]}">
+                        <tree editable="top">
+                            <field name="name"/>
+                            <field name="amount"/>
+                        </tree>
+                    </field>
+                    <group class="oe_subtotal_footer oe_right" attrs="{'invisible': [('state', '=', 'draft')]}">
+                        <field name="total_allowances"/>
+                    </group>
+                    <group attrs="{'invisible': [('state', '=', 'draft')]}">
+                        <h2 class="text-primary">Deductions</h2>
+                    </group>
+                    <field name="deduction_lines" attrs="{'invisible': [('state', '=', 'draft')], 'readonly': [('state', '!=', 'calculated')]}">
+                        <tree editable="top">
+                            <field name="name"/>
+                            <field name="amount"/>
+                        </tree>
+                    </field>
+                    <group class="oe_subtotal_footer oe_right" attrs="{'invisible': [('state', '=', 'draft')]}">
+                        <field name="total_deductions"/>
+                    </group>
+                    <group attrs="{'invisible': [('state', '=', 'draft')]}">
+                        <h2 class="text-primary">Total Payable Commission</h2>
+                    </group>
+                    <group col="2" attrs="{'invisible': [('state', '=', 'draft')]}">
+                        <field name="total_commission"/>
+                        <field name="company_commission" widget="monetary" options="{'currency_field': 'company_currency_id'}" invisible="1"/>
+                    </group>
+<!--                    <group col="4" attrs="{'invisible': [('state', '!=', 'paid')]}">-->
+<!--                        <field name="paid_amount" readonly="1"/>-->
+<!--                        <field name="paid_currency_id" readonly="1"/>-->
+<!--                    </group>-->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="commission_tree_view" model="ir.ui.view">
+        <field name="name">commission.tree.view</field>
+        <field name="model">commission</field>
+        <field name="arch" type="xml">
+            <tree string="Commissions">
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="author_id"/>
+                <field name="commission_struct_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="total_commission"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="commission_action" model="ir.actions.act_window">
+        <field name="name">Commissions</field>
+        <field name="res_model">commission</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+    </record>
+
+    <menuitem id="menu_commission_sub" name="Commission" parent="menu_commission" action="commission_action" sequence="100"/>
+</odoo>

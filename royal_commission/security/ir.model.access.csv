@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_commission_structure,access.commission.structure,model_commission_structure,base.group_user,1,1,1,1
+access_commission_allowances,access.commission.allowances,model_commission_allowances,base.group_user,1,1,1,1
+access_commission_deductions,access.commission.deductions,model_commission_deductions,base.group_user,1,1,1,1
+access_commission,access.commission,model_commission,base.group_user,1,1,1,1
+access_commission_line,access.commission.lines,model_commission_lines,base.group_user,1,1,1,1
+access_commission_structure_lines,access.commission.structure.lines,model_commission_structure_lines,base.group_user,1,1,1,1
+access_commission_plan,access.commission.plan,model_commission_plan,base.group_user,1,1,1,1
+access_commission_authors,access.commission.authors,model_commission_authors,base.group_user,1,1,1,1
+access_commission_pre_deduction,access.commission.pre.deductions,model_commission_pre_deductions,base.group_user,1,1,1,1
+access_commission_pre_allowance,access.commission.pre.allowance,model_commission_pre_allowances,base.group_user,1,1,1,1

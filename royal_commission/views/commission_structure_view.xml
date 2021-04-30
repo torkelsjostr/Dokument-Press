@@ -1,0 +1,77 @@
+<odoo>
+    <menuitem id="menu_commission"
+              parent=""
+              sequence="120"
+              name="Royalty"
+              web_icon="royal_commission,static/description/menu.png"/>
+
+    <menuitem id="menu_commission_configurations"
+              parent="menu_commission"
+              sequence="120"
+              name="Configurations"/>
+
+    <menuitem id="menu_commission_reporting"
+              parent="menu_commission"
+              sequence="110"
+              name="Reporting"/>
+
+    <record id="commission_structure_form_view" model="ir.ui.view">
+        <field name="name">commission.structure.form.view</field>
+        <field name="model">commission.structure</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Name" required="1"/>
+                        </h1>
+                    </div>
+                    <group col="4">
+                        <field name="commission_type" required="1"/>
+                        <field name="commission_base" required="1"/>
+                        <field name="currency_id" required="1" attrs="{'readonly': ['|',('commission_base', 'not in', ['fixed_amount'])]}"/>
+                    </group>
+                    <group>
+                        <h2 class="text-primary">Rates</h2>
+                    </group>
+                    <group attrs="{'invisible': [('commission_type', 'not in', ['percentage'])]}">
+                        <field name="commission_rate"/>
+                    </group>
+                    <group attrs="{'invisible': ['|',('commission_base', 'not in', ['fixed_amount']),('commission_type', 'in', ['sections'])]}">
+                        <field name="commission_fixed_rate"/>
+                    </group>
+                    <field name="commission_structure_ids" attrs="{'invisible': [('commission_type', 'not in', ['sections'])]}">
+                        <tree editable="bottom">
+                            <field name="minimum_amount"/>
+                            <field name="maximum_amount"/>
+                            <field name="rate"/>
+                            <field name="fixed_amount"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="commission_structure_tree_view" model="ir.ui.view">
+        <field name="name">commission.structure.tree.view</field>
+        <field name="model">commission.structure</field>
+        <field name="arch" type="xml">
+            <tree string="Commission Structure">
+                <field name="name"/>
+                <field name="commission_base"/>
+                <field name="commission_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="commission_structure_action" model="ir.actions.act_window">
+        <field name="name">Commission Structure</field>
+        <field name="res_model">commission.structure</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_commission_structure" name="Commission Structures" parent="menu_commission_configurations" action="commission_structure_action" sequence="105"/>
+</odoo>

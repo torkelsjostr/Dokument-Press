@@ -1,0 +1,48 @@
+<odoo>
+<!--    <record id="inherit_product_template_form_modifications" model="ir.ui.view">-->
+<!--        <field name="name">inherit.product.template.form.modifications</field>-->
+<!--        <field name="model">product.template</field>-->
+<!--        <field name="inherit_id" ref="product_modifications.product_template_form_modifications"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//page[@name='general_information']" position="after">-->
+<!--                <page string="Royalty Commission Plan" name="commission_plan">-->
+<!--                    <field name="commission_plan_ids">-->
+<!--                        <tree>-->
+<!--                            <field name="author_id" required="1"/>-->
+<!--                            <field name="commission_structure" required="1"/>-->
+<!--                        </tree>-->
+<!--                        <form>-->
+<!--                            <group col="4">-->
+<!--                                <field name="author_id" required="1"/>-->
+<!--                                <field name="commission_structure" required="1"/>-->
+<!--                            </group>-->
+<!--                        </form>-->
+<!--                    </field>-->
+<!--                </page>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+    <record id="inherit_product_form_modifications" model="ir.ui.view">
+        <field name="name">inherit.product.form.modifications</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product_modifications.product_form_modifications"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page string="Royalty Commission Plan" name="commission_plan">
+                    <field name="commission_plan_ids" mode="tree">
+                        <tree editable="bottom">
+                            <field name="author_id" required="1"/>
+                            <field name="commission_structure" required="1"/>
+                        </tree>
+                        <form>
+                            <group col="4">
+                                <field name="author_id" required="1"/>
+                                <field name="commission_structure" required="1"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
