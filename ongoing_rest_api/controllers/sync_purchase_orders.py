@@ -10,6 +10,13 @@ class InheritPurchaseOrder(models.Model):
 
     ongoing_order_ref = fields.Integer("Ongoing Product Ref", copy=False)
     purchase_order_remark = fields.Text("Purchase Order Remark")
+    warehouse_id = fields.Many2one('stock.warehouse', string='Warehouse')
+
+    @api.onchange('warehouse_id')
+    def onchange_warehouse_id(self):
+        """onchange warehouse set create in ongoing true"""
+        for line in self.order_line:
+            line.create_in_ongoing = self.warehouse_id.default_purchase_create_in_ongoing
 
     def select_all(self):
         """Select all the Order lines"""
@@ -98,4 +105,8 @@ class SyncPurchaseOrder(models.TransientModel):
 class InheritPurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'
 
-    create_in_ongoing = fields.Boolean(string="Create in Ongoing", default=True)
+    create_in_ongoing = fields.Boolean(string="Create in Ongoing", default=False)
+
+    @api.onchange('product_id')
+    def onchange_product_id_change(self):
+        self.create_in_ongoing = self.order_id.warehouse_id.default_purchase_create_in_ongoing

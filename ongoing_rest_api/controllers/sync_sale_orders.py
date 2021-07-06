@@ -36,6 +36,12 @@ class InheritSaleOrder(models.Model):
     customer_type_id = fields.Many2one('customer.type', "Customer Type")
     # priority = fields.Selection([('0', 'Not urgent'), ('1', 'Normal'), ('2', 'Urgent'), ('3', 'Very Urgent')], string='Priority', default='1')
 
+    @api.onchange('warehouse_id')
+    def onchange_warehouse_id(self):
+        """onchange warehouse set create in ongoing true"""
+        for line in self.order_line:
+            line.create_in_ongoing = self.warehouse_id.default_sales_create_in_ongoing
+
     def select_all(self):
         """Select all the Order lines"""
         for line in self.order_line:
@@ -150,4 +156,9 @@ class SyncSaleOrder(models.TransientModel):
 class InheritSaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
-    create_in_ongoing = fields.Boolean(string="Create in Ongoing", default=True, store=True)
+    create_in_ongoing = fields.Boolean(string="Create in Ongoing", default=False, store=True)
+
+    @api.onchange('product_id')
+    def onchange_product_id_change(self):
+        """set create in ongoing true if according to the warehouse configuration"""
+        self.create_in_ongoing = self.order_id.warehouse_id.default_sales_create_in_ongoing

@@ -131,7 +131,7 @@ class Commission(models.Model):
         """Calculating commissions, advances, and deductions"""
         lines = self.env['account.invoice.line'].search([('product_id', '=', self.product_id.id),
                                                          ('price_subtotal', '>', 0),
-                                                         ('invoice_id.state', 'in', ['open']),
+                                                         ('invoice_id.state', 'in', ['open', 'paid']),
                                                          ('invoice_id.date_invoice', '>=', str(self.start_date)),
                                                          ('invoice_id.date_invoice', '<=', str(self.end_date)),
                                                          ('invoice_id.type', '=', 'out_invoice')])
@@ -171,6 +171,7 @@ class Commission(models.Model):
     def _get_commission(self):
         """Calculating commissions according to the equations and returning amounts"""
         self._get_total_sales()
+        self._get_total_qty()
         if self.commission_struct_id.commission_type == 'percentage' and self.commission_struct_id.commission_base == 'gross_amount':
             return (self.total_sales * (self.commission_struct_id.commission_rate / 100))
         elif self.commission_struct_id.commission_type == 'percentage' and self.commission_struct_id.commission_base == 'fixed_amount':
@@ -201,7 +202,10 @@ class Commission(models.Model):
                             previous_stop = self.previous_commission_struct_id.carry_forward_qty - (self.previous_stop.maximum_amount)
                         else:
                             previous_stop = self.previous_commission_struct_id.carry_forward_qty - 0
-                    commission += (line.rate / 100) * line.fixed_amount * ((current_total or self.total_qty) - previous_commission_obj.maximum_amount - previous_stop)
+                    if previous_commission_obj:
+                        commission += (line.rate / 100) * line.fixed_amount * ((current_total or self.total_qty) - previous_commission_obj.maximum_amount - previous_stop)
+                    else:
+                        commission += (line.rate / 100) * line.fixed_amount * ((current_total or self.total_qty) - previous_stop)
                     break
                 else:
                     commission += 0

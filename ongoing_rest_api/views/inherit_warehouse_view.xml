@@ -1,0 +1,13 @@
+<odoo>
+    <record id="inherit_stock_warehouse" model="ir.ui.view">
+        <field name="name">inherit.stock.warehouse</field>
+        <field name="model">stock.warehouse</field>
+        <field name="inherit_id" ref="stock.view_warehouse"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='code']" position="after">
+                <field name="default_sales_create_in_ongoing"/>
+                <field name="default_purchase_create_in_ongoing"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

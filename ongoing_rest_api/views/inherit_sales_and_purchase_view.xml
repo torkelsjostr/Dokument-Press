@@ -62,6 +62,17 @@
         </field>
     </record>
 
+    <record id="inherit_purchase_order_view_form_inherit" model="ir.ui.view">
+        <field name="name">inherit.purchase.order.view.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase_stock.purchase_order_view_form_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='picking_type_id']" position="after">
+                <field name="warehouse_id" attrs="{'readonly': [('state', 'in', ['done'])]}" required="1"/>
+            </xpath>
+        </field>
+    </record>
+
     <record id="inherit_view_picking_form" model="ir.ui.view">
         <field name="name">inherit.view.picking.form</field>
         <field name="model">stock.picking</field>

@@ -14,6 +14,7 @@
         'views/resource_views.xml',
         'views/api_form_view.xml',
         'views/inherit_sales_and_purchase_view.xml',
+        'views/inherit_warehouse_view.xml',
      ],
     'installable': True,
     'application': True,
